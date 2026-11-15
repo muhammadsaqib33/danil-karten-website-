@@ -25,6 +25,7 @@ export function SiteHeader() {
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isKeyboardFocused, setIsKeyboardFocused] = useState(false);
 
   // Adjust state during render when pathname changes (official React pattern)
   const [prevPathname, setPrevPathname] = useState(pathname);
@@ -33,6 +34,7 @@ export function SiteHeader() {
     setIsVisible(true);
   }
 
+  const headerRef = useRef<HTMLElement>(null);
   const lastScrollYRef = useRef(0);
   const accumulatedDeltaRef = useRef(0);
   const tickingRef = useRef(false);
@@ -42,7 +44,14 @@ export function SiteHeader() {
   useEffect(() => {
     accumulatedDeltaRef.current = 0;
     tickingRef.current = false;
-    suppressScrollUntilRef.current = Date.now() + 350;
+    suppressScrollUntilRef.current = Date.now() + 150;
+
+    // Clear focus from header nav items upon page change
+    if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+      if (headerRef.current?.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+    }
 
     const syncPosition = () => {
       const currentY = getScrollPosition();
@@ -57,7 +66,7 @@ export function SiteHeader() {
     // Re-sync after Next.js completes DOM update and browser scroll restoration
     const r1 = requestAnimationFrame(syncPosition);
     const r2 = requestAnimationFrame(() => requestAnimationFrame(syncPosition));
-    const t = setTimeout(syncPosition, 120);
+    const t = setTimeout(syncPosition, 80);
 
     return () => {
       cancelAnimationFrame(r1);
@@ -72,7 +81,7 @@ export function SiteHeader() {
       setIsVisible(true);
       accumulatedDeltaRef.current = 0;
       tickingRef.current = false;
-      suppressScrollUntilRef.current = Date.now() + 500;
+      suppressScrollUntilRef.current = Date.now() + 400;
       const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
       setIsScrolled(currentY > 16);
@@ -83,7 +92,7 @@ export function SiteHeader() {
       const href = anchor?.getAttribute('href');
       if (href && href.includes('#')) {
         setIsVisible(true);
-        suppressScrollUntilRef.current = Date.now() + 600;
+        suppressScrollUntilRef.current = Date.now() + 500;
       }
     };
 
@@ -107,6 +116,13 @@ export function SiteHeader() {
       tickingRef.current = true;
 
       window.requestAnimationFrame(() => {
+        // If an element in header held focus, blur it on scroll
+        if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+          if (headerRef.current?.contains(document.activeElement)) {
+            document.activeElement.blur();
+          }
+        }
+
         const rawScrollY = getScrollPosition();
         const docHeight = Math.max(
           document.documentElement?.scrollHeight || 0,
@@ -183,12 +199,24 @@ export function SiteHeader() {
     };
   }, []);
 
-  const showHeader = isVisible || isMenuOpen;
+  const showHeader = isVisible || isMenuOpen || isKeyboardFocused;
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-transform duration-300 ease-in-out focus-within:translate-y-0 motion-reduce:transition-none ${
+        ref={headerRef}
+        onFocus={(e) => {
+          if ((e.target as HTMLElement)?.matches?.(':focus-visible')) {
+            setIsKeyboardFocused(true);
+            setIsVisible(true);
+          }
+        }}
+        onBlur={(e) => {
+          if (!headerRef.current?.contains(e.relatedTarget as Node | null)) {
+            setIsKeyboardFocused(false);
+          }
+        }}
+        className={`fixed inset-x-0 top-0 z-40 transition-transform duration-300 ease-in-out motion-reduce:transition-none ${
           showHeader ? 'translate-y-0' : '-translate-y-full'
         } ${
           isScrolled
@@ -199,6 +227,7 @@ export function SiteHeader() {
         <div className="mx-auto flex h-16 w-full max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[76px] sm:gap-6 sm:px-8">
           <Link
             href="/"
+            onClick={(e) => (e.currentTarget as HTMLElement).blur()}
             className="group inline-flex min-h-[44px] items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
           >
             {siteConfig.logo ? (

@@ -21,6 +21,7 @@ export function DesktopNav() {
           <Link
             key={item.href}
             href={item.href}
+            onClick={(e) => (e.currentTarget as HTMLElement).blur()}
             aria-current={isActive ? 'page' : undefined}
             className={`relative inline-flex min-h-[44px] items-center text-sm tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${
               isActive
@@ -34,6 +35,7 @@ export function DesktopNav() {
       })}
       <Link
         href={siteConfig.headerCta.href}
+        onClick={(e) => (e.currentTarget as HTMLElement).blur()}
         className={buttonClasses({ variant: 'primary', size: 'md' })}
       >
         {siteConfig.headerCta.label}

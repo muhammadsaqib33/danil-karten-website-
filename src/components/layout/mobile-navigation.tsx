@@ -29,6 +29,10 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
   }
 
   useEffect(() => {
+    wasOpenRef.current = false;
+  }, [pathname]);
+
+  useEffect(() => {
     if (isOpen) {
       wasOpenRef.current = true;
       closeButtonRef.current?.focus();
@@ -52,6 +56,11 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
+
+  const handleLinkClick = () => {
+    wasOpenRef.current = false;
+    setIsOpen(false);
+  };
 
   return (
     <div className="md:hidden">
@@ -103,7 +112,7 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
                 <li>
                   <Link
                     href="/"
-                    onClick={() => setIsOpen(false)}
+                    onClick={handleLinkClick}
                     aria-current={pathname === '/' ? 'page' : undefined}
                     className={`flex min-h-[46px] items-center rounded-md px-3.5 text-base font-medium transition-colors ${
                       pathname === '/'
@@ -122,7 +131,7 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={handleLinkClick}
                         aria-current={isActive ? 'page' : undefined}
                         className={`flex min-h-[46px] items-center rounded-md px-3.5 text-base font-medium transition-colors ${
                           isActive
@@ -141,7 +150,7 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
             <div className="space-y-3 border-t border-border pt-5">
               <Link
                 href={siteConfig.primaryCta.href}
-                onClick={() => setIsOpen(false)}
+                onClick={handleLinkClick}
                 className={buttonClasses({
                   variant: 'primary',
                   size: 'lg',
