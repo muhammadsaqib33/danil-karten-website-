@@ -3,21 +3,77 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/content/site';
 import { DesktopNav } from '@/components/layout/desktop-nav';
 import { MobileNavigation } from '@/components/layout/mobile-navigation';
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Adjust state during render when pathname changes (official React pattern)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setIsVisible(true);
+  }
 
   const lastScrollYRef = useRef(0);
   const accumulatedDeltaRef = useRef(0);
   const tickingRef = useRef(false);
 
+  // 1. Reset and synchronize tracking refs whenever the route / pathname changes
   useEffect(() => {
-    lastScrollYRef.current = window.scrollY;
+    accumulatedDeltaRef.current = 0;
+    tickingRef.current = false;
+
+    const syncPosition = () => {
+      const currentY = Math.max(0, window.scrollY);
+      lastScrollYRef.current = currentY;
+      accumulatedDeltaRef.current = 0;
+    };
+
+    // Immediate sync
+    syncPosition();
+
+    // Re-sync after Next.js completes DOM update and browser scroll restoration
+    const r1 = requestAnimationFrame(syncPosition);
+    const r2 = requestAnimationFrame(() => requestAnimationFrame(syncPosition));
+    const t = setTimeout(syncPosition, 120);
+
+    return () => {
+      cancelAnimationFrame(r1);
+      cancelAnimationFrame(r2);
+      clearTimeout(t);
+    };
+  }, [pathname]);
+
+  // 2. Listen to browser Back/Forward (popstate) and anchor jumps (hashchange)
+  useEffect(() => {
+    const handleNavEvent = () => {
+      setIsVisible(true);
+      accumulatedDeltaRef.current = 0;
+      tickingRef.current = false;
+      const currentY = Math.max(0, window.scrollY);
+      lastScrollYRef.current = currentY;
+      setIsScrolled(currentY > 16);
+    };
+
+    window.addEventListener('popstate', handleNavEvent);
+    window.addEventListener('hashchange', handleNavEvent);
+
+    return () => {
+      window.removeEventListener('popstate', handleNavEvent);
+      window.removeEventListener('hashchange', handleNavEvent);
+    };
+  }, []);
+
+  // 3. Scroll tracking with direction detection and delta thresholds
+  useEffect(() => {
+    lastScrollYRef.current = Math.max(0, window.scrollY);
 
     function onScroll() {
       if (tickingRef.current) return;
@@ -29,15 +85,15 @@ export function SiteHeader() {
           0,
           document.documentElement.scrollHeight - window.innerHeight
         );
-        // Clamp to prevent negative bounce or overscroll
+        // Clamp to prevent rubber-banding/negative bounce
         const currentScrollY = Math.min(Math.max(0, rawScrollY), maxScroll);
         const prevScrollY = lastScrollYRef.current;
         const diff = currentScrollY - prevScrollY;
 
         setIsScrolled(currentScrollY > 16);
 
-        // Near top: always visible
-        if (currentScrollY <= 64) {
+        // Always show near the very top of the page
+        if (currentScrollY <= 48) {
           setIsVisible(true);
           accumulatedDeltaRef.current = 0;
           lastScrollYRef.current = currentScrollY;
@@ -45,22 +101,41 @@ export function SiteHeader() {
           return;
         }
 
-        // Scrolling Down: slide out of view
+        // Guard against instant anchor jumps or page layout shifts (>180px in a single frame)
+        if (Math.abs(diff) > 180) {
+          setIsVisible(true);
+          accumulatedDeltaRef.current = 0;
+          lastScrollYRef.current = currentScrollY;
+          tickingRef.current = false;
+          return;
+        }
+
         if (diff > 0) {
+          // Scrolling Down
           if (accumulatedDeltaRef.current < 0) {
             accumulatedDeltaRef.current = 0;
           }
-          accumulatedDeltaRef.current += diff;
-          if (accumulatedDeltaRef.current > 8) {
+          accumulatedDeltaRef.current = Math.min(
+            50,
+            accumulatedDeltaRef.current + diff
+          );
+
+          // Hide once past header height (76px) and past small threshold (10px)
+          if (currentScrollY > 76 && accumulatedDeltaRef.current >= 10) {
             setIsVisible(false);
           }
         } else if (diff < 0) {
-          // Scrolling Up: slide back in
+          // Scrolling Up
           if (accumulatedDeltaRef.current > 0) {
             accumulatedDeltaRef.current = 0;
           }
-          accumulatedDeltaRef.current += diff;
-          if (accumulatedDeltaRef.current < -8) {
+          accumulatedDeltaRef.current = Math.max(
+            -50,
+            accumulatedDeltaRef.current + diff
+          );
+
+          // Promptly show on small upward scroll (8px)
+          if (accumulatedDeltaRef.current <= -8) {
             setIsVisible(true);
           }
         }
