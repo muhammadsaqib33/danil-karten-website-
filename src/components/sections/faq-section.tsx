@@ -7,57 +7,52 @@ export function FaqSection() {
   return (
     <section
       aria-labelledby="faq-heading"
-      className="bg-canvas py-14 sm:py-18 lg:py-22"
+      className="py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8"
     >
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="space-y-4 lg:col-span-4">
-            <div className="inline-flex items-center gap-3">
-              <span aria-hidden="true" className="h-px w-7 bg-champagne" />
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-                Questions
-              </p>
-            </div>
-            <h2
-              id="faq-heading"
-              className="font-serif text-[clamp(1.9rem,2.8vw+0.85rem,2.75rem)] font-medium leading-tight text-ink"
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="space-y-4 lg:col-span-4">
+          <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
+            Questions, Answered
+          </span>
+          <h2
+            id="faq-heading"
+            className="font-serif text-[clamp(2.1rem,3.8vw,3.2rem)] font-light leading-tight text-[#2e2c31]"
+          >
+            Visiting us: <em>clarity first.</em>
+          </h2>
+          <p className="lead text-[15.5px]">
+            Every treatment is tailored in person. Here are practical answers about
+            consultation flow, safety protocols, and what to expect when visiting our
+            private New York suite.
+          </p>
+          <p className="pt-2 text-sm text-[#6a6266]">
+            Prefer to speak directly? Call{' '}
+            <a
+              href={siteConfig.phoneHref}
+              className="font-medium text-[#c9a15a] underline decoration-[#c9a15a]/50 underline-offset-4 hover:text-[#b88d44]"
             >
-              Consultation FAQs
-            </h2>
-            <p className="text-sm leading-relaxed text-muted sm:text-base">
-              Practical scheduling and privacy answers. Specific clinical
-              recommendations are always tailored in person with Danielle
-              Karten, NP, AGPCNP-BC.
-            </p>
-            <p className="pt-2 text-sm text-muted">
-              Prefer to speak directly? Call{' '}
-              <a
-                href={siteConfig.phoneHref}
-                className="font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:text-brand-hover"
-              >
-                {siteConfig.phoneDisplay}
-              </a>{' '}
-              or{' '}
-              <Link
-                href={siteConfig.primaryCta.href}
-                className="font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:text-brand-hover"
-              >
-                book online
-              </Link>
-              .
-            </p>
-          </div>
+              {siteConfig.phoneDisplay}
+            </a>{' '}
+            or{' '}
+            <Link
+              href={siteConfig.primaryCta.href}
+              className="font-medium text-[#c9a15a] underline decoration-[#c9a15a]/50 underline-offset-4 hover:text-[#b88d44]"
+            >
+              book online
+            </Link>
+            .
+          </p>
+        </div>
 
-          <div className="lg:col-span-8">
-            <Accordion
-              idPrefix="home-faq"
-              items={generalFaqs.map((faq) => ({
-                id: faq.id,
-                question: faq.question,
-                answer: faq.answer,
-              }))}
-            />
-          </div>
+        <div className="lg:col-span-8">
+          <Accordion
+            idPrefix="home-faq"
+            items={generalFaqs.map((faq) => ({
+              id: faq.id,
+              question: faq.question,
+              answer: faq.answer,
+            }))}
+          />
         </div>
       </div>
     </section>

@@ -4,13 +4,14 @@ export type ButtonVariant =
   | 'primary'
   | 'secondary'
   | 'ghost'
-  | 'inverse'
-  | 'secondaryInverse'
-  | 'champagne';
+  | 'solidGold'
+  | 'outlineWhite'
+  | 'outlineDark'
+  | 'inverse';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export function buttonClasses({
-  variant = 'primary',
+  variant = 'solidGold',
   size = 'md',
   className = '',
 }: {
@@ -19,27 +20,29 @@ export function buttonClasses({
   className?: string;
 } = {}): string {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-60 whitespace-nowrap active:scale-[0.99]';
+    'inline-flex items-center justify-center gap-2 rounded-full font-medium uppercase tracking-[0.18em] transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-60 whitespace-nowrap active:scale-[0.98] cursor-pointer';
 
   const variants: Record<ButtonVariant, string> = {
     primary:
-      'bg-brand text-white border border-brand/90 hover:bg-brand-hover hover:border-brand-hover hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(30,94,78,0.22)] focus-visible:outline-brand',
+      'bg-gradient-to-r from-[#c9a15a] to-[#dcb877] text-[#1b191f] font-semibold border border-[#c9a15a] hover:shadow-[0_12px_36px_rgba(201,161,90,0.45)] hover:-translate-y-0.5 hover:from-[#d8b26c] hover:to-[#e6c88e] focus-visible:outline-[#c9a15a]',
+    solidGold:
+      'bg-gradient-to-r from-[#c9a15a] to-[#dcb877] text-[#1b191f] font-semibold border border-[#c9a15a] hover:shadow-[0_12px_36px_rgba(201,161,90,0.45)] hover:-translate-y-0.5 hover:from-[#d8b26c] hover:to-[#e6c88e] focus-visible:outline-[#c9a15a]',
     secondary:
-      'bg-transparent text-ink border border-border hover:border-brand hover:text-brand hover:bg-brand/5 hover:-translate-y-0.5 focus-visible:outline-brand',
+      'bg-transparent text-[#2e2c31] border border-[#eadfd8] hover:border-[#c9a15a] hover:text-[#b88d44] hover:bg-[#c9a15a]/8 hover:-translate-y-0.5 focus-visible:outline-[#c9a15a]',
+    outlineDark:
+      'bg-transparent text-[#2e2c31] border border-[#eadfd8] hover:border-[#c9a15a] hover:text-[#b88d44] hover:bg-[#c9a15a]/8 hover:-translate-y-0.5 focus-visible:outline-[#c9a15a]',
+    outlineWhite:
+      'bg-white/5 text-white border border-white/50 hover:bg-white/16 hover:border-white hover:-translate-y-0.5 focus-visible:outline-white',
     ghost:
-      'bg-transparent text-ink hover:bg-surface border border-transparent hover:-translate-y-0.5 focus-visible:outline-brand',
+      'bg-transparent text-[#2e2c31] hover:bg-[#faf4ee] border border-transparent hover:-translate-y-0.5 focus-visible:outline-[#c9a15a]',
     inverse:
-      'bg-ivory text-emerald-deep border border-ivory hover:bg-white hover:text-brand hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.18)] focus-visible:outline-champagne-light',
-    secondaryInverse:
-      'bg-transparent text-ivory border border-white/35 hover:border-white hover:bg-white/10 hover:-translate-y-0.5 focus-visible:outline-champagne-light',
-    champagne:
-      'bg-champagne text-white border border-champagne hover:bg-champagne-hover hover:border-champagne-hover hover:-translate-y-0.5 hover:shadow-[0_4px_14px_rgba(197,164,126,0.3)] focus-visible:outline-champagne',
+      'bg-white text-[#1b191f] border border-white hover:bg-[#faf4ee] hover:text-[#c9a15a] hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-white',
   };
 
   const sizes: Record<ButtonSize, string> = {
-    sm: 'min-h-[38px] px-4 py-1.5 text-xs sm:text-sm tracking-wide',
-    md: 'min-h-[44px] px-6 py-2.5 text-sm sm:text-[15px] tracking-wide',
-    lg: 'min-h-[48px] px-7 py-3 text-sm sm:text-base tracking-wide',
+    sm: 'min-h-[38px] px-5 py-2 text-[11px]',
+    md: 'min-h-[44px] px-7 py-2.5 text-[12px]',
+    lg: 'min-h-[50px] px-8 py-3.5 text-[12.5px]',
   };
 
   return `${base} ${variants[variant]} ${sizes[size]} ${className}`.trim();
@@ -51,7 +54,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({
-  variant = 'primary',
+  variant = 'solidGold',
   size = 'md',
   className = '',
   type = 'button',

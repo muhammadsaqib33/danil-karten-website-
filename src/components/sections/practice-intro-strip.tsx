@@ -1,53 +1,44 @@
-import { MapPin, ShieldCheck, Phone } from 'lucide-react';
-import { homeContent, siteConfig } from '@/content/site';
+import { MapPin, Phone, ShieldCheck } from 'lucide-react';
+import { siteConfig } from '@/content/site';
+import { providerProfile } from '@/content/provider';
 
 export function PracticeIntroStrip() {
   return (
     <section
-      aria-label="Practice overview"
-      className="border-b border-border/80 bg-surface/75 text-ink backdrop-blur-sm"
+      aria-label="Practice standards"
+      className="border-b border-[#eadfd8] bg-[#faf4ee] py-12 sm:py-16 text-center"
     >
-      <div className="mx-auto max-w-[1240px] px-5 py-4 sm:px-8 sm:py-5">
-        <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span className="font-serif text-xl font-medium text-ink sm:text-2xl">
-              {homeContent.introStrip.providerName}
-            </span>
-            <span
-              aria-hidden="true"
-              className="hidden h-4 w-px bg-champagne sm:inline-block"
-            />
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand sm:text-[13px]">
-              {homeContent.introStrip.credentials}
-            </span>
-          </div>
+      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-6">
+          Private Clinical Practice · New York
+        </span>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
-            <span className="inline-flex items-center gap-2">
-              <MapPin
-                className="h-4 w-4 shrink-0 text-brand"
-                aria-hidden="true"
-              />
-              <span>{homeContent.introStrip.location}</span>
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#eadfd8] bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#544c50] shadow-xs">
+            <span className="font-serif normal-case italic text-[#b88d44] text-sm">
+              {providerProfile.fullName}
             </span>
-            <span className="inline-flex items-center gap-2">
-              <ShieldCheck
-                className="h-4 w-4 shrink-0 text-brand"
-                aria-hidden="true"
-              />
-              <span>{homeContent.introStrip.settingLabel}</span>
-            </span>
-            <a
-              href={siteConfig.phoneHref}
-              className="inline-flex items-center gap-2 font-medium text-ink underline decoration-champagne underline-offset-4 transition-colors hover:text-brand"
-            >
-              <Phone
-                className="h-4 w-4 shrink-0 text-brand"
-                aria-hidden="true"
-              />
-              <span>{siteConfig.phoneDisplay}</span>
-            </a>
-          </div>
+            <span>·</span>
+            <span className="text-[11px]">{providerProfile.credentials}</span>
+          </span>
+
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#eadfd8] bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#544c50] shadow-xs">
+            <ShieldCheck className="h-3.5 w-3.5 text-[#c9a15a]" aria-hidden="true" />
+            <span>Private Suite Practice</span>
+          </span>
+
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#eadfd8] bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#544c50] shadow-xs">
+            <MapPin className="h-3.5 w-3.5 text-[#c9a15a]" aria-hidden="true" />
+            <span>{siteConfig.publicLocation}</span>
+          </span>
+
+          <a
+            href={siteConfig.phoneHref}
+            className="inline-flex items-center gap-2 rounded-full border border-[#eadfd8] bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#544c50] shadow-xs transition-colors hover:border-[#c9a15a] hover:text-[#b88d44]"
+          >
+            <Phone className="h-3.5 w-3.5 text-[#c9a15a]" aria-hidden="true" />
+            <span>{siteConfig.phoneDisplay}</span>
+          </a>
         </div>
       </div>
     </section>

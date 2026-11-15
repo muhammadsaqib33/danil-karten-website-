@@ -1,57 +1,58 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Core Palette — Warm Editorial Luxury Tokens */
-  --color-canvas: #FAF7F2;
-  --color-ivory: #FAF7F2;
-  --color-ink: #1C2421;
-  --color-muted: #525D57;
-
-  /* Brand Emerald Spectrum (Restrained, Editorial) */
-  --color-brand: #1E5E4E;
-  --color-brand-hover: #16463A;
-  --color-emerald-deep: #11372E;
-  --color-emerald-deep-hover: #0B251F;
-
-  /* Editorial Surfaces */
-  --color-surface: #F4EFEA;
-  --color-surface-card: #FFFFFF;
-  --color-rose: #EEDFD9;
-  --color-rose-soft: #F7EFEB;
-  --color-rose-border: #DFD0C9;
-
-  /* Champagne / Gold Accent (Restrained Hairlines & Markers) */
-  --color-champagne: #C5A47E;
-  --color-champagne-light: #E8D8C3;
-  --color-champagne-hover: #B5926B;
-
-  /* Borders & UI States */
-  --color-border: #E5DFD7;
-  --color-border-subtle: #EDE7DF;
-  --color-error: #8C2F2B;
-  --color-error-bg: #FDF4F3;
-  --color-warning-bg: #FBF6EC;
-  --color-warning-border: #D7C49E;
+  /* Nurse Yara Exact Luxury Palette */
+  --color-char: #26242a;
+  --color-char-deep: #1b191f;
+  --color-char-dark: #121114;
+  --color-cream: #faf4ee;
+  --color-cream-2: #f3e9e2;
+  --color-cream-card: #ffffff;
+  --color-gold: #c9a15a;
+  --color-gold-soft: #e3c894;
+  --color-gold-dark: #b88d44;
+  --color-pink: #d4788f;
+  --color-pink-soft: #f0c9d3;
+  --color-ink: #2e2c31;
+  --color-muted: #6a6266;
+  --color-border: #eadfd8;
+  --color-border-dark: rgba(201, 161, 90, 0.25);
 
   /* Typography */
-  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --char: #26242a;
+  --char-deep: #1b191f;
+  --char-dark: #121114;
+  --cream: #faf4ee;
+  --cream-2: #f3e9e2;
+  --gold: #c9a15a;
+  --gold-soft: #e3c894;
+  --gold-dark: #b88d44;
+  --pink: #d4788f;
+  --pink-soft: #f0c9d3;
+  --ink: #2e2c31;
+  --muted: #6a6266;
+  --border: #eadfd8;
 }
 
 @layer base {
   html {
-    background-color: var(--color-canvas);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-inter), system-ui, sans-serif;
     overflow-x: clip;
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-canvas);
-    color: var(--color-ink);
+    background-color: var(--cream);
+    color: var(--ink);
     min-height: 100dvh;
-    line-height: 1.65;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -59,16 +60,15 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-serif);
-    letter-spacing: -0.015em;
+    font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brand);
+    outline: 2px solid var(--gold);
     outline-offset: 2px;
   }
 
-  /* Prevent fixed header from obscuring anchor jumps */
   [id] {
     scroll-margin-top: 6rem;
   }
@@ -76,33 +76,286 @@
 
 .skip-link {
   position: absolute;
+  top: -100px;
   left: 1rem;
-  top: -100%;
-  z-index: 100;
-  background-color: var(--color-emerald-deep);
-  color: var(--color-ivory);
-  padding: 0.75rem 1.25rem;
+  z-index: 999;
+  background: var(--char-deep);
+  color: #fff;
+  padding: 0.5rem 1.25rem;
   border-radius: 9999px;
-  font-size: 0.9375rem;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
-  transition: top 200ms ease;
+  transition: top 0.2s ease;
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
-/* Subtle image zoom honoring reduced motion */
-.editorial-image-zoom {
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+/* Nurse Yara Signature Hero (.phero) */
+.phero {
+  min-height: 76vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--char-deep);
+  display: flex;
+  align-items: center;
+  padding: 140px 24px 90px;
 }
 
-.group:hover .editorial-image-zoom {
-  transform: scale(1.03);
+@media (min-width: 640px) {
+  .phero {
+    padding: 160px 32px 100px;
+  }
 }
 
-/* Nurse Yara style animated nav link underline */
+@media (min-width: 1024px) {
+  .phero {
+    min-height: 82vh;
+    padding: 175px 48px 110px;
+  }
+}
+
+.phero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.32;
+  filter: saturate(1.08) brightness(0.9);
+}
+
+.phero-grade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(27, 25, 31, 0.6) 0%,
+    rgba(27, 25, 31, 0.35) 45%,
+    rgba(27, 25, 31, 0.98) 100%
+  );
+}
+
+.glow1 {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  background: var(--pink);
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.22;
+  top: -8%;
+  left: -8%;
+  pointer-events: none;
+}
+
+.glow2 {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: var(--gold);
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.2;
+  bottom: 0;
+  right: -6%;
+  pointer-events: none;
+}
+
+.phero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Hero Typography & Staggered Animations */
+.crumb {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 22px;
+  animation: rise 0.8s 0.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.crumb a {
+  color: var(--gold-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.crumb a:hover {
+  color: #fff;
+}
+
+.kicker {
+  color: var(--gold-soft);
+  font-size: 0.68rem;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 18px;
+  animation: rise 0.8s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.kicker-pink {
+  color: var(--pink);
+  font-size: 0.68rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.phero h1 {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  color: #fff;
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  line-height: 1.08;
+  max-width: 860px;
+  animation: rise 0.8s 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.phero h1 em,
+h2 em,
+h3 em {
+  font-style: italic;
+  background: linear-gradient(100deg, var(--gold-soft), #f6e3bc 45%, var(--gold-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.phero p {
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 640px;
+  margin-top: 22px;
+  font-weight: 300;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  animation: rise 0.8s 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.phero-ctas {
+  display: flex;
+  gap: 16px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+  align-items: center;
+  animation: rise 0.8s 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.loc-note {
+  margin-top: 26px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
+  animation: rise 0.8s 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.loc-note a {
+  color: var(--gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.loc-note a:hover {
+  color: #fff;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Nurse Yara Signature Buttons (.cta-solid & .cta-ghost) */
+.cta-solid {
+  background: linear-gradient(115deg, var(--gold), #dcb877);
+  color: #1b191f;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+}
+
+.cta-solid:hover {
+  box-shadow: 0 12px 36px rgba(201, 161, 90, 0.45);
+  transform: translateY(-2px);
+  background: linear-gradient(115deg, #d8b26c, #e6c88e);
+  color: #121114;
+}
+
+.cta-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+
+.cta-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.cta-dark-ghost {
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cta-dark-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  background: rgba(201, 161, 90, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Nav Link Underline */
 .nav-link-underline {
   position: relative;
 }
@@ -111,16 +364,101 @@
   content: '';
   position: absolute;
   left: 0;
-  bottom: 0.375rem;
+  bottom: -4px;
   width: 0;
   height: 1.5px;
-  background-color: currentColor;
-  transition: width 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  background-color: var(--gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-link-underline:hover::after,
 .nav-link-underline[aria-current="page"]::after {
   width: 100%;
+}
+
+/* Image Zoom */
+.editorial-image-zoom {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .editorial-image-zoom {
+  transform: scale(1.035);
+}
+
+/* Nurse Yara Treatment Card (.tcard) */
+.tcard {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+
+.tcard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(38, 36, 42, 0.12);
+  border-color: rgba(201, 161, 90, 0.4);
+}
+
+/* Luxury Split Image Offset */
+.split-img-shadow {
+  box-shadow: 20px 20px 0 var(--cream-2);
+}
+
+.split-img-shadow-reverse {
+  box-shadow: -20px 20px 0 var(--cream-2);
+}
+
+/* Gold Dash List */
+ul.gold-dash-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+ul.gold-dash-list li {
+  font-size: 0.94rem;
+  font-weight: 300;
+  color: #544c50;
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.7;
+}
+
+ul.gold-dash-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 14px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+/* Nurse Yara Dark Band (.band) */
+.nurse-yara-band {
+  background: linear-gradient(170deg, var(--char), var(--char-deep));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.nurse-yara-band .orb {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: var(--pink);
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

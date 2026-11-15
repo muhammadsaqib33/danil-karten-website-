@@ -16,11 +16,11 @@ export function TreatmentFilters({
   filteredCount,
 }: TreatmentFiltersProps) {
   return (
-    <div className="flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col gap-5 border-b border-[#eadfd8] pb-8 sm:flex-row sm:items-center sm:justify-between">
       <div
         role="group"
         aria-label="Filter treatments by category"
-        className="flex flex-wrap gap-2"
+        className="flex flex-wrap gap-2.5"
       >
         {['All Treatments', ...categories].map((category) => {
           const isActive = activeCategory === category;
@@ -30,10 +30,10 @@ export function TreatmentFilters({
               type="button"
               aria-pressed={isActive}
               onClick={() => onSelectCategory(category)}
-              className={`inline-flex min-h-[40px] items-center rounded-full border px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
+              className={`inline-flex min-h-[40px] items-center rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a] cursor-pointer ${
                 isActive
-                  ? 'border-brand bg-brand text-white'
-                  : 'border-border bg-surface-card text-ink hover:border-brand/50 hover:bg-surface'
+                  ? 'border-[#c9a15a] bg-gradient-to-r from-[#c9a15a] to-[#dcb877] text-[#1b191f] shadow-xs'
+                  : 'border-[#eadfd8] bg-white text-[#2e2c31] hover:border-[#c9a15a]'
               }`}
             >
               {category}
@@ -42,10 +42,9 @@ export function TreatmentFilters({
         })}
       </div>
 
-      <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
-        Showing {filteredCount} of {totalCount}
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8d8289]">
+        Showing {filteredCount} of {totalCount} treatments
       </p>
     </div>
   );
 }
-

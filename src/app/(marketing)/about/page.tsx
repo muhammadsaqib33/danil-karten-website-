@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   getProviderDisplayPortrait,
   providerProfile,
@@ -21,146 +22,153 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const isPreview = isPreviewContentMode();
   const portraitInfo = getProviderDisplayPortrait(isPreview);
+  const portraitSrc =
+    portraitInfo?.image.src || '/images/provider/placeholder-portrait.jpg';
 
   return (
     <>
-      <section className="border-b border-border/80 bg-canvas py-12 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
-            <div
-              className={`space-y-5 ${
-                portraitInfo ? 'lg:col-span-7' : 'lg:col-span-8'
-              }`}
+      {/* 1. Nurse Yara Signature .phero Hero Header */}
+      <header className="phero">
+        <picture>
+          <Image
+            src="/images/hero/hero-editorial.jpg"
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="phero-img"
+            style={{ objectPosition: '50% 25%' }}
+          />
+        </picture>
+
+        <div className="phero-grade" aria-hidden="true" />
+        <div className="glow1" aria-hidden="true" />
+        <div className="glow2" aria-hidden="true" />
+
+        <div className="phero-inner">
+          <div className="crumb">
+            <Link href="/">Home</Link> &nbsp;/&nbsp; <span>About Danielle Karten</span>
+          </div>
+
+          <span className="kicker">
+            Clinical Leadership · New York
+          </span>
+
+          <h1>
+            Danielle Karten.{' '}
+            <span className="inline-block whitespace-nowrap">
+              <em>NP, AGPCNP-BC</em>
+            </span>
+          </h1>
+
+          <p>
+            Board-certified Adult-Gerontology Primary Care Nurse Practitioner
+            dedicated to conservative, evidence-based aesthetic medicine, subtle
+            facial harmony, and personalized patient care in New York.
+          </p>
+
+          <div className="phero-ctas">
+            <Link
+              href={siteConfig.primaryCta.href}
+              className="cta-solid"
             >
-              <div className="inline-flex items-center gap-3">
-                <span aria-hidden="true" className="h-px w-7 bg-champagne" />
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-                  About the Provider
-                </p>
-              </div>
+              {siteConfig.primaryCta.label}
+            </Link>
+            <Link
+              href="/treatments"
+              className="cta-ghost"
+            >
+              Explore Treatments
+            </Link>
+          </div>
 
-              <div>
-                <h1 className="font-serif text-[clamp(2.4rem,4.4vw+0.85rem,3.8rem)] font-light leading-[1.08] text-ink">
-                  {providerProfile.fullName}
-                </h1>
-                <p className="mt-2 font-sans text-base sm:text-lg font-medium tracking-wide text-brand">
-                  {providerProfile.credentials}
-                </p>
-                <p className="mt-1 text-xs sm:text-sm font-medium tracking-wider uppercase text-muted">
-                  {providerProfile.roleLabel} · {siteConfig.publicLocation}
-                </p>
-              </div>
+          <p className="loc-note">
+            Practicing in {siteConfig.publicLocation} · Consultations by Appointment
+          </p>
+        </div>
+      </header>
 
-              <p className="max-w-2xl text-base leading-relaxed text-ink/85 sm:text-[17px] sm:leading-relaxed">
-                {providerProfile.shortIntro}
-              </p>
+      {/* 2. Provider Profile & Split Section */}
+      <section className="py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="space-y-6 lg:col-span-7">
+            <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
+              About the Clinician
+            </span>
+
+            <h2 className="font-serif text-[clamp(2.1rem,4vw,3.2rem)] font-light leading-[1.1] text-[#2e2c31]">
+              A measured approach to <em>natural refinement.</em>
+            </h2>
+
+            <p className="lead text-[16px]">
+              {providerProfile.shortIntro}
+            </p>
+
+            <ul className="gold-dash-list mt-6 max-w-xl">
+              <li>
+                <strong className="font-medium text-[#2e2c31]">
+                  Board Certification:
+                </strong>{' '}
+                Board-certified Nurse Practitioner (AGPCNP-BC) holding extensive clinical
+                training and patient-centered assessment expertise.
+              </li>
+              <li>
+                <strong className="font-medium text-[#2e2c31]">
+                  Anatomical Respect:
+                </strong>{' '}
+                Prioritizing natural facial movement, structural proportion, and subtle
+                enhancement rather than overt transformation.
+              </li>
+              <li>
+                <strong className="font-medium text-[#2e2c31]">
+                  Patient Advocacy:
+                </strong>{' '}
+                Transparent discussion of indications, contraindications, and realistic
+                timelines before any procedure is scheduled.
+              </li>
+            </ul>
+
+            <div className="pt-4">
+              <Link href={siteConfig.primaryCta.href} className="cta-solid">
+                Book a Consultation
+              </Link>
             </div>
+          </div>
 
-            {portraitInfo ? (
-              <div className="lg:col-span-5">
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -inset-2.5 hidden rounded-3xl border border-champagne/30 sm:block"
-                  />
-                  <figure className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-[0_18px_42px_-14px_rgba(28,36,33,0.12)]">
-                    <Image
-                      src={portraitInfo.image.src}
-                      alt={portraitInfo.image.alt}
-                      width={portraitInfo.image.width}
-                      height={portraitInfo.image.height}
-                      priority
-                      sizes="(max-width: 1023px) 100vw, 40vw"
-                      style={{
-                        objectPosition:
-                          portraitInfo.image.objectPosition ?? '50% 20%',
-                      }}
-                      className="editorial-image-zoom aspect-[3/4] w-full object-cover"
-                    />
-                    {portraitInfo.isPlaceholder ? (
-                      <div className="absolute top-3 right-3 rounded-full border border-champagne/40 bg-black/60 px-3 py-1 text-[10px] font-medium tracking-wider text-champagne-light backdrop-blur-md">
-                        Placeholder Portrait · Danielle Karten
-                      </div>
-                    ) : null}
-                  </figure>
-                </div>
-              </div>
-            ) : (
-              <aside className="rounded-2xl border border-border bg-surface p-6 sm:p-8 lg:col-span-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">
-                  Practice Details
-                </p>
-                <dl className="mt-4 space-y-3.5 text-sm">
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-muted">
-                      Clinician
-                    </dt>
-                    <dd className="mt-0.5 font-medium text-ink">
-                      {providerProfile.displayNameWithCredentials}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-muted">
-                      Location
-                    </dt>
-                    <dd className="mt-0.5 font-medium text-ink">
-                      {siteConfig.publicLocation}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-muted">
-                      Telephone
-                    </dt>
-                    <dd className="mt-0.5">
-                      <a
-                        href={siteConfig.phoneHref}
-                        className="font-medium text-ink underline decoration-champagne underline-offset-4 hover:text-brand"
-                      >
-                        {siteConfig.phoneDisplay}
-                      </a>
-                    </dd>
-                  </div>
-                </dl>
-              </aside>
-            )}
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              <figure className="relative overflow-hidden rounded-xl border border-[#eadfd8] bg-white split-img-shadow">
+                <Image
+                  src={portraitSrc}
+                  alt="Danielle Karten, NP, AGPCNP-BC"
+                  width={portraitInfo?.image.width ?? 896}
+                  height={portraitInfo?.image.height ?? 1200}
+                  sizes="(max-width: 1023px) 100vw, 42vw"
+                  style={{
+                    objectPosition:
+                      portraitInfo?.image.objectPosition ?? '50% 20%',
+                  }}
+                  className="editorial-image-zoom aspect-[3/4] w-full object-cover"
+                />
+              </figure>
+            </div>
           </div>
         </div>
       </section>
 
-      {providerProfile.approvedBiography &&
-      providerProfile.approvedBiography.length > 0 ? (
-        <section className="bg-surface-card py-14 sm:py-18">
-          <div className="mx-auto max-w-3xl space-y-5 px-5 sm:px-8">
-            <h2 className="font-serif text-3xl font-light text-ink">
-              Biography
-            </h2>
-            {providerProfile.approvedBiography.map((paragraph, index) => (
-              <p
-                key={index}
-                className="text-base leading-relaxed text-ink/85 sm:text-[17px]"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {/* Care Philosophy + 3 Core Principles */}
-      <section className="border-b border-border/80 bg-surface/60 py-14 sm:py-18 lg:py-20">
+      {/* 3. Care Philosophy + 3 Core Principles */}
+      <section className="border-t border-[#eadfd8] bg-[#f3e9e2]/55 py-18 sm:py-24">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="space-y-4 lg:col-span-5">
-              <div className="inline-flex items-center gap-3">
-                <span aria-hidden="true" className="h-px w-7 bg-champagne" />
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">
-                  Practice Philosophy
-                </p>
-              </div>
-              <h2 className="font-serif text-[clamp(2rem,3vw+0.85rem,2.8rem)] font-light leading-tight text-ink">
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
+                Care Principles
+              </span>
+              <h2 className="font-serif text-[clamp(2rem,3.6vw,3rem)] font-light leading-tight text-[#2e2c31]">
                 {providerProfile.carePhilosophy.heading}
               </h2>
-              <div className="space-y-4 text-base leading-relaxed text-ink/85">
+              <div className="space-y-4 text-[15.5px] font-light leading-relaxed text-[#6a6266]">
                 {providerProfile.carePhilosophy.paragraphs.map(
                   (paragraph, index) => (
                     <p key={index}>{paragraph}</p>
@@ -169,21 +177,21 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="divide-y divide-border/80 border-y border-border/80 lg:col-span-7">
+            <div className="divide-y divide-[#eadfd8] border-y border-[#eadfd8] lg:col-span-7">
               {homeContent.careApproach.pillars.map((pillar) => (
                 <div
                   key={pillar.number}
                   className="grid gap-3 py-6 sm:grid-cols-12 sm:items-baseline sm:gap-6"
                 >
                   <div className="flex items-baseline gap-3 sm:col-span-5">
-                    <span className="font-serif text-2xl font-light text-champagne">
+                    <span className="font-serif text-2xl font-light text-[#c9a15a]">
                       {pillar.number}
                     </span>
-                    <h3 className="font-serif text-2xl font-medium leading-snug text-ink">
+                    <h3 className="font-serif text-2xl font-medium leading-snug text-[#2e2c31]">
                       {pillar.title}
                     </h3>
                   </div>
-                  <p className="text-sm leading-relaxed text-muted sm:col-span-7 sm:text-base">
+                  <p className="text-[14.5px] font-light leading-relaxed text-[#6a6266] sm:col-span-7">
                     {pillar.description}
                   </p>
                 </div>
