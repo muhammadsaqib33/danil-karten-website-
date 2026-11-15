@@ -39,9 +39,6 @@ export function SiteHeader() {
   const tickingRef = useRef(false);
   const suppressScrollUntilRef = useRef(0);
 
-  // Every page in Nurse Yara theme starts with a dark cinematic .phero hero
-  const isTransparent = !isScrolled;
-
   useEffect(() => {
     accumulatedDeltaRef.current = 0;
     tickingRef.current = false;
@@ -57,7 +54,7 @@ export function SiteHeader() {
       const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
       accumulatedDeltaRef.current = 0;
-      setIsScrolled(currentY > 40);
+      setIsScrolled(currentY > 20);
     };
 
     syncPosition();
@@ -80,7 +77,7 @@ export function SiteHeader() {
       suppressScrollUntilRef.current = Date.now() + 400;
       const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
-      setIsScrolled(currentY > 40);
+      setIsScrolled(currentY > 20);
     };
 
     const handleAnchorClick = (e: MouseEvent) => {
@@ -128,7 +125,7 @@ export function SiteHeader() {
         const prevScrollY = lastScrollYRef.current;
         const diff = currentScrollY - prevScrollY;
 
-        setIsScrolled(currentScrollY > 40);
+        setIsScrolled(currentScrollY > 20);
 
         if (Date.now() < suppressScrollUntilRef.current) {
           setIsVisible(true);
@@ -138,7 +135,8 @@ export function SiteHeader() {
           return;
         }
 
-        if (currentScrollY <= 48) {
+        // At the top of the page: always fully visible and transparent
+        if (currentScrollY <= 20) {
           setIsVisible(true);
           accumulatedDeltaRef.current = 0;
           lastScrollYRef.current = currentScrollY;
@@ -146,22 +144,24 @@ export function SiteHeader() {
           return;
         }
 
+        // Scrolling DOWN: immediately slide up out of view
         if (diff > 0) {
           if (accumulatedDeltaRef.current < 0) {
             accumulatedDeltaRef.current = 0;
           }
           accumulatedDeltaRef.current = Math.min(60, accumulatedDeltaRef.current + diff);
 
-          if (currentScrollY > 60 && (accumulatedDeltaRef.current >= 8 || diff >= 12)) {
+          if (accumulatedDeltaRef.current >= 4 || diff >= 4) {
             setIsVisible(false);
           }
         } else if (diff < 0) {
+          // Scrolling UP: promptly slide down into view
           if (accumulatedDeltaRef.current > 0) {
             accumulatedDeltaRef.current = 0;
           }
           accumulatedDeltaRef.current = Math.max(-60, accumulatedDeltaRef.current + diff);
 
-          if (accumulatedDeltaRef.current <= -6 || diff <= -10) {
+          if (accumulatedDeltaRef.current <= -6 || diff <= -6) {
             setIsVisible(true);
           }
         }
@@ -196,12 +196,12 @@ export function SiteHeader() {
           setIsKeyboardFocused(false);
         }
       }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-400 ease-in-out motion-reduce:transition-none ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-in-out motion-reduce:transition-none ${
         showHeader ? 'translate-y-0' : '-translate-y-full'
       } ${
-        isTransparent
-          ? 'bg-transparent border-b border-transparent py-4 sm:py-5 text-white'
-          : 'bg-[#faf4ee]/94 backdrop-blur-md border-b border-[#eadfd8] py-2.5 sm:py-3.5 shadow-[0_1px_30px_rgba(38,36,42,0.08)] text-[#2e2c31]'
+        isScrolled
+          ? 'bg-[#1b191f]/92 backdrop-blur-md border-b border-white/10 py-3 sm:py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.35)] text-white'
+          : 'bg-transparent border-b border-transparent py-4 sm:py-5 text-white'
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
@@ -210,9 +210,7 @@ export function SiteHeader() {
           onClick={(e) => (e.currentTarget as HTMLElement).blur()}
           className="group inline-flex min-h-[44px] flex-col justify-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c9a15a]"
         >
-          <span className={`font-serif text-lg font-semibold tracking-[0.32em] uppercase transition-colors sm:text-2xl ${
-            isTransparent ? 'text-white group-hover:text-[#e3c894]' : 'text-[#1b191f] group-hover:text-[#b88d44]'
-          }`}>
+          <span className="font-serif text-lg font-semibold tracking-[0.32em] uppercase transition-colors sm:text-2xl text-white group-hover:text-[#e3c894]">
             {siteConfig.displayName}
           </span>
           <span className="font-serif text-[10px] sm:text-[11px] italic tracking-[0.16em] text-[#d4788f]">
@@ -220,11 +218,10 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <DesktopNav isTransparent={isTransparent} />
+        <DesktopNav />
 
         <MobileNavigation
           onOpenChange={setIsMenuOpen}
-          isTransparent={isTransparent}
         />
       </div>
     </header>

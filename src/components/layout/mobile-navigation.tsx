@@ -8,12 +8,10 @@ import { siteConfig } from '@/content/site';
 
 interface MobileNavigationProps {
   onOpenChange?: (isOpen: boolean) => void;
-  isTransparent?: boolean;
 }
 
 export function MobileNavigation({
   onOpenChange,
-  isTransparent = false,
 }: MobileNavigationProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -75,9 +73,9 @@ export function MobileNavigation({
         aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
         onClick={() => setIsOpen((prev) => !prev)}
         className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 ${
-          isTransparent && !isOpen
-            ? 'border-white/30 bg-black/35 text-white backdrop-blur-md hover:bg-black/50'
-            : 'border-[#eadfd8] bg-white text-[#2e2c31] hover:border-[#c9a15a]'
+          isOpen
+            ? 'border-[#eadfd8] bg-white text-[#2e2c31]'
+            : 'border-white/30 bg-black/35 text-white backdrop-blur-md hover:bg-black/50'
         }`}
       >
         {isOpen ? (
