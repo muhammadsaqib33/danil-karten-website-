@@ -58,32 +58,28 @@ export default async function TreatmentsPage({
           <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
             {/* Left Column: Clinical Philosophy & Treatment Categories */}
             <div className="lg:col-span-7 xl:col-span-7">
-              <span className="mb-2.5 block text-[11px] font-semibold uppercase tracking-[0.35em] text-[#e0a9b6]">
-                Aesthetic Services Menu · New York
-              </span>
-
-              <h1 className="mt-0 mb-3 text-[clamp(2.1rem,3.6vw,3.2rem)] leading-[1.1]">
+              <h1 className="mt-0 mb-3 text-[clamp(2rem,3.4vw,3.1rem)] leading-[1.1]">
                 Consultation-first.{' '}
                 <span className="inline-block whitespace-nowrap">
                   <em>Natural refinement.</em>
                 </span>
               </h1>
 
-              <p className="mt-2 mb-5 max-w-xl text-[clamp(0.92rem,1.15vw,1.02rem)] font-light leading-relaxed text-[#dfdad5]">
+              <p className="mt-2 mb-4 max-w-xl text-[clamp(0.9rem,1.15vw,1rem)] font-light leading-relaxed text-[#dfdad5]">
                 Every treatment begins with an unhurried clinical assessment with
                 Danielle Karten, NP, AGPCNP-BC to evaluate facial anatomy, discuss
                 realistic expectations, and recommend appropriate options tailored to you.
               </p>
 
               {/* Category Navigation Pills */}
-              <div className="mb-6 flex flex-wrap gap-2 text-[12px]">
-                <span className="rounded-full border border-[#c9a15a]/45 bg-[#c9a15a]/10 px-3 py-1 font-medium text-[#f0ebe6]">
+              <div className="mb-5 flex flex-wrap gap-2 text-[11.5px]">
+                <span className="rounded-full border border-[#c9a15a]/45 bg-[#c9a15a]/10 px-2.5 py-0.5 font-medium text-[#f0ebe6]">
                   Neuromodulators &amp; Injectables
                 </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 font-medium text-[#dfdad5]">
+                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
                   Collagen &amp; Biostimulators
                 </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 font-medium text-[#dfdad5]">
+                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
                   Regenerative PRP &amp; Peels
                 </span>
               </div>
@@ -104,11 +100,11 @@ export default async function TreatmentsPage({
               </div>
             </div>
 
-            {/* Right Column: Treatment Pathways & Protocols Card */}
+            {/* Right Column: Treatment Pathways & Protocols Card (Compact & Optimized) */}
             <div className="lg:col-span-5 xl:col-span-5">
               <div className="phero-treatments-card">
                 {/* Header kicker */}
-                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
                   <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#e0a9b6]">
                     Clinical Care Pathways
                   </span>
@@ -117,56 +113,44 @@ export default async function TreatmentsPage({
                   </span>
                 </div>
 
-                <div className="mt-3 mb-3.5">
-                  <div className="font-serif text-[17px] font-medium tracking-wide text-white">
+                <div className="mt-2.5 mb-2.5">
+                  <div className="font-serif text-[16.5px] font-medium tracking-wide text-white">
                     Aesthetic Care Pathways
                   </div>
-                  <div className="text-[11px] font-medium tracking-wider text-[#c9a15a] uppercase">
+                  <div className="text-[10.5px] font-medium tracking-wider text-[#c9a15a] uppercase">
                     Individualized Assessment · Conservative Dosing
                   </div>
                 </div>
 
-                {/* 3 Core Treatment Pathway Items */}
-                <div className="space-y-3 my-3">
-                  <div className="rounded-lg border border-white/10 bg-white/[0.04] p-2.5 transition-colors hover:border-[#c9a15a]/40">
-                    <div className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#c9a15a] shrink-0" />
-                      <span className="text-[13px] font-medium text-white">
-                        Neuromodulators &amp; Expression Lines
-                      </span>
+                {/* 3 Core Treatment Pathway Items (Compact & Elegant) */}
+                <ul className="my-2.5 space-y-2 text-[12px] text-[#dfdad5]">
+                  <li className="flex items-start gap-2 rounded-md bg-white/[0.03] p-2 border border-white/10">
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#c9a15a]" />
+                    <div>
+                      <strong className="text-white font-medium">Neuromodulators &amp; Dynamic Lines:</strong>{' '}
+                      Tailored dosing planned to soften lines while preserving natural expression.
                     </div>
-                    <p className="mt-1 pl-5.5 text-[12px] font-light text-[#dfdad5] leading-relaxed">
-                      Tailored dosing planned to soften lines while preserving natural facial movement.
-                    </p>
-                  </div>
+                  </li>
 
-                  <div className="rounded-lg border border-white/10 bg-white/[0.04] p-2.5 transition-colors hover:border-[#c9a15a]/40">
-                    <div className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#c9a15a] shrink-0" />
-                      <span className="text-[13px] font-medium text-white">
-                        Collagen &amp; Dermal Architecture
-                      </span>
+                  <li className="flex items-start gap-2 rounded-md bg-white/[0.03] p-2 border border-white/10">
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#c9a15a]" />
+                    <div>
+                      <strong className="text-white font-medium">Collagen &amp; Dermal Architecture:</strong>{' '}
+                      Biostimulators, microneedling, and peels supporting skin firmness &amp; texture.
                     </div>
-                    <p className="mt-1 pl-5.5 text-[12px] font-light text-[#dfdad5] leading-relaxed">
-                      Biostimulators, microneedling, and medical peels supporting skin firmness &amp; texture.
-                    </p>
-                  </div>
+                  </li>
 
-                  <div className="rounded-lg border border-white/10 bg-white/[0.04] p-2.5 transition-colors hover:border-[#c9a15a]/40">
-                    <div className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#c9a15a] shrink-0" />
-                      <span className="text-[13px] font-medium text-white">
-                        Regenerative Autologous Therapy
-                      </span>
+                  <li className="flex items-start gap-2 rounded-md bg-white/[0.03] p-2 border border-white/10">
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#c9a15a]" />
+                    <div>
+                      <strong className="text-white font-medium">Regenerative Autologous Therapy:</strong>{' '}
+                      Staged platelet-rich plasma (PRP) consultations for skin &amp; scalp vitality.
                     </div>
-                    <p className="mt-1 pl-5.5 text-[12px] font-light text-[#dfdad5] leading-relaxed">
-                      Staged platelet-rich plasma (PRP) consultations for complexion &amp; scalp vitality.
-                    </p>
-                  </div>
-                </div>
+                  </li>
+                </ul>
 
                 {/* Bottom Anchor Link */}
-                <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11.5px] text-[#c9a15a] font-medium">
+                <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[11.5px] text-[#c9a15a] font-medium">
                   <a href="#services-menu" className="hover:text-white transition-colors flex items-center gap-1.5">
                     <span>Explore All 8 Treatments Below</span>
                     <ArrowDown className="h-3 w-3" />

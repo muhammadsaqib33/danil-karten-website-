@@ -51,18 +51,14 @@ export default function GalleryPage() {
           <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
             {/* Left Column: Visual Results Philosophy & Categories */}
             <div className="lg:col-span-7 xl:col-span-7">
-              <span className="mb-2.5 block text-[11px] font-semibold uppercase tracking-[0.35em] text-[#e0a9b6]">
-                Aesthetic Visual Documentation
-              </span>
-
-              <h1 className="mt-0 mb-3 text-[clamp(2.1rem,3.6vw,3.2rem)] leading-[1.1]">
+              <h1 className="mt-0 mb-3 text-[clamp(2.1rem,3.4vw,3.1rem)] leading-[1.1]">
                 Clinical precision.{' '}
                 <span className="inline-block whitespace-nowrap">
                   <em>Authentic results.</em>
                 </span>
               </h1>
 
-              <p className="mt-2 mb-5 max-w-xl text-[clamp(0.92rem,1.15vw,1.02rem)] font-light leading-relaxed text-[#dfdad5]">
+              <p className="mt-2 mb-4 max-w-xl text-[clamp(0.9rem,1.15vw,1rem)] font-light leading-relaxed text-[#dfdad5]">
                 Explore representative aesthetic treatment comparisons and the calm,
                 private appointment atmosphere of {siteConfig.displayName} in New York.
                 Carefully planned interventions designed to soften expression lines,
@@ -70,14 +66,14 @@ export default function GalleryPage() {
               </p>
 
               {/* Category Navigation Pills */}
-              <div className="mb-6 flex flex-wrap gap-2 text-[12px]">
-                <span className="rounded-full border border-[#c9a15a]/45 bg-[#c9a15a]/10 px-3 py-1 font-medium text-[#f0ebe6]">
+              <div className="mb-5 flex flex-wrap gap-2 text-[11.5px]">
+                <span className="rounded-full border border-[#c9a15a]/45 bg-[#c9a15a]/10 px-2.5 py-0.5 font-medium text-[#f0ebe6]">
                   Injectables &amp; Neuromodulators
                 </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 font-medium text-[#dfdad5]">
+                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
                   Skin &amp; Regenerative
                 </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 font-medium text-[#dfdad5]">
+                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
                   Scalp &amp; Hair
                 </span>
               </div>
