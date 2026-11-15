@@ -262,6 +262,53 @@
   transform: translateY(-2px);
 }
 
+.phero-gallery {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 105px 24px 35px;
+}
+
+@media (min-width: 640px) {
+  .phero-gallery {
+    padding: 115px 36px 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .phero-gallery {
+    padding: 120px 48px 50px;
+  }
+}
+
+.phero-gallery-card {
+  position: relative;
+  background: rgba(27, 25, 31, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 161, 90, 0.35);
+  border-radius: 20px;
+  padding: 22px 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: rise 0.8s 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .phero-gallery-card {
+    max-width: 440px;
+    margin: 0 0 0 auto;
+    padding: 24px 22px;
+  }
+}
+
+.phero-gallery-card:hover {
+  border-color: rgba(201, 161, 90, 0.55);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 35px rgba(201, 161, 90, 0.18);
+  transform: translateY(-2px);
+}
+
 /* Hero Typography & Staggered Animations */
 .crumb {
   font-size: 0.65rem;

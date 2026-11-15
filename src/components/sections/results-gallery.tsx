@@ -49,6 +49,7 @@ export function ResultsGallery({
 
   return (
     <section
+      id="results"
       aria-labelledby="before-after-heading"
       className="bg-canvas py-14 sm:py-18 lg:py-22"
     >
