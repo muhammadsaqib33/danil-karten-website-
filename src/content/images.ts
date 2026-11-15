@@ -12,8 +12,8 @@ import type { ApprovedImage } from '@/types/treatment';
 export const imageManifest: ImageManifestEntry[] = [
   {
     id: 'hero-editorial',
-    localPath: '/images/hero/hero-editorial.jpg',
-    originalSourceUrl: 'local-generated-demo-asset://hero-editorial',
+    localPath: '/images/hero/home-clinic-hero.jpg',
+    originalSourceUrl: 'local-generated-demo-asset://home-clinic-hero',
     attributionRequirements: 'None (synthetic editorial demo asset)',
     licenseReference: 'Project-local synthetic demo asset — replace prior to launch',
     role: 'hero',
@@ -21,9 +21,37 @@ export const imageManifest: ImageManifestEntry[] = [
     publicationStatus: 'draft',
     replacementNotes:
       'Replace with an owner-approved editorial practice photograph or approved portrait framing (does not represent Danielle personally).',
-    width: 1200,
-    height: 896,
-    objectPosition: '50% 25%',
+    width: 1376,
+    height: 768,
+    objectPosition: 'center center',
+  },
+  {
+    id: 'about-clinic-hero',
+    localPath: '/images/hero/about-clinic-hero.jpg',
+    originalSourceUrl: 'local-generated-demo-asset://about-clinic-hero',
+    attributionRequirements: 'None (synthetic editorial demo asset)',
+    licenseReference: 'Project-local synthetic demo asset',
+    role: 'hero',
+    isDemo: true,
+    publicationStatus: 'draft',
+    replacementNotes: 'Replace with approved clinical consultation suite photography.',
+    width: 1376,
+    height: 768,
+    objectPosition: 'center center',
+  },
+  {
+    id: 'contact-hero',
+    localPath: '/images/hero/contact-hero.jpg',
+    originalSourceUrl: 'local-generated-demo-asset://contact-hero',
+    attributionRequirements: 'None (synthetic editorial demo asset)',
+    licenseReference: 'Project-local synthetic demo asset',
+    role: 'hero',
+    isDemo: true,
+    publicationStatus: 'draft',
+    replacementNotes: 'Replace with approved reception/suite photography.',
+    width: 1376,
+    height: 768,
+    objectPosition: 'center center',
   },
   {
     id: 'provider-placeholder',
@@ -169,16 +197,16 @@ export const imageManifest: ImageManifestEntry[] = [
   {
     id: 'gallery-suite',
     localPath: '/images/gallery/gallery-suite.jpg',
-    originalSourceUrl: 'https://stocksnap.io/photo/sunlight-couch-NB6ISAF275',
-    attributionRequirements: 'CC0 Public Domain Dedication (Patrick McMahon via StockSnap)',
-    licenseReference: 'CC0 1.0 Universal (StockSnap)',
+    originalSourceUrl: 'local-generated-demo-asset://gallery-suite',
+    attributionRequirements: 'None (synthetic preview asset)',
+    licenseReference: 'Project-local synthetic demo asset',
     role: 'gallery',
     isDemo: true,
     publicationStatus: 'draft',
     replacementNotes: 'Illustrative environment — replace with verified treatment suite photo when approved.',
-    width: 960,
-    height: 640,
-    objectPosition: '50% 50%',
+    width: 1376,
+    height: 768,
+    objectPosition: 'center center',
   },
   {
     id: 'gallery-botanicals',
@@ -273,11 +301,11 @@ export const approvedHeroImage: ApprovedImage | undefined = undefined;
 
 /** Temporary editorial hero image used only when CONTENT_MODE=preview. */
 export const previewHeroImage: ApprovedImage = {
-  src: '/images/hero/hero-editorial.jpg',
-  alt: 'Editorial portrait representing thoughtful, individualized aesthetic care',
-  width: 1200,
-  height: 896,
-  objectPosition: '50% 25%',
+  src: '/images/hero/home-clinic-hero.jpg',
+  alt: 'Editorial luxury aesthetic medical suite in New York representing thoughtful, individualized aesthetic care',
+  width: 1376,
+  height: 768,
+  objectPosition: 'center center',
 };
 
 export function getHeroImage(isPreviewMode: boolean): {
@@ -298,10 +326,10 @@ export const approvedTreatmentsBannerImage: ApprovedImage | undefined = undefine
 
 export const previewTreatmentsBannerImage: ApprovedImage = {
   src: '/images/hero/treatments-clinic-hero.jpg',
-  alt: 'Sunlit New York aesthetic medical suite with textured warm ivory walls, tailored deep emerald seating, and eucalyptus on a travertine console',
-  width: 1200,
-  height: 896,
-  objectPosition: '50% 45%',
+  alt: 'Panoramic luxury New York aesthetic medical suite with textured warm ivory walls, tailored seating, and fluted architectural timber',
+  width: 1376,
+  height: 768,
+  objectPosition: 'center center',
 };
 
 export function getTreatmentsBannerImage(isPreviewMode: boolean): {

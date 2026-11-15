@@ -33,14 +33,12 @@ export function TreatmentDetail({
             sizes="100vw"
             className="phero-img"
             style={{
-              objectPosition: displayImage?.image.objectPosition ?? '50% 35%',
+              objectPosition: displayImage?.image.objectPosition ?? 'center center',
             }}
           />
         </picture>
 
         <div className="phero-grade" aria-hidden="true" />
-        <div className="glow1" aria-hidden="true" />
-        <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
           <h1>

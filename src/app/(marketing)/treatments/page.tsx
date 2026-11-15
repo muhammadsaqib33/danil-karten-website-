@@ -45,14 +45,12 @@ export default async function TreatmentsPage({
             sizes="100vw"
             className="phero-img"
             style={{
-              objectPosition: bannerImage?.image.objectPosition ?? '50% 45%',
+              objectPosition: bannerImage?.image.objectPosition ?? 'center center',
             }}
           />
         </picture>
 
         <div className="phero-grade" aria-hidden="true" />
-        <div className="glow1" aria-hidden="true" />
-        <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
           <h1>

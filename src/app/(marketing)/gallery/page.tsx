@@ -40,13 +40,11 @@ export default function GalleryPage() {
             priority
             sizes="100vw"
             className="phero-img"
-            style={{ objectPosition: '50% 50%' }}
+            style={{ objectPosition: 'center center' }}
           />
         </picture>
 
         <div className="phero-grade" aria-hidden="true" />
-        <div className="glow1" aria-hidden="true" />
-        <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
           <h1>

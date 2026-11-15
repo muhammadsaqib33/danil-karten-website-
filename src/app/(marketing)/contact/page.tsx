@@ -40,20 +40,18 @@ export default function ContactPage() {
       <header className="phero">
         <picture>
           <Image
-            src="/images/gallery/gallery-consultation.jpg"
+            src="/images/hero/contact-hero.jpg"
             alt=""
             aria-hidden="true"
             fill
             priority
             sizes="100vw"
             className="phero-img"
-            style={{ objectPosition: '50% 50%' }}
+            style={{ objectPosition: 'center center' }}
           />
         </picture>
 
         <div className="phero-grade" aria-hidden="true" />
-        <div className="glow1" aria-hidden="true" />
-        <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
           <h1>

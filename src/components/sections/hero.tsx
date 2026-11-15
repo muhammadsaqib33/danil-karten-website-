@@ -9,7 +9,7 @@ interface HeroProps {
 
 export function Hero({ isPreviewMode }: HeroProps) {
   const heroImage = getHeroImage(isPreviewMode);
-  const imageSrc = heroImage?.image.src || '/images/hero/hero-editorial.jpg';
+  const imageSrc = heroImage?.image.src || '/images/hero/home-clinic-hero.jpg';
 
   return (
     <header className="phero">
@@ -23,14 +23,12 @@ export function Hero({ isPreviewMode }: HeroProps) {
           sizes="100vw"
           className="phero-img"
           style={{
-            objectPosition: heroImage?.image.objectPosition ?? '50% 25%',
+            objectPosition: heroImage?.image.objectPosition ?? 'center center',
           }}
         />
       </picture>
 
       <div className="phero-grade" aria-hidden="true" />
-      <div className="glow1" aria-hidden="true" />
-      <div className="glow2" aria-hidden="true" />
 
       <div className="phero-inner">
         <h1>
