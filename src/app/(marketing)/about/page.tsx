@@ -108,16 +108,16 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Column: Clinician Portrait Card (Optimized Height) */}
+            {/* Right Column: Clinician Portrait Card (Optimized Proportion) */}
             <div className="lg:col-span-5 xl:col-span-5">
               <div className="phero-portrait-card">
-                <figure className="relative aspect-[4/4.7] w-full overflow-hidden rounded-xl">
+                <figure className="relative aspect-[4/4.8] w-full overflow-hidden rounded-xl">
                   <Image
                     src={portraitSrc}
                     alt="Danielle Karten, NP, AGPCNP-BC"
                     fill
                     priority
-                    sizes="(max-width: 1023px) 320px, 360px"
+                    sizes="(max-width: 1023px) 360px, 425px"
                     style={{
                       objectPosition:
                         portraitInfo?.image.objectPosition ?? '50% 18%',
@@ -125,16 +125,16 @@ export default function AboutPage() {
                     className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1b191f]/85 via-transparent to-transparent" />
-                  <div className="absolute right-3.5 bottom-3.5 left-3.5 flex items-center justify-between text-left">
+                  <div className="absolute right-4 bottom-4 left-4 flex items-center justify-between text-left">
                     <div>
-                      <div className="font-serif text-[16px] font-medium tracking-wide text-white">
+                      <div className="font-serif text-[16.5px] font-medium tracking-wide text-white">
                         Danielle Karten
                       </div>
-                      <div className="text-[10.5px] font-medium tracking-wider text-[#c9a15a] uppercase">
+                      <div className="text-[11px] font-medium tracking-wider text-[#c9a15a] uppercase">
                         NP, AGPCNP-BC · Private Suite
                       </div>
                     </div>
-                    <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[9.5px] tracking-widest text-white/90 uppercase backdrop-blur-md">
+                    <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[9.5px] tracking-widest text-white/90 uppercase backdrop-blur-md">
                       New York
                     </span>
                   </div>
