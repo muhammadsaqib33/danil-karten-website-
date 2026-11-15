@@ -423,7 +423,7 @@ export function ConsultationForm({
           aria-busy={isSubmitting}
           className="w-full sm:w-auto"
         >
-          {isSubmitting ? 'Submitting request…' : 'Request a Consultation'}
+          {isSubmitting ? 'Submitting request…' : 'Book Now'}
         </Button>
       </div>
     </form>

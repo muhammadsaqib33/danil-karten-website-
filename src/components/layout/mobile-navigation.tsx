@@ -7,12 +7,26 @@ import { Menu, Phone, X } from 'lucide-react';
 import { siteConfig } from '@/content/site';
 import { buttonClasses } from '@/components/ui/button';
 
-export function MobileNavigation() {
+interface MobileNavigationProps {
+  onOpenChange?: (isOpen: boolean) => void;
+}
+
+export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const wasOpenRef = useRef(false);
+
+  useEffect(() => {
+    onOpenChange?.(isOpen);
+  }, [isOpen, onOpenChange]);
+
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setIsOpen(false);
+  }
 
   useEffect(() => {
     if (isOpen) {

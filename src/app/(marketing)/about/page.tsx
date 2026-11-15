@@ -41,10 +41,10 @@ export default function AboutPage() {
               <h1 className="font-serif text-[clamp(2.15rem,4vw+0.85rem,3.4rem)] font-medium leading-[1.08] text-ink">
                 {providerProfile.fullName}
               </h1>
-              <p className="font-serif text-[clamp(1.25rem,2vw+0.55rem,1.7rem)] font-medium tracking-[0.04em] text-ink/90 whitespace-nowrap">
+              <p className="font-serif text-[clamp(1.25rem,2vw+0.55rem,1.7rem)] font-medium tracking-[0.04em] text-brand">
                 {providerProfile.credentials}
               </p>
-              <p className="text-sm font-medium tracking-[0.06em] text-brand">
+              <p className="text-sm font-medium tracking-[0.06em] text-muted">
                 {providerProfile.roleLabel} · {siteConfig.publicLocation}
               </p>
               <p className="max-w-2xl text-base leading-relaxed text-ink/90 sm:text-lg">
@@ -179,8 +179,8 @@ export default function AboutPage() {
       </section>
 
       <ConsultationCta
-        heading="Schedule a consultation with Danielle"
-        body="Request a consultation online or call the practice directly to discuss your aesthetic goals."
+        heading="Book a consultation with Danielle"
+        body="Schedule your consultation online or call the practice directly to discuss your aesthetic goals."
       />
     </>
   );

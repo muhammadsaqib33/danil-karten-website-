@@ -274,7 +274,7 @@ export const approvedHeroImage: ApprovedImage | undefined = undefined;
 /** Temporary editorial hero image used only when CONTENT_MODE=preview. */
 export const previewHeroImage: ApprovedImage = {
   src: '/images/hero/hero-editorial.jpg',
-  alt: 'Serene editorial skincare portrait in soft natural daylight representing individualized aesthetic care',
+  alt: 'Editorial portrait representing thoughtful, individualized aesthetic care',
   width: 1200,
   height: 896,
   objectPosition: '50% 25%',

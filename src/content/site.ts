@@ -63,15 +63,15 @@ export const siteConfig = {
     { label: 'Contact', href: '/contact' },
   ] satisfies NavLink[],
   primaryCta: {
-    label: 'Request a Consultation',
+    label: 'Book Now',
     href: '/contact#consultation-form',
   },
   headerCta: {
-    label: 'Request a Consultation',
+    label: 'Book Now',
     href: '/contact#consultation-form',
   },
   secondaryCta: {
-    label: 'View Treatments',
+    label: 'Explore Treatments',
     href: '/treatments',
   },
   metadata: {
@@ -84,7 +84,7 @@ export const siteConfig = {
 
 export const homeContent = {
   hero: {
-    eyebrow: 'New York, NY · Nurse Practitioner–Led Care',
+    eyebrow: 'Nurse Practitioner–Led Care · New York',
     heading: 'Thoughtful care. A more confident you.',
     supportingCopy:
       'Explore personalized aesthetic care with Danielle Karten, NP, AGPCNP-BC, in New York.',

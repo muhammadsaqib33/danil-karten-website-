@@ -42,7 +42,7 @@ export function FaqSection() {
                 href={siteConfig.primaryCta.href}
                 className="font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:text-brand-hover"
               >
-                request a consultation
+                book online
               </Link>
               .
             </p>
