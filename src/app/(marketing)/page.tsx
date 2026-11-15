@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/hero';
-import { PracticeIntroStrip } from '@/components/sections/practice-intro-strip';
 import { FeaturedTreatments } from '@/components/sections/featured-treatments';
 import { ProviderIntro } from '@/components/sections/provider-intro';
 import { ResultsGallery } from '@/components/sections/results-gallery';
@@ -60,7 +59,6 @@ export default function HomePage() {
         }}
       />
       <Hero isPreviewMode={isPreview} />
-      <PracticeIntroStrip />
       <FeaturedTreatments
         treatments={featuredTreatments}
         isPreviewMode={isPreview}

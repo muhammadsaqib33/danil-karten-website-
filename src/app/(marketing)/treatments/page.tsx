@@ -55,14 +55,6 @@ export default async function TreatmentsPage({
         <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <span>Treatments</span>
-          </div>
-
-          <span className="kicker">
-            Aesthetic Services Menu · New York
-          </span>
-
           <h1>
             Consultation-first. Natural <em>refinement.</em>
           </h1>
@@ -87,14 +79,22 @@ export default async function TreatmentsPage({
               Call {siteConfig.phoneDisplay}
             </a>
           </div>
-
-          <p className="loc-note">
-            In-person evaluations in New York, NY · Private Appointment Suite
-          </p>
         </div>
       </header>
 
-      <section className="py-16 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8">
+      <section className="py-14 sm:py-20 max-w-[1280px] mx-auto px-5 sm:px-8">
+        <div className="mb-10 text-center max-w-2xl mx-auto">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#d4788f]">
+            Clinical Services
+          </span>
+          <h2 className="mt-3 font-serif text-3xl font-normal text-[#1b191f] sm:text-4xl">
+            Aesthetic Care Menu
+          </h2>
+          <p className="mt-3 text-sm font-light text-[#544c50] leading-relaxed">
+            All appointments are conducted personally by Danielle Karten, NP, AGPCNP-BC following a comprehensive assessment.
+          </p>
+        </div>
+
         {treatments.length > 0 ? (
           <TreatmentGrid treatments={treatments} isPreviewMode={isPreview} />
         ) : (

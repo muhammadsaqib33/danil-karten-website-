@@ -25,7 +25,7 @@ export function VisitSteps() {
             className="flex flex-col rounded-xl border border-[#eadfd8] bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#c9a15a]/50 hover:shadow-lg"
           >
             <div className="flex items-center justify-between">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,161,90,0.35)] bg-[#faf4ee] font-serif text-lg font-light text-[#c9a15a]">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,161,90,0.35)] bg-[#faf4ee] font-serif text-lg font-medium text-[#966d24]">
                 {step.stepNumber}
               </span>
               <span
@@ -33,10 +33,10 @@ export function VisitSteps() {
                 className="ml-4 h-px flex-1 bg-[#eadfd8]"
               />
             </div>
-            <h3 className="mt-5 font-serif text-xl font-medium leading-snug text-[#2e2c31]">
+            <h3 className="mt-5 font-serif text-xl font-medium leading-snug text-[#1b191f]">
               {step.title}
             </h3>
-            <p className="mt-2.5 text-[14px] font-light leading-relaxed text-[#6a6266]">
+            <p className="mt-2.5 text-[14px] font-normal leading-relaxed text-[#403a3d]">
               {step.description}
             </p>
           </li>

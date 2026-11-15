@@ -38,7 +38,7 @@ export function FeaturedTreatments({
 
         <Link
           href="/treatments"
-          className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c9a15a] underline decoration-[#c9a15a]/40 underline-offset-4 transition-colors hover:text-[#b88d44] hover:decoration-[#c9a15a]"
+          className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#966d24] underline decoration-[#966d24]/40 underline-offset-4 transition-colors hover:text-[#785416] hover:decoration-[#785416]"
         >
           <span>View Treatment Menu</span>
           <span aria-hidden="true">→</span>

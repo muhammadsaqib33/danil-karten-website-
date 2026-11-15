@@ -47,7 +47,7 @@ export function TreatmentCard({
             {treatment.category}
           </span>
 
-          <h3 className="font-serif text-[1.65rem] font-medium leading-snug text-[#2e2c31] transition-colors group-hover:text-[#b88d44]">
+          <h3 className="font-serif text-[1.65rem] font-medium leading-snug text-[#1b191f] transition-colors group-hover:text-[#966d24]">
             <Link
               href={href}
               className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c9a15a]"
@@ -56,12 +56,12 @@ export function TreatmentCard({
             </Link>
           </h3>
 
-          <p className="text-[14.5px] font-light leading-relaxed text-[#6a6266]">
+          <p className="text-[14.5px] font-normal leading-relaxed text-[#403a3d]">
             {treatment.shortDescription}
           </p>
 
           {treatment.relatedOptions && treatment.relatedOptions.length > 0 ? (
-            <p className="text-xs font-light text-[#8d8289]">
+            <p className="text-xs font-medium text-[#6a6266]">
               Formulations: {treatment.relatedOptions.join(' · ')}
             </p>
           ) : null}
@@ -70,7 +70,7 @@ export function TreatmentCard({
         <div className="mt-6 border-t border-[#eadfd8]/70 pt-4">
           <Link
             href={href}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c9a15a] transition-all group-hover:text-[#b88d44]"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#966d24] transition-all group-hover:text-[#785416]"
           >
             <span>Learn more</span>
             <span

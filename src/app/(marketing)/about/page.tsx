@@ -47,14 +47,6 @@ export default function AboutPage() {
         <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <span>About Danielle Karten</span>
-          </div>
-
-          <span className="kicker">
-            Clinical Leadership · New York
-          </span>
-
           <h1>
             Danielle Karten.{' '}
             <span className="inline-block whitespace-nowrap">
@@ -82,10 +74,6 @@ export default function AboutPage() {
               Explore Treatments
             </Link>
           </div>
-
-          <p className="loc-note">
-            Practicing in {siteConfig.publicLocation} · Consultations by Appointment
-          </p>
         </div>
       </header>
 

@@ -49,14 +49,6 @@ export default function GalleryPage() {
         <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <span>Visual Gallery</span>
-          </div>
-
-          <span className="kicker">
-            Visual Gallery · Clinical Care
-          </span>
-
           <h1>
             Clinical precision. Authentic <em>results.</em>
           </h1>
@@ -80,10 +72,6 @@ export default function GalleryPage() {
               View Treatment Menu
             </Link>
           </div>
-
-          <p className="loc-note">
-            Appointments scheduled in New York, NY · Private Consultation Suite
-          </p>
         </div>
       </header>
 

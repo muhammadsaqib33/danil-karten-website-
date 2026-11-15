@@ -34,15 +34,15 @@ export function Accordion({ items, idPrefix = 'faq' }: AccordionProps) {
               className="group flex min-h-[64px] w-full items-center justify-between gap-4 py-6 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a]"
             >
               <span className={`font-serif text-[1.28rem] font-medium leading-snug transition-colors sm:text-[1.38rem] ${
-                isOpen ? 'text-[#c9a15a]' : 'text-[#2e2c31] group-hover:text-[#c9a15a]'
+                isOpen ? 'text-[#966d24]' : 'text-[#1b191f] group-hover:text-[#966d24]'
               }`}>
                 {item.question}
               </span>
               <span
                 className={`font-sans font-light text-2xl transition-transform duration-350 shrink-0 ${
                   isOpen
-                    ? 'rotate-45 text-[#d4788f]'
-                    : 'text-[#d4788f] group-hover:text-[#c9a15a]'
+                    ? 'rotate-45 text-[#c45f78]'
+                    : 'text-[#c45f78] group-hover:text-[#966d24]'
                 }`}
                 aria-hidden="true"
               >
@@ -58,7 +58,7 @@ export function Accordion({ items, idPrefix = 'faq' }: AccordionProps) {
               }`}
             >
               <div className="overflow-hidden">
-                <div className="pb-6 pr-6 text-[15px] font-light leading-[1.85] text-[#6a6266]">
+                <div className="pb-6 pr-6 text-[15.5px] font-normal leading-[1.85] text-[#3e383b]">
                   {item.answer}
                 </div>
               </div>

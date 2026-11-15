@@ -30,14 +30,14 @@ export function CareApproach() {
               key={pillar.title}
               className="grid gap-3 py-7 sm:grid-cols-12 sm:items-baseline sm:gap-6 sm:py-8"
             >
-              <span className="font-serif text-3xl font-light text-[#c9a15a] sm:col-span-2">
+              <span className="font-serif text-3xl font-normal text-[#a87c2b] sm:col-span-2">
                 {pillar.number}
               </span>
               <div className="space-y-2 sm:col-span-10">
-                <h3 className="font-serif text-2xl font-medium leading-snug text-[#2e2c31]">
+                <h3 className="font-serif text-2xl font-medium leading-snug text-[#1b191f]">
                   {pillar.title}
                 </h3>
-                <p className="text-[15px] font-light leading-relaxed text-[#6a6266]">
+                <p className="text-[15px] font-normal leading-relaxed text-[#403a3d]">
                   {pillar.description}
                 </p>
               </div>

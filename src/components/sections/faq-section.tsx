@@ -16,7 +16,7 @@ export function FaqSection() {
           </span>
           <h2
             id="faq-heading"
-            className="font-serif text-[clamp(2.1rem,3.8vw,3.2rem)] font-light leading-tight text-[#2e2c31]"
+            className="font-serif text-[clamp(2.1rem,3.8vw,3.2rem)] font-light leading-tight text-[#1b191f]"
           >
             Visiting us: <em>clarity first.</em>
           </h2>
@@ -25,18 +25,18 @@ export function FaqSection() {
             consultation flow, safety protocols, and what to expect when visiting our
             private New York suite.
           </p>
-          <p className="pt-2 text-sm text-[#6a6266]">
+          <p className="pt-2 text-sm text-[#403a3d]">
             Prefer to speak directly? Call{' '}
             <a
               href={siteConfig.phoneHref}
-              className="font-medium text-[#c9a15a] underline decoration-[#c9a15a]/50 underline-offset-4 hover:text-[#b88d44]"
+              className="font-semibold text-[#966d24] underline decoration-[#966d24]/50 underline-offset-4 hover:text-[#785416]"
             >
               {siteConfig.phoneDisplay}
             </a>{' '}
             or{' '}
             <Link
               href={siteConfig.primaryCta.href}
-              className="font-medium text-[#c9a15a] underline decoration-[#c9a15a]/50 underline-offset-4 hover:text-[#b88d44]"
+              className="font-semibold text-[#966d24] underline decoration-[#966d24]/50 underline-offset-4 hover:text-[#785416]"
             >
               book online
             </Link>

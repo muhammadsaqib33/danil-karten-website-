@@ -19,8 +19,6 @@ export function TreatmentDetail({
   const imageSrc =
     displayImage?.image.src || '/images/hero/hero-editorial.jpg';
 
-  const headingTitle = treatment.cardTitle ?? treatment.displayName;
-
   return (
     <>
       {/* 1. Nurse Yara Signature .phero Hero Header */}
@@ -45,16 +43,6 @@ export function TreatmentDetail({
         <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp;{' '}
-            <Link href="/treatments">Treatments</Link> &nbsp;/&nbsp;{' '}
-            <span>{headingTitle}</span>
-          </div>
-
-          <span className="kicker">
-            {treatment.category} · Aesthetic Medicine
-          </span>
-
           <h1>
             {treatment.displayName}. <em>Natural balance.</em>
           </h1>
@@ -75,13 +63,6 @@ export function TreatmentDetail({
               All Treatments
             </Link>
           </div>
-
-          <p className="loc-note">
-            Consultations scheduled with Danielle Karten, NP in New York.{' '}
-            <Link href={siteConfig.primaryCta.href}>
-              Request an appointment
-            </Link>
-          </p>
         </div>
       </header>
 

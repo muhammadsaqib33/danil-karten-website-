@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { MapPin, Phone } from 'lucide-react';
 import { siteConfig } from '@/content/site';
 import { providerProfile } from '@/content/provider';
@@ -57,14 +56,6 @@ export default function ContactPage() {
         <div className="glow2" aria-hidden="true" />
 
         <div className="phero-inner">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <span>Contact &amp; Scheduling</span>
-          </div>
-
-          <span className="kicker">
-            Private Appointments · New York
-          </span>
-
           <h1>
             Request a consultation. Begin your <em>care.</em>
           </h1>
@@ -89,10 +80,6 @@ export default function ContactPage() {
               Call {siteConfig.phoneDisplay}
             </a>
           </div>
-
-          <p className="loc-note">
-            Private suite location provided upon confirmed appointment · New York, NY
-          </p>
         </div>
       </header>
 

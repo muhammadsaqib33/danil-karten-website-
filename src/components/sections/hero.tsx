@@ -33,16 +33,6 @@ export function Hero({ isPreviewMode }: HeroProps) {
       <div className="glow2" aria-hidden="true" />
 
       <div className="phero-inner">
-        <div className="crumb">
-          <Link href="/">Home</Link> &nbsp;/&nbsp;{' '}
-          <Link href="/treatments">Treatments</Link> &nbsp;/&nbsp;{' '}
-          <span>Facial Aesthetics</span>
-        </div>
-
-        <span className="kicker">
-          Nurse Practitioner–Led Care · New York
-        </span>
-
         <h1>
           Thoughtful care. Keep your <em>expression.</em>
         </h1>
@@ -68,13 +58,6 @@ export function Hero({ isPreviewMode }: HeroProps) {
             {siteConfig.secondaryCta.label}
           </Link>
         </div>
-
-        <p className="loc-note">
-          Private appointment practice in {siteConfig.publicLocation}.{' '}
-          <Link href={siteConfig.primaryCta.href}>
-            Schedule your consultation
-          </Link>
-        </p>
       </div>
     </header>
   );
