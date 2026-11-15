@@ -188,7 +188,7 @@ export default function GalleryPage() {
           ) : null}
         </>
       ) : (
-        <section className="py-20 max-w-[1280px] mx-auto px-5 sm:px-8 text-center">
+        <section className="site-container py-14 sm:py-18 text-center">
           <div className="max-w-xl mx-auto rounded-xl border border-[#eadfd8] bg-white p-8 sm:p-12">
             <h2 className="font-serif text-3xl font-light text-[#2e2c31]">
               Gallery photography forthcoming

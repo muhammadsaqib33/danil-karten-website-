@@ -4,7 +4,7 @@ export function VisitSteps() {
   return (
     <section
       aria-labelledby="visit-steps-heading"
-      className="py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8"
+      className="site-container py-14 sm:py-18 lg:py-20"
     >
       <div className="max-w-2xl space-y-3">
         <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">

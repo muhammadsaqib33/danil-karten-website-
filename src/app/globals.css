@@ -112,6 +112,30 @@
   top: 1rem;
 }
 
+/* Unified Site Container System for Exact Pixel-Level Alignment */
+.site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem; /* 20px */
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 2rem; /* 32px */
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 2.5rem; /* 40px */
+    padding-right: 2.5rem;
+  }
+}
+
 /* Nurse Yara Signature Full-Bleed Hero (.phero) */
 .phero {
   min-height: 100vh;
@@ -121,14 +145,14 @@
   background-color: var(--char-deep);
   display: flex;
   align-items: center;
-  padding: 130px 24px 80px;
+  padding: 110px 0 45px;
 }
 
 @media (min-width: 640px) {
   .phero {
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 140px 36px 90px;
+    padding: 115px 0 50px;
   }
 }
 
@@ -136,7 +160,7 @@
   .phero {
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 150px 48px 100px;
+    padding: 120px 0 55px;
   }
 }
 
@@ -180,9 +204,26 @@
 .phero-inner {
   position: relative;
   z-index: 2;
-  max-width: 1280px;
-  margin: 0 auto;
   width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .phero-inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .phero-inner {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .phero-glass-card {
@@ -213,18 +254,18 @@
 .phero-about {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 105px 24px 35px;
+  padding: 95px 0 35px;
 }
 
 @media (min-width: 640px) {
   .phero-about {
-    padding: 115px 36px 45px;
+    padding: 105px 0 35px;
   }
 }
 
 @media (min-width: 1024px) {
   .phero-about {
-    padding: 120px 48px 50px;
+    padding: 110px 0 40px;
   }
 }
 
@@ -265,18 +306,18 @@
 .phero-gallery {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 95px 24px 30px;
+  padding: 95px 0 35px;
 }
 
 @media (min-width: 640px) {
   .phero-gallery {
-    padding: 105px 36px 35px;
+    padding: 105px 0 35px;
   }
 }
 
 @media (min-width: 1024px) {
   .phero-gallery {
-    padding: 110px 48px 40px;
+    padding: 110px 0 40px;
   }
 }
 
@@ -312,18 +353,18 @@
 .phero-treatments {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 95px 24px 30px;
+  padding: 95px 0 35px;
 }
 
 @media (min-width: 640px) {
   .phero-treatments {
-    padding: 105px 36px 35px;
+    padding: 105px 0 35px;
   }
 }
 
 @media (min-width: 1024px) {
   .phero-treatments {
-    padding: 110px 48px 40px;
+    padding: 110px 0 40px;
   }
 }
 
@@ -351,6 +392,53 @@
 }
 
 .phero-treatments-card:hover {
+  border-color: rgba(201, 161, 90, 0.55);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 35px rgba(201, 161, 90, 0.18);
+  transform: translateY(-2px);
+}
+
+.phero-contact {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 95px 0 35px;
+}
+
+@media (min-width: 640px) {
+  .phero-contact {
+    padding: 105px 0 35px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .phero-contact {
+    padding: 110px 0 40px;
+  }
+}
+
+.phero-contact-card {
+  position: relative;
+  background: rgba(27, 25, 31, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 161, 90, 0.35);
+  border-radius: 18px;
+  padding: 18px 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: rise 0.8s 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .phero-contact-card {
+    max-width: 430px;
+    margin: 0 0 0 auto;
+    padding: 20px 20px;
+  }
+}
+
+.phero-contact-card:hover {
   border-color: rgba(201, 161, 90, 0.55);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 35px rgba(201, 161, 90, 0.18);
   transform: translateY(-2px);

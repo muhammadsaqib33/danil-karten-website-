@@ -14,11 +14,11 @@ export function ConsultationCta({
   return (
     <section
       aria-labelledby="consultation-cta-heading"
-      className="nurse-yara-band py-20 sm:py-28 text-center text-white"
+      className="nurse-yara-band py-16 sm:py-20 text-center text-white"
     >
       <div className="orb" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto max-w-[1240px] px-5 sm:px-8">
+      <div className="site-container relative z-10">
         <span className="block text-[11px] font-semibold uppercase tracking-[0.45em] text-[#e3c894] mb-4">
           Personalized Aesthetic Consultations
         </span>

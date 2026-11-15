@@ -12,9 +12,9 @@ export function TestimonialsSection() {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="bg-surface/65 py-16 sm:py-20 lg:py-24"
+      className="bg-surface/65 py-14 sm:py-18 lg:py-20"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="site-container">
         <div className="max-w-2xl space-y-3">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
             Client Perspectives

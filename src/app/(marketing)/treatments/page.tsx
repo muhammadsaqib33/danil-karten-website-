@@ -164,7 +164,7 @@ export default async function TreatmentsPage({
       </header>
 
       {/* 2. Aesthetic Services Grid */}
-      <section id="services-menu" className="py-14 sm:py-20 max-w-[1280px] mx-auto px-5 sm:px-8">
+      <section id="services-menu" className="site-container py-14 sm:py-18">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#d4788f]">
             Clinical Services

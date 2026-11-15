@@ -16,7 +16,7 @@ export function FeaturedTreatments({
   return (
     <section
       aria-labelledby="featured-treatments-heading"
-      className="py-16 sm:py-24 lg:py-28 max-w-[1280px] mx-auto px-5 sm:px-8"
+      className="site-container py-14 sm:py-18 lg:py-20"
     >
       <div className="flex flex-col justify-between gap-6 border-b border-[#eadfd8] pb-8 sm:flex-row sm:items-end">
         <div className="space-y-3">

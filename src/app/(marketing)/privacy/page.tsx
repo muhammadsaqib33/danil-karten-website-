@@ -11,18 +11,24 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="bg-canvas py-14 sm:py-20">
-      <div className="mx-auto max-w-3xl space-y-8 px-5 sm:px-8">
-        <div className="space-y-4 border-b border-border pb-8">
-          <h1 className="font-serif text-[clamp(2.1rem,3.6vw+0.85rem,3rem)] font-medium leading-[1.15] text-ink">
+    <>
+      <div className="bg-[#1b191f] pt-28 pb-12 text-white">
+        <div className="site-container">
+          <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-3">
+            Legal &amp; Transparency
+          </span>
+          <h1 className="font-serif text-[clamp(2.1rem,3.6vw+0.85rem,3rem)] font-light leading-[1.15] text-white">
             Privacy Policy
           </h1>
-          <p className="text-sm text-muted">
+          <p className="mt-2 text-sm text-[#c8bcc2]">
             {siteConfig.legalBusinessName} · {siteConfig.publicLocation}
           </p>
         </div>
+      </div>
 
-        <div className="space-y-6 text-sm leading-relaxed text-ink/90 sm:text-base">
+      <section className="bg-canvas py-12 sm:py-16">
+        <div className="site-container max-w-3xl space-y-8">
+          <div className="space-y-6 text-sm leading-relaxed text-ink/90 sm:text-base">
           <section className="space-y-2">
             <h2 className="font-serif text-2xl font-medium text-ink">
               1. Scope of This Policy
@@ -101,5 +107,6 @@ export default function PrivacyPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }

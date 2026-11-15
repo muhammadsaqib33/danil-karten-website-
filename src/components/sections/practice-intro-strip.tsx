@@ -6,9 +6,9 @@ export function PracticeIntroStrip() {
   return (
     <section
       aria-label="Practice standards"
-      className="border-b border-[#eadfd8] bg-[#faf4ee] py-12 sm:py-16 text-center"
+      className="border-b border-[#eadfd8] bg-[#faf4ee] py-10 sm:py-12 text-center"
     >
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+      <div className="site-container">
         <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-6">
           Private Clinical Practice · New York
         </span>

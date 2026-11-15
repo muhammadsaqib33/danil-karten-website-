@@ -14,9 +14,9 @@ export function ProviderIntro({ isPreviewMode }: ProviderIntroProps) {
   return (
     <section
       aria-labelledby="provider-intro-heading"
-      className="border-y border-[#eadfd8] bg-[#f3e9e2]/55 py-18 sm:py-24 lg:py-28"
+      className="border-y border-[#eadfd8] bg-[#f3e9e2]/55 py-14 sm:py-18 lg:py-20"
     >
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+      <div className="site-container">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="space-y-6 lg:col-span-7">
             <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">

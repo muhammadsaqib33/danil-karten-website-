@@ -40,9 +40,10 @@ export function ImageGallery({
   return (
     <section
       aria-labelledby="practice-gallery-heading"
-      className="border-y border-[#eadfd8] bg-[#f3e9e2]/45 py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8"
+      className="border-y border-[#eadfd8] bg-[#f3e9e2]/45 py-14 sm:py-18 lg:py-20"
     >
-      <div className="flex flex-col justify-between gap-6 border-b border-[#eadfd8] pb-8 sm:flex-row sm:items-end">
+      <div className="site-container">
+        <div className="flex flex-col justify-between gap-6 border-b border-[#eadfd8] pb-8 sm:flex-row sm:items-end">
         <div className="space-y-3">
           <span className="kicker-pink">
             Practice &amp; Atmosphere
@@ -144,10 +145,11 @@ export function ImageGallery({
         ))}
       </div>
 
-      <GalleryLightbox
-        target={lightboxTarget}
-        onClose={() => setLightboxTarget(null)}
-      />
+        <GalleryLightbox
+          target={lightboxTarget}
+          onClose={() => setLightboxTarget(null)}
+        />
+      </div>
     </section>
   );
 }

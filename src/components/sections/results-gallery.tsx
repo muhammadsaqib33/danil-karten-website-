@@ -51,9 +51,9 @@ export function ResultsGallery({
     <section
       id="results"
       aria-labelledby="before-after-heading"
-      className="bg-canvas py-14 sm:py-18 lg:py-22"
+      className="bg-canvas py-14 sm:py-18 lg:py-20"
     >
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+      <div className="site-container">
         <div className="flex flex-col justify-between gap-4 border-b border-border pb-6 sm:flex-row sm:items-end">
           <div className="space-y-2.5">
             <div className="inline-flex items-center gap-3">

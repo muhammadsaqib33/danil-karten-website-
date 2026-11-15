@@ -7,8 +7,8 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#eadfd8]/20 bg-[#1b191f] pb-24 pt-16 text-[#8d8289] md:pb-16 lg:pt-20">
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+    <footer className="border-t border-[#eadfd8]/20 bg-[#1b191f] pb-20 pt-14 text-[#8d8289] md:pb-16 lg:pt-16">
+      <div className="site-container">
         <div className="grid gap-10 md:grid-cols-12 md:items-start">
           <div className="space-y-4 md:col-span-5">
             <div>

@@ -7,7 +7,7 @@ export function FaqSection() {
   return (
     <section
       aria-labelledby="faq-heading"
-      className="py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8"
+      className="site-container py-14 sm:py-18 lg:py-20"
     >
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="space-y-4 lg:col-span-4">

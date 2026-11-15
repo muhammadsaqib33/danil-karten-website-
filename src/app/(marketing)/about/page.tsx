@@ -146,8 +146,8 @@ export default function AboutPage() {
       </header>
 
       {/* 2. Care Philosophy + 3 Core Principles */}
-      <section className="border-t border-[#eadfd8] bg-[#f3e9e2]/55 py-18 sm:py-24">
-        <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+      <section className="border-t border-[#eadfd8] bg-[#f3e9e2]/55 py-14 sm:py-18 lg:py-20">
+        <div className="site-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="space-y-4 lg:col-span-5">
               <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">

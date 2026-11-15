@@ -11,7 +11,7 @@ export function SiteHeader() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 bg-transparent border-b border-transparent py-4 sm:py-5 text-white">
-      <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
+      <div className="site-container flex items-center justify-between gap-4">
         <Link
           href="/"
           onClick={(e) => (e.currentTarget as HTMLElement).blur()}

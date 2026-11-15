@@ -65,7 +65,7 @@ export function TreatmentDetail({
       </header>
 
       {/* 2. Overview & Split Image Section */}
-      <section className="py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8">
+      <section className="site-container py-14 sm:py-18 lg:py-20">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="space-y-6 lg:col-span-7">
             <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
@@ -112,8 +112,8 @@ export function TreatmentDetail({
       </section>
 
       {/* 3 & 4. Goals & Suitability Split */}
-      <section className="border-y border-[#eadfd8] bg-[#f3e9e2]/45 py-18 sm:py-24">
-        <div className="mx-auto max-w-[1240px] px-5 sm:px-8 grid gap-8 md:grid-cols-2">
+      <section className="border-y border-[#eadfd8] bg-[#f3e9e2]/45 py-14 sm:py-18 lg:py-20">
+        <div className="site-container grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-[#eadfd8] bg-white p-7 sm:p-9 shadow-xs">
             <span className="block text-[10.5px] font-semibold uppercase tracking-[0.2em] text-[#d4788f] mb-2">
               Consultation Focus
@@ -148,7 +148,7 @@ export function TreatmentDetail({
       </section>
 
       {/* 5 & 6. What to Expect & Recovery */}
-      <section className="py-18 sm:py-24 max-w-[1280px] mx-auto px-5 sm:px-8">
+      <section className="site-container py-14 sm:py-18 lg:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:gap-16">
           <div>
             <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-2">
@@ -182,7 +182,7 @@ export function TreatmentDetail({
 
       {/* 7. FAQs */}
       {treatment.faqs.length > 0 ? (
-        <section className="border-t border-[#eadfd8] py-18 sm:py-24 max-w-[860px] mx-auto px-5 sm:px-8">
+        <section className="border-t border-[#eadfd8] py-14 sm:py-18 max-w-[860px] mx-auto px-5 sm:px-8">
           <div className="text-center mb-10">
             <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-2">
               Questions &amp; Answers
