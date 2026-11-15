@@ -225,7 +225,7 @@ export function ConsultationForm({
       onSubmit={handleSubmit}
       noValidate
       aria-describedby="consultation-medical-notice"
-      className="space-y-6 rounded-lg border border-border bg-surface-card p-6 sm:p-8"
+      className="space-y-6 rounded-2xl border border-border bg-surface-card p-6 sm:p-8 shadow-xs"
     >
       <div
         id="consultation-medical-notice"

@@ -34,12 +34,13 @@ export default async function TreatmentsPage({
 
   return (
     <>
-      <section className="border-b border-border bg-canvas py-12 sm:py-16 lg:py-20">
+      <section className="border-b border-border/80 bg-canvas py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div
-              className={`space-y-5 ${bannerImage ? 'lg:col-span-6' : 'max-w-3xl lg:col-span-12'
-                }`}
+              className={`space-y-5 ${
+                bannerImage ? 'lg:col-span-6' : 'max-w-3xl lg:col-span-12'
+              }`}
             >
               <div className="inline-flex items-center gap-3">
                 <span aria-hidden="true" className="h-px w-7 bg-champagne" />
@@ -47,12 +48,12 @@ export default async function TreatmentsPage({
                   Treatments Menu
                 </p>
               </div>
-              <h1 className="font-serif text-[clamp(2.2rem,4vw+0.85rem,3.45rem)] font-medium leading-[1.1] text-ink">
+              <h1 className="font-serif text-[clamp(2.2rem,4vw+0.85rem,3.45rem)] font-light leading-[1.08] text-ink">
                 Consultation-first aesthetic care
               </h1>
-              <p className="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="max-w-xl text-base leading-relaxed text-muted sm:text-[17px]">
                 Every treatment begins with an unhurried clinical assessment with
-                Danielle Karten, NP, AGPCNP-BC to review your goals, suitability,
+                Danielle Karten, NP, AGPCNP-BC to review your goals, facial anatomy,
                 and individualized options.
               </p>
 
@@ -75,35 +76,46 @@ export default async function TreatmentsPage({
 
             {bannerImage ? (
               <div className="lg:col-span-6">
-                <figure className="overflow-hidden rounded-lg border border-border bg-surface-card shadow-sm">
-                  <Image
-                    src={bannerImage.image.src}
-                    alt={bannerImage.image.alt}
-                    width={bannerImage.image.width}
-                    height={bannerImage.image.height}
-                    priority
-                    sizes="(max-width: 1023px) 100vw, 50vw"
-                    style={{
-                      objectPosition:
-                        bannerImage.image.objectPosition ?? '50% 50%',
-                    }}
-                    className="aspect-[4/3] w-full object-cover"
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-2.5 hidden rounded-3xl border border-champagne/30 sm:block"
                   />
-                </figure>
+                  <figure className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-[0_16px_40px_-14px_rgba(28,36,33,0.12)]">
+                    <Image
+                      src={bannerImage.image.src}
+                      alt={bannerImage.image.alt}
+                      width={bannerImage.image.width}
+                      height={bannerImage.image.height}
+                      priority
+                      sizes="(max-width: 1023px) 100vw, 50vw"
+                      style={{
+                        objectPosition:
+                          bannerImage.image.objectPosition ?? '50% 50%',
+                      }}
+                      className="editorial-image-zoom aspect-[4/3] w-full object-cover"
+                    />
+                    {bannerImage.isDemo ? (
+                      <div className="absolute top-3 right-3 rounded-full border border-champagne/40 bg-black/60 px-3 py-1 text-[10px] font-medium tracking-wider text-champagne-light backdrop-blur-md">
+                        Sample Photography
+                      </div>
+                    ) : null}
+                  </figure>
+                </div>
               </div>
             ) : null}
           </div>
         </div>
       </section>
 
-      <section className="bg-surface/65 py-12 sm:py-16 lg:py-20">
+      <section className="bg-surface/60 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           {treatments.length > 0 ? (
             <TreatmentGrid treatments={treatments} isPreviewMode={isPreview} />
           ) : (
-            <div className="rounded-lg border border-border bg-surface-card p-8 sm:p-12">
+            <div className="rounded-2xl border border-border bg-surface-card p-8 sm:p-12 shadow-xs">
               <div className="max-w-2xl space-y-4">
-                <h2 className="font-serif text-3xl font-medium text-ink">
+                <h2 className="font-serif text-3xl font-light text-ink">
                   Consultations available by appointment
                 </h2>
                 <p className="text-base leading-relaxed text-muted">
@@ -112,7 +124,7 @@ export default async function TreatmentsPage({
                   online or call{' '}
                   <a
                     href={siteConfig.phoneHref}
-                    className="font-medium text-ink underline decoration-border underline-offset-4 hover:text-brand"
+                    className="font-medium text-ink underline decoration-champagne underline-offset-4 hover:text-brand"
                   >
                     {siteConfig.phoneDisplay}
                   </a>

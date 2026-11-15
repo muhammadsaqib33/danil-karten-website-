@@ -5,6 +5,8 @@ import type { Treatment } from '@/types/treatment';
 import { getTreatmentDisplayImage } from '@/content/treatments';
 import { Accordion } from '@/components/ui/accordion';
 import { ConsultationCta } from '@/components/sections/consultation-cta';
+import { buttonClasses } from '@/components/ui/button';
+import { siteConfig } from '@/content/site';
 
 interface TreatmentDetailProps {
   treatment: Treatment;
@@ -23,8 +25,8 @@ export function TreatmentDetail({
 
   return (
     <>
-      {/* 1. Introduction */}
-      <section className="border-b border-border bg-canvas py-12 sm:py-16 lg:py-20">
+      {/* 1. Introduction Header */}
+      <section className="border-b border-border/80 bg-canvas py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <Link
             href={backHref}
@@ -34,23 +36,23 @@ export function TreatmentDetail({
             <span>All treatments</span>
           </Link>
 
-          <div className="mt-6 grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="mt-6 grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div
               className={`space-y-5 ${
                 displayImage ? 'lg:col-span-6' : 'max-w-3xl lg:col-span-12'
               }`}
             >
               <div className="flex flex-wrap items-center gap-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
                   {treatment.category}
-                </p>
+                </span>
               </div>
 
-              <h1 className="font-serif text-[clamp(2.15rem,4vw+0.85rem,3.35rem)] font-medium leading-[1.1] text-ink">
+              <h1 className="font-serif text-[clamp(2.2rem,4vw+0.85rem,3.4rem)] font-light leading-[1.08] text-ink">
                 {headingTitle}
               </h1>
 
-              <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="max-w-2xl text-base leading-relaxed text-ink/85 sm:text-[17px]">
                 {treatment.shortDescription}
               </p>
 
@@ -59,29 +61,49 @@ export function TreatmentDetail({
                 <p className="text-sm text-muted">
                   Related options discussed in consultation:{' '}
                   <span className="font-medium text-ink">
-                    {treatment.relatedOptions.join(', ')}
+                    {treatment.relatedOptions.join(' · ')}
                   </span>
                 </p>
               ) : null}
+
+              <div className="pt-2">
+                <Link
+                  href={siteConfig.primaryCta.href}
+                  className={buttonClasses({ variant: 'primary', size: 'lg' })}
+                >
+                  {siteConfig.primaryCta.label}
+                </Link>
+              </div>
             </div>
 
             {displayImage ? (
               <div className="lg:col-span-6">
-                <figure className="overflow-hidden rounded-lg border border-border bg-surface-card shadow-sm">
-                  <Image
-                    src={displayImage.image.src}
-                    alt={displayImage.image.alt}
-                    width={displayImage.image.width}
-                    height={displayImage.image.height}
-                    priority
-                    sizes="(max-width: 1023px) 100vw, 50vw"
-                    style={{
-                      objectPosition:
-                        displayImage.image.objectPosition ?? '50% 35%',
-                    }}
-                    className="aspect-[4/3] w-full object-cover"
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-2.5 hidden rounded-3xl border border-champagne/30 sm:block"
                   />
-                </figure>
+                  <figure className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-[0_16px_40px_-14px_rgba(28,36,33,0.12)]">
+                    <Image
+                      src={displayImage.image.src}
+                      alt={displayImage.image.alt}
+                      width={displayImage.image.width}
+                      height={displayImage.image.height}
+                      priority
+                      sizes="(max-width: 1023px) 100vw, 50vw"
+                      style={{
+                        objectPosition:
+                          displayImage.image.objectPosition ?? '50% 35%',
+                      }}
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                    {displayImage.isDemo ? (
+                      <div className="absolute top-3 right-3 rounded-full border border-champagne/40 bg-black/60 px-3 py-1 text-[10px] font-medium tracking-wider text-champagne-light backdrop-blur-md">
+                        Sample Photography
+                      </div>
+                    ) : null}
+                  </figure>
+                </div>
               </div>
             ) : null}
           </div>
@@ -92,10 +114,10 @@ export function TreatmentDetail({
       <section className="bg-surface-card py-12 sm:py-16">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-serif text-3xl font-medium text-ink">
+            <h2 className="font-serif text-3xl font-light text-ink">
               Treatment overview
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-ink/90 sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-ink/85 sm:text-[17px]">
               {treatment.fullIntroduction}
             </p>
           </div>
@@ -103,9 +125,9 @@ export function TreatmentDetail({
       </section>
 
       {/* 3 & 4. Goals Discussed & Suitability Assessment */}
-      <section className="bg-rose-soft py-12 sm:py-16">
+      <section className="border-y border-border/80 bg-surface/60 py-12 sm:py-16">
         <div className="mx-auto grid max-w-[1240px] gap-8 px-5 sm:px-8 md:grid-cols-2">
-          <div className="rounded-lg border border-rose-border bg-surface-card p-6 sm:p-8">
+          <div className="rounded-2xl border border-border bg-surface-card p-6 sm:p-8 shadow-xs">
             <h2 className="font-serif text-2xl font-medium text-ink">
               Goals discussed during consultation
             </h2>
@@ -122,7 +144,7 @@ export function TreatmentDetail({
             </ul>
           </div>
 
-          <div className="rounded-lg border border-rose-border bg-surface-card p-6 sm:p-8">
+          <div className="rounded-2xl border border-border bg-surface-card p-6 sm:p-8 shadow-xs">
             <h2 className="font-serif text-2xl font-medium text-ink">
               Suitability assessment
             </h2>
@@ -190,9 +212,9 @@ export function TreatmentDetail({
       </section>
 
       {/* 7. Risks and Limitations */}
-      <section className="bg-canvas py-12 sm:py-16">
+      <section className="border-t border-border/80 bg-canvas py-12 sm:py-16">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-          <div className="rounded-lg border border-border bg-surface-card p-6 sm:p-8">
+          <div className="rounded-2xl border border-border bg-surface-card p-6 sm:p-8 shadow-xs">
             <h2 className="font-serif text-2xl font-medium text-ink sm:text-3xl">
               Risks and limitations
             </h2>
@@ -207,7 +229,7 @@ export function TreatmentDetail({
                 </li>
               ))}
             </ul>
-            <p className="mt-5 border-t border-border pt-4 text-xs leading-relaxed text-muted">
+            <p className="mt-5 border-t border-border/70 pt-4 text-xs leading-relaxed text-muted">
               Individual outcomes vary. Treatment decisions, suitability, and
               expected limitations are evaluated in person with Danielle Karten,
               NP, AGPCNP-BC.
@@ -218,9 +240,9 @@ export function TreatmentDetail({
 
       {/* 8. FAQs */}
       {treatment.faqs.length > 0 ? (
-        <section className="bg-surface-card py-12 sm:py-16">
+        <section className="border-t border-border/80 bg-surface/50 py-12 sm:py-16">
           <div className="mx-auto max-w-4xl px-5 sm:px-8">
-            <h2 className="mb-6 font-serif text-2xl font-medium text-ink sm:text-3xl">
+            <h2 className="mb-6 font-serif text-2xl font-light text-ink sm:text-3xl">
               Frequently asked questions
             </h2>
             <Accordion

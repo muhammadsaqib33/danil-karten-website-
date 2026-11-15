@@ -9,9 +9,13 @@ import { buttonClasses } from '@/components/ui/button';
 
 interface MobileNavigationProps {
   onOpenChange?: (isOpen: boolean) => void;
+  isTransparent?: boolean;
 }
 
-export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
+export function MobileNavigation({
+  onOpenChange,
+  isTransparent = false,
+}: MobileNavigationProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -71,7 +75,11 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
         aria-controls="mobile-nav-drawer"
         aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-surface-card text-ink transition-colors hover:border-brand/50"
+        className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 ${
+          isTransparent && !isOpen
+            ? 'border-white/30 bg-black/25 text-white backdrop-blur-md hover:bg-black/40'
+            : 'border-border bg-surface-card text-ink hover:border-brand/50'
+        }`}
       >
         {isOpen ? (
           <X className="h-5 w-5" aria-hidden="true" />
@@ -85,16 +93,16 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
           <div
             aria-hidden="true"
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-emerald-deep/40 backdrop-blur-[2px]"
+            className="fixed inset-0 bg-emerald-deep/40 backdrop-blur-sm transition-opacity duration-300"
           />
           <nav
             id="mobile-nav-drawer"
             aria-label="Mobile navigation"
-            className="fixed inset-y-0 right-0 flex w-full max-w-xs flex-col justify-between border-l border-border bg-canvas p-6 shadow-xl"
+            className="fixed inset-y-0 right-0 flex w-full max-w-xs flex-col justify-between border-l border-border bg-canvas p-6 shadow-2xl transition-transform duration-300 ease-out"
           >
             <div>
               <div className="flex items-center justify-between border-b border-border pb-4">
-                <span className="font-serif text-xl font-semibold text-ink">
+                <span className="font-serif text-xl font-medium tracking-tight text-ink">
                   {siteConfig.displayName}
                 </span>
                 <button
@@ -102,19 +110,19 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
                   type="button"
                   onClick={() => setIsOpen(false)}
                   aria-label="Close navigation menu"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-surface-card text-ink hover:bg-surface"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface-card text-ink hover:bg-surface"
                 >
                   <X className="h-5 w-5" aria-hidden="true" />
                 </button>
               </div>
 
-              <ul className="mt-6 space-y-1.5">
+              <ul className="mt-6 space-y-2">
                 <li>
                   <Link
                     href="/"
                     onClick={handleLinkClick}
                     aria-current={pathname === '/' ? 'page' : undefined}
-                    className={`flex min-h-[46px] items-center rounded-md px-3.5 text-base font-medium transition-colors ${
+                    className={`flex min-h-[46px] items-center rounded-lg px-4 text-base font-medium transition-colors ${
                       pathname === '/'
                         ? 'bg-brand/10 font-semibold text-brand'
                         : 'text-ink hover:bg-surface'
@@ -133,7 +141,7 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
                         href={item.href}
                         onClick={handleLinkClick}
                         aria-current={isActive ? 'page' : undefined}
-                        className={`flex min-h-[46px] items-center rounded-md px-3.5 text-base font-medium transition-colors ${
+                        className={`flex min-h-[46px] items-center rounded-lg px-4 text-base font-medium transition-colors ${
                           isActive
                             ? 'bg-brand/10 font-semibold text-brand'
                             : 'text-ink hover:bg-surface'
@@ -161,7 +169,7 @@ export function MobileNavigation({ onOpenChange }: MobileNavigationProps = {}) {
               </Link>
               <a
                 href={siteConfig.phoneHref}
-                className="flex min-h-[46px] items-center justify-center gap-2 rounded-md border border-border bg-surface-card px-4 py-2 text-sm font-medium text-ink hover:bg-surface"
+                className="flex min-h-[46px] items-center justify-center gap-2 rounded-full border border-border bg-surface-card px-4 py-2 text-sm font-medium text-ink hover:bg-surface"
               >
                 <Phone className="h-4 w-4 text-brand" aria-hidden="true" />
                 <span>Call {siteConfig.phoneDisplay}</span>

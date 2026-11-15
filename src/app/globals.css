@@ -1,31 +1,33 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Core Palette — Semantic Design Tokens */
+  /* Core Palette — Warm Editorial Luxury Tokens */
   --color-canvas: #FAF7F2;
   --color-ivory: #FAF7F2;
-  --color-ink: #202925;
-  --color-muted: #4F5B56;
+  --color-ink: #1C2421;
+  --color-muted: #525D57;
 
-  /* Brand Emerald Spectrum */
-  --color-brand: #1F6150;
-  --color-brand-hover: #174B3E;
-  --color-emerald-deep: #123F35;
-  --color-emerald-deep-hover: #0D3028;
+  /* Brand Emerald Spectrum (Restrained, Editorial) */
+  --color-brand: #1E5E4E;
+  --color-brand-hover: #16463A;
+  --color-emerald-deep: #11372E;
+  --color-emerald-deep-hover: #0B251F;
 
   /* Editorial Surfaces */
-  --color-surface: #F3EFE8;
+  --color-surface: #F4EFEA;
   --color-surface-card: #FFFFFF;
-  --color-rose: #EBD8D2;
-  --color-rose-soft: #F5EAE6;
-  --color-rose-border: #D9BEB6;
+  --color-rose: #EEDFD9;
+  --color-rose-soft: #F7EFEB;
+  --color-rose-border: #DFD0C9;
 
-  /* Restrained Decorative Accent (for rules, dark-surface labels, decorative markers) */
+  /* Champagne / Gold Accent (Restrained Hairlines & Markers) */
   --color-champagne: #C5A47E;
-  --color-champagne-light: #E6D2B8;
+  --color-champagne-light: #E8D8C3;
+  --color-champagne-hover: #B5926B;
 
   /* Borders & UI States */
-  --color-border: #E2DBD1;
+  --color-border: #E5DFD7;
+  --color-border-subtle: #EDE7DF;
   --color-error: #8C2F2B;
   --color-error-bg: #FDF4F3;
   --color-warning-bg: #FBF6EC;
@@ -42,6 +44,7 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     overflow-x: clip;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -65,7 +68,7 @@
     outline-offset: 2px;
   }
 
-  /* Prevent sticky header or fixed mobile CTA from obscuring anchored targets */
+  /* Prevent fixed header from obscuring anchor jumps */
   [id] {
     scroll-margin-top: 6rem;
   }
@@ -79,23 +82,45 @@
   background-color: var(--color-emerald-deep);
   color: var(--color-ivory);
   padding: 0.75rem 1.25rem;
-  border-radius: 0.375rem;
+  border-radius: 9999px;
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
+  transition: top 200ms ease;
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
-/* Subtle section & image transitions honoring reduced motion */
+/* Subtle image zoom honoring reduced motion */
 .editorial-image-zoom {
-  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .group:hover .editorial-image-zoom {
   transform: scale(1.03);
+}
+
+/* Nurse Yara style animated nav link underline */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.375rem;
+  width: 0;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: width 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline[aria-current="page"]::after {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -163,7 +163,7 @@ export function ResultsGallery({
                   onClick={() =>
                     setLightboxTarget({ kind: 'comparison', item: featured })
                   }
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-brand bg-brand px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-hover"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-brand bg-brand px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-md"
                 >
                   Open full-screen view
                 </button>

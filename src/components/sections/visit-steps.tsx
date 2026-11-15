@@ -4,7 +4,7 @@ export function VisitSteps() {
   return (
     <section
       aria-labelledby="visit-steps-heading"
-      className="bg-surface-card py-14 sm:py-18 lg:py-22"
+      className="bg-canvas py-14 sm:py-18 lg:py-22"
     >
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
         <div className="max-w-2xl space-y-3">
@@ -16,7 +16,7 @@ export function VisitSteps() {
           </div>
           <h2
             id="visit-steps-heading"
-            className="font-serif text-[clamp(1.9rem,2.8vw+0.85rem,2.75rem)] font-medium leading-tight text-ink"
+            className="font-serif text-[clamp(2rem,3.2vw+0.85rem,3rem)] font-light leading-tight text-ink"
           >
             {homeContent.visitSteps.heading}
           </h2>
@@ -26,18 +26,18 @@ export function VisitSteps() {
           {homeContent.visitSteps.steps.map((step) => (
             <li
               key={step.stepNumber}
-              className="flex flex-col rounded-lg border border-border bg-canvas p-6 transition-all duration-200 hover:border-brand/40 hover:shadow-sm sm:p-7"
+              className="flex flex-col rounded-2xl border border-border bg-surface-card p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-md sm:p-7"
             >
               <div className="flex items-center justify-between">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-champagne/55 bg-rose-soft/65 font-serif text-xl font-semibold text-brand">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-champagne/45 bg-surface font-serif text-lg font-light text-champagne">
                   {step.stepNumber}
                 </span>
                 <span
                   aria-hidden="true"
-                  className="ml-4 h-px flex-1 bg-border"
+                  className="ml-4 h-px flex-1 bg-border/80"
                 />
               </div>
-              <h3 className="mt-4 font-serif text-2xl font-medium leading-snug text-ink">
+              <h3 className="mt-5 font-serif text-2xl font-medium leading-snug text-ink">
                 {step.title}
               </h3>
               <p className="mt-2.5 text-sm leading-relaxed text-muted">

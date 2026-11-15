@@ -29,21 +29,21 @@ export default function GalleryPage() {
 
   return (
     <>
-      <section className="border-b border-champagne/25 bg-emerald-deep py-14 text-ivory sm:py-18 lg:py-22">
+      <section className="border-b border-border/80 bg-canvas py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-3">
               <span aria-hidden="true" className="h-px w-7 bg-champagne" />
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-champagne-light">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
                 Visual Gallery
               </p>
             </div>
-            <h1 className="font-serif text-[clamp(2.25rem,4vw+0.85rem,3.5rem)] font-medium leading-[1.1] text-white">
+            <h1 className="font-serif text-[clamp(2.2rem,4vw+0.85rem,3.45rem)] font-light leading-[1.08] text-ink">
               Before &amp; After and Practice Experience
             </h1>
-            <p className="text-base leading-relaxed text-ivory/85 sm:text-lg">
-              Explore clinical treatment comparisons and the calm care
-              environment of {siteConfig.displayName}.
+            <p className="text-base leading-relaxed text-muted sm:text-[17px]">
+              Explore clinical treatment comparisons and the calm, private care
+              atmosphere of {siteConfig.displayName}.
             </p>
           </div>
         </div>
@@ -62,8 +62,8 @@ export default function GalleryPage() {
       ) : (
         <section className="bg-canvas py-16 sm:py-20">
           <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-            <div className="max-w-2xl space-y-4 rounded-lg border border-border bg-surface-card p-8">
-              <h2 className="font-serif text-3xl font-medium text-ink">
+            <div className="max-w-2xl space-y-4 rounded-2xl border border-border bg-surface-card p-8">
+              <h2 className="font-serif text-3xl font-light text-ink">
                 Authorized gallery photography forthcoming
               </h2>
               <p className="text-base leading-relaxed text-muted">
@@ -88,4 +88,3 @@ export default function GalleryPage() {
     </>
   );
 }
-

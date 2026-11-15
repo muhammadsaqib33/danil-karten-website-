@@ -35,19 +35,19 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="border-b border-champagne/25 bg-emerald-deep py-14 text-ivory sm:py-18">
+      <section className="border-b border-border/80 bg-canvas py-12 sm:py-16 lg:py-18">
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-3">
               <span aria-hidden="true" className="h-px w-7 bg-champagne" />
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-champagne-light">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
                 Contact &amp; Scheduling
               </p>
             </div>
-            <h1 className="font-serif text-[clamp(2.15rem,4vw+0.85rem,3.4rem)] font-medium leading-[1.1] text-white">
+            <h1 className="font-serif text-[clamp(2.2rem,4vw+0.85rem,3.45rem)] font-light leading-[1.08] text-ink">
               Request a consultation
             </h1>
-            <p className="text-base leading-relaxed text-ivory/85 sm:text-lg">
+            <p className="text-base leading-relaxed text-muted sm:text-[17px]">
               Share your preferred contact details below to request a
               consultation with {providerProfile.displayNameWithCredentials}.
               Requests are reviewed personally to coordinate scheduling.
@@ -58,10 +58,10 @@ export default function ContactPage() {
 
       <section
         id="consultation-form"
-        className="bg-canvas py-14 sm:py-20"
+        className="bg-canvas py-12 sm:py-16 lg:py-20"
       >
         <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-          <div className="grid items-start gap-10 lg:grid-cols-12">
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <ConsultationForm
                 deliveryMode={deliveryMode}
@@ -73,7 +73,7 @@ export default function ContactPage() {
               aria-label="Practice contact details"
               className="space-y-6 lg:col-span-5"
             >
-              <div className="rounded-lg border border-border bg-surface-card p-6 sm:p-8">
+              <div className="rounded-2xl border border-border bg-surface-card p-6 sm:p-8 shadow-xs">
                 <h2 className="font-serif text-2xl font-medium text-ink">
                   Practice information
                 </h2>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     <dd className="mt-1">
                       <a
                         href={siteConfig.phoneHref}
-                        className="inline-flex min-h-[36px] items-center gap-2 font-medium text-ink underline decoration-border underline-offset-4 transition-colors hover:text-brand hover:decoration-brand"
+                        className="inline-flex min-h-[36px] items-center gap-2 font-medium text-ink underline decoration-champagne underline-offset-4 transition-colors hover:text-brand"
                       >
                         <Phone
                           className="h-4 w-4 text-brand"
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 </dl>
               </div>
 
-              <div className="rounded-lg border border-rose-border bg-rose-soft p-6 text-sm leading-relaxed text-muted">
+              <div className="rounded-2xl border border-border bg-surface/75 p-6 sm:p-7 text-sm leading-relaxed text-muted">
                 <h3 className="font-serif text-xl font-medium text-ink">
                   What happens next
                 </h3>

@@ -27,7 +27,7 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isKeyboardFocused, setIsKeyboardFocused] = useState(false);
 
-  // Adjust state during render when pathname changes (official React pattern)
+  // Synchronize on pathname change
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
@@ -40,7 +40,10 @@ export function SiteHeader() {
   const tickingRef = useRef(false);
   const suppressScrollUntilRef = useRef(0);
 
-  // 1. Reset and synchronize tracking refs whenever the route / pathname changes
+  const isHome = pathname === '/';
+  const isTransparent = isHome && !isScrolled;
+
+  // 1. Reset and synchronize tracking refs whenever the route changes
   useEffect(() => {
     accumulatedDeltaRef.current = 0;
     tickingRef.current = false;
@@ -57,13 +60,10 @@ export function SiteHeader() {
       const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
       accumulatedDeltaRef.current = 0;
-      setIsScrolled(currentY > 16);
+      setIsScrolled(currentY > 40);
     };
 
-    // Immediate sync
     syncPosition();
-
-    // Re-sync after Next.js completes DOM update and browser scroll restoration
     const r1 = requestAnimationFrame(syncPosition);
     const r2 = requestAnimationFrame(() => requestAnimationFrame(syncPosition));
     const t = setTimeout(syncPosition, 80);
@@ -84,7 +84,7 @@ export function SiteHeader() {
       suppressScrollUntilRef.current = Date.now() + 400;
       const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
-      setIsScrolled(currentY > 16);
+      setIsScrolled(currentY > 40);
     };
 
     const handleAnchorClick = (e: MouseEvent) => {
@@ -116,7 +116,7 @@ export function SiteHeader() {
       tickingRef.current = true;
 
       window.requestAnimationFrame(() => {
-        // If an element in header held focus, blur it on scroll
+        // Blur active element inside header on scroll
         if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
           if (headerRef.current?.contains(document.activeElement)) {
             document.activeElement.blur();
@@ -130,14 +130,13 @@ export function SiteHeader() {
         );
         const maxScroll = Math.max(0, docHeight - window.innerHeight);
 
-        // Clamp to prevent rubber-banding/negative bounce
+        // Clamp to avoid rubber-band overscroll
         const currentScrollY = maxScroll > 0 ? Math.min(rawScrollY, maxScroll) : rawScrollY;
         const prevScrollY = lastScrollYRef.current;
         const diff = currentScrollY - prevScrollY;
 
-        setIsScrolled(currentScrollY > 16);
+        setIsScrolled(currentScrollY > 40);
 
-        // If an anchor jump or route transition just occurred, keep visible and sync position
         if (Date.now() < suppressScrollUntilRef.current) {
           setIsVisible(true);
           accumulatedDeltaRef.current = 0;
@@ -146,7 +145,7 @@ export function SiteHeader() {
           return;
         }
 
-        // Always show near the very top of the page
+        // Always show near top
         if (currentScrollY <= 48) {
           setIsVisible(true);
           accumulatedDeltaRef.current = 0;
@@ -165,7 +164,6 @@ export function SiteHeader() {
             accumulatedDeltaRef.current + diff
           );
 
-          // Hide once past 60px and accumulated at least 8px down, or on a single swipe of >= 12px
           if (currentScrollY > 60 && (accumulatedDeltaRef.current >= 8 || diff >= 12)) {
             setIsVisible(false);
           }
@@ -179,7 +177,7 @@ export function SiteHeader() {
             accumulatedDeltaRef.current + diff
           );
 
-          // Promptly show on small upward scroll (6px) or swipe of <= -10px
+          // Promptly reveal on small upward movement (6px)
           if (accumulatedDeltaRef.current <= -6 || diff <= -10) {
             setIsVisible(true);
           }
@@ -216,15 +214,15 @@ export function SiteHeader() {
             setIsKeyboardFocused(false);
           }
         }}
-        className={`fixed inset-x-0 top-0 z-40 transition-transform duration-300 ease-in-out motion-reduce:transition-none ${
+        className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ease-in-out motion-reduce:transition-none ${
           showHeader ? 'translate-y-0' : '-translate-y-full'
         } ${
-          isScrolled
-            ? 'border-b border-b-champagne/40 bg-white/95 shadow-[0_6px_24px_-8px_rgba(18,63,53,0.12)] backdrop-blur-md'
-            : 'border-b border-b-champagne/30 bg-white/90 backdrop-blur-sm'
-        } border-t-2 border-t-emerald-deep`}
+          isTransparent
+            ? 'bg-transparent border-b border-white/10 text-white'
+            : 'border-b border-border bg-canvas/92 backdrop-blur-md shadow-[0_4px_24px_-4px_rgba(28,36,33,0.08)] text-ink'
+        }`}
       >
-        <div className="mx-auto flex h-16 w-full max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[76px] sm:gap-6 sm:px-8">
+        <div className="mx-auto flex h-16 w-full max-w-[1240px] items-center justify-between gap-4 px-5 sm:h-[76px] sm:gap-6 sm:px-8">
           <Link
             href="/"
             onClick={(e) => (e.currentTarget as HTMLElement).blur()}
@@ -240,25 +238,36 @@ export function SiteHeader() {
                 className="h-9 w-auto object-contain"
               />
             ) : (
-              <span className="flex flex-col border-l-2 border-champagne pl-2.5 sm:pl-3">
-                <span className="font-serif text-lg font-semibold tracking-tight text-ink transition-colors group-hover:text-brand sm:text-[26px] sm:leading-none">
+              <span className={`flex flex-col border-l-2 pl-2.5 transition-colors sm:pl-3 ${
+                isTransparent ? 'border-champagne-light text-white' : 'border-champagne text-ink'
+              }`}>
+                <span className={`font-serif text-lg font-medium tracking-tight transition-colors sm:text-[25px] sm:leading-none ${
+                  isTransparent ? 'text-white group-hover:text-champagne-light' : 'text-ink group-hover:text-brand'
+                }`}>
                   {siteConfig.displayName}
                 </span>
-                <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-muted sm:mt-1 sm:text-xs sm:tracking-[0.18em]">
+                <span className={`mt-0.5 text-[10px] font-medium uppercase tracking-[0.16em] sm:mt-1 sm:text-xs sm:tracking-[0.18em] ${
+                  isTransparent ? 'text-ivory/80' : 'text-muted'
+                }`}>
                   {siteConfig.publicLocation}
                 </span>
               </span>
             )}
           </Link>
 
-          <DesktopNav />
+          <DesktopNav isTransparent={isTransparent} />
 
-          <MobileNavigation onOpenChange={setIsMenuOpen} />
+          <MobileNavigation
+            onOpenChange={setIsMenuOpen}
+            isTransparent={isTransparent}
+          />
         </div>
       </header>
 
-      {/* Layout offset spacer ensures zero shift when header is fixed */}
-      <div aria-hidden="true" className="h-16 shrink-0 sm:h-[76px]" />
+      {/* Layout offset spacer: Rendered on non-home pages so headings never hide behind fixed header */}
+      {!isHome ? (
+        <div aria-hidden="true" className="h-16 shrink-0 sm:h-[76px]" />
+      ) : null}
     </>
   );
 }

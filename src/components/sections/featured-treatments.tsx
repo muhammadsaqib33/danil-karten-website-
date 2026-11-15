@@ -14,35 +14,39 @@ export function FeaturedTreatments({
   treatments,
   isPreviewMode = false,
 }: FeaturedTreatmentsProps) {
-  const featured = treatments.slice(0, 6);
+  // Curate top 3 key aesthetic treatments for the homepage editorial presentation
+  const featured = treatments.slice(0, 3);
 
   return (
     <section
       aria-labelledby="featured-treatments-heading"
-      className="bg-surface-card py-14 sm:py-18 lg:py-22"
+      className="bg-canvas py-14 sm:py-18 lg:py-22"
     >
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div className="flex flex-col justify-between gap-4 border-b border-border pb-6 sm:flex-row sm:items-end">
+        <div className="flex flex-col justify-between gap-4 border-b border-border/80 pb-6 sm:flex-row sm:items-end">
           <div className="space-y-2.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-              Treatments
-            </p>
+            <div className="inline-flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-7 bg-champagne" />
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+                Featured Treatments
+              </p>
+            </div>
             <h2
               id="featured-treatments-heading"
-              className="font-serif text-[clamp(1.9rem,2.8vw+0.85rem,2.75rem)] font-medium leading-tight text-ink"
+              className="font-serif text-[clamp(2rem,3.2vw+0.85rem,3rem)] font-light leading-tight text-ink"
             >
-              Aesthetic consultations &amp; care
+              Tailored consultations &amp; clinical care
             </h2>
             <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
               Focused, nurse practitioner–led treatments selected and tailored
-              around your individual anatomy and goals.
+              around your individual anatomy, facial expression, and goals.
             </p>
           </div>
           <Link
             href="/treatments"
             className="inline-flex min-h-[44px] shrink-0 items-center gap-2 text-sm font-medium text-brand underline decoration-brand/40 underline-offset-4 transition-colors hover:text-brand-hover hover:decoration-brand"
           >
-            <span>View Treatments</span>
+            <span>Explore all treatments</span>
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
@@ -58,7 +62,7 @@ export function FeaturedTreatments({
             ))}
           </div>
         ) : (
-          <div className="mt-10 rounded-lg border border-border bg-canvas p-6 sm:p-10">
+          <div className="mt-10 rounded-2xl border border-border bg-surface p-6 sm:p-10">
             <div className="max-w-2xl space-y-4">
               <h3 className="font-serif text-2xl font-medium text-ink">
                 Confirmed treatment menu forthcoming

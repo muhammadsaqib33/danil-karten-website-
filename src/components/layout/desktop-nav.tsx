@@ -5,7 +5,11 @@ import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/content/site';
 import { buttonClasses } from '@/components/ui/button';
 
-export function DesktopNav() {
+interface DesktopNavProps {
+  isTransparent?: boolean;
+}
+
+export function DesktopNav({ isTransparent = false }: DesktopNavProps) {
   const pathname = usePathname();
 
   return (
@@ -23,24 +27,31 @@ export function DesktopNav() {
             href={item.href}
             onClick={(e) => (e.currentTarget as HTMLElement).blur()}
             aria-current={isActive ? 'page' : undefined}
-            className={`relative inline-flex min-h-[44px] items-center text-sm tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${
-              isActive
-                ? 'font-semibold text-brand after:absolute after:inset-x-0 after:bottom-2 after:h-0.5 after:bg-brand'
-                : 'font-medium text-ink after:absolute after:inset-x-0 after:bottom-2 after:h-px after:origin-center after:scale-x-0 after:bg-brand after:transition-transform after:duration-200 hover:text-brand hover:after:scale-x-100'
+            className={`nav-link-underline inline-flex min-h-[44px] items-center text-sm font-medium tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 ${
+              isTransparent
+                ? isActive
+                  ? 'text-white font-semibold'
+                  : 'text-white/90 hover:text-white'
+                : isActive
+                  ? 'text-brand font-semibold'
+                  : 'text-ink hover:text-brand'
             }`}
           >
             {item.label}
           </Link>
         );
       })}
+
       <Link
         href={siteConfig.headerCta.href}
         onClick={(e) => (e.currentTarget as HTMLElement).blur()}
-        className={buttonClasses({ variant: 'primary', size: 'md' })}
+        className={buttonClasses({
+          variant: isTransparent ? 'inverse' : 'primary',
+          size: 'md',
+        })}
       >
         {siteConfig.headerCta.label}
       </Link>
     </nav>
   );
 }
-
