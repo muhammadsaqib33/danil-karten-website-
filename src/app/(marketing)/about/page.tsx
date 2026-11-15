@@ -27,8 +27,8 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* 1. Full-Bleed 2-Column Hero Header with Integrated Clinician Portrait */}
-      <header className="phero">
+      {/* 1. Full-Bleed 2-Column Hero Header with Integrated Clinician Portrait (Fits 100vh Viewport) */}
+      <header className="phero phero-about">
         <picture>
           <Image
             src="/images/hero/about-clinic-hero.jpg"
@@ -45,33 +45,22 @@ export default function AboutPage() {
         <div className="phero-grade" aria-hidden="true" />
 
         <div className="phero-inner">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
             {/* Left Column: Clinician Credentials & Philosophy */}
             <div className="lg:col-span-7 xl:col-span-7">
-              <span className="mb-3 block text-[11px] font-semibold uppercase tracking-[0.35em] text-[#e0a9b6]">
-                Clinical Leadership · New York
-              </span>
-
-              <h1>
+              <h1 className="mt-0 mb-3 text-[clamp(2.1rem,3.6vw,3.2rem)] leading-[1.1]">
                 Danielle Karten.{' '}
                 <span className="inline-block whitespace-nowrap">
                   <em>NP, AGPCNP-BC</em>
                 </span>
               </h1>
 
-              <p className="mt-3 mb-4 font-serif text-[clamp(1.35rem,2.2vw,1.85rem)] font-light leading-snug text-[#f3ece6] italic">
-                A measured approach to{' '}
-                <span className="not-italic text-[#c9a15a]">
-                  natural refinement.
-                </span>
-              </p>
-
-              <p className="text-[clamp(0.95rem,1.2vw,1.04rem)] font-light leading-relaxed text-[#dfdad5]">
+              <p className="mt-2 mb-5 max-w-xl text-[clamp(0.92rem,1.15vw,1.02rem)] font-light leading-relaxed text-[#dfdad5]">
                 {providerProfile.shortIntro}
               </p>
 
-              <ul className="mt-6 mb-8 max-w-xl space-y-3 text-[14px] text-[#dfdad5]">
-                <li className="flex items-start gap-3">
+              <ul className="mb-6 max-w-xl space-y-2.5 text-[13.5px] text-[#dfdad5]">
+                <li className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a15a]" />
                   <div>
                     <strong className="font-medium text-white">
@@ -81,7 +70,7 @@ export default function AboutPage() {
                     clinical training and patient-centered assessment expertise.
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a15a]" />
                   <div>
                     <strong className="font-medium text-white">
@@ -91,7 +80,7 @@ export default function AboutPage() {
                     and subtle enhancement rather than overt transformation.
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a15a]" />
                   <div>
                     <strong className="font-medium text-white">
@@ -103,7 +92,7 @@ export default function AboutPage() {
                 </li>
               </ul>
 
-              <div className="phero-ctas">
+              <div className="phero-ctas mt-2">
                 <Link
                   href={siteConfig.primaryCta.href}
                   className="cta-solid"
@@ -119,33 +108,33 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Column: Clinician Portrait Card */}
+            {/* Right Column: Clinician Portrait Card (Optimized Height) */}
             <div className="lg:col-span-5 xl:col-span-5">
               <div className="phero-portrait-card">
-                <figure className="relative aspect-[3/4] w-full overflow-hidden rounded-xl">
+                <figure className="relative aspect-[4/4.7] w-full overflow-hidden rounded-xl">
                   <Image
                     src={portraitSrc}
                     alt="Danielle Karten, NP, AGPCNP-BC"
                     fill
                     priority
-                    sizes="(max-width: 1023px) 100vw, 42vw"
+                    sizes="(max-width: 1023px) 320px, 360px"
                     style={{
                       objectPosition:
-                        portraitInfo?.image.objectPosition ?? '50% 20%',
+                        portraitInfo?.image.objectPosition ?? '50% 18%',
                     }}
                     className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1b191f]/85 via-transparent to-transparent" />
-                  <div className="absolute right-4 bottom-4 left-4 flex items-center justify-between text-left">
+                  <div className="absolute right-3.5 bottom-3.5 left-3.5 flex items-center justify-between text-left">
                     <div>
-                      <div className="font-serif text-[17px] font-medium tracking-wide text-white">
+                      <div className="font-serif text-[16px] font-medium tracking-wide text-white">
                         Danielle Karten
                       </div>
-                      <div className="text-[11px] font-medium tracking-wider text-[#c9a15a] uppercase">
-                        NP, AGPCNP-BC · Private Suite Practice
+                      <div className="text-[10.5px] font-medium tracking-wider text-[#c9a15a] uppercase">
+                        NP, AGPCNP-BC · Private Suite
                       </div>
                     </div>
-                    <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] tracking-widest text-white/90 uppercase backdrop-blur-md">
+                    <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[9.5px] tracking-widest text-white/90 uppercase backdrop-blur-md">
                       New York
                     </span>
                   </div>

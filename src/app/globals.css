@@ -210,31 +210,55 @@
   transform: translateY(-2px);
 }
 
+.phero-about {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 105px 24px 35px;
+}
+
+@media (min-width: 640px) {
+  .phero-about {
+    padding: 115px 36px 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .phero-about {
+    padding: 120px 48px 50px;
+  }
+}
+
 .phero-portrait-card {
   position: relative;
   background: rgba(27, 25, 31, 0.72);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(201, 161, 90, 0.35);
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   animation: rise 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 440px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
   .phero-portrait-card {
-    max-width: none;
-    margin: 0;
+    max-width: 340px;
+    margin: 0 0 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .phero-portrait-card {
+    max-width: 360px;
   }
 }
 
 .phero-portrait-card:hover {
   border-color: rgba(201, 161, 90, 0.55);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 35px rgba(201, 161, 90, 0.18);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(201, 161, 90, 0.18);
   transform: translateY(-2px);
 }
 
