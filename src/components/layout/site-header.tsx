@@ -8,6 +8,18 @@ import { siteConfig } from '@/content/site';
 import { DesktopNav } from '@/components/layout/desktop-nav';
 import { MobileNavigation } from '@/components/layout/mobile-navigation';
 
+function getScrollPosition(): number {
+  if (typeof window === 'undefined') return 0;
+  return Math.max(
+    0,
+    window.scrollY ||
+      window.pageYOffset ||
+      document.documentElement?.scrollTop ||
+      document.body?.scrollTop ||
+      0
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
@@ -24,16 +36,19 @@ export function SiteHeader() {
   const lastScrollYRef = useRef(0);
   const accumulatedDeltaRef = useRef(0);
   const tickingRef = useRef(false);
+  const suppressScrollUntilRef = useRef(0);
 
   // 1. Reset and synchronize tracking refs whenever the route / pathname changes
   useEffect(() => {
     accumulatedDeltaRef.current = 0;
     tickingRef.current = false;
+    suppressScrollUntilRef.current = Date.now() + 350;
 
     const syncPosition = () => {
-      const currentY = Math.max(0, window.scrollY);
+      const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
       accumulatedDeltaRef.current = 0;
+      setIsScrolled(currentY > 16);
     };
 
     // Immediate sync
@@ -51,49 +66,63 @@ export function SiteHeader() {
     };
   }, [pathname]);
 
-  // 2. Listen to browser Back/Forward (popstate) and anchor jumps (hashchange)
+  // 2. Listen to browser Back/Forward (popstate), anchor jumps (hashchange), and anchor clicks
   useEffect(() => {
     const handleNavEvent = () => {
       setIsVisible(true);
       accumulatedDeltaRef.current = 0;
       tickingRef.current = false;
-      const currentY = Math.max(0, window.scrollY);
+      suppressScrollUntilRef.current = Date.now() + 500;
+      const currentY = getScrollPosition();
       lastScrollYRef.current = currentY;
       setIsScrolled(currentY > 16);
     };
 
+    const handleAnchorClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement | null)?.closest('a');
+      const href = anchor?.getAttribute('href');
+      if (href && href.includes('#')) {
+        setIsVisible(true);
+        suppressScrollUntilRef.current = Date.now() + 600;
+      }
+    };
+
     window.addEventListener('popstate', handleNavEvent);
     window.addEventListener('hashchange', handleNavEvent);
+    document.addEventListener('click', handleAnchorClick, { passive: true });
 
     return () => {
       window.removeEventListener('popstate', handleNavEvent);
       window.removeEventListener('hashchange', handleNavEvent);
+      document.removeEventListener('click', handleAnchorClick);
     };
   }, []);
 
   // 3. Scroll tracking with direction detection and delta thresholds
   useEffect(() => {
-    lastScrollYRef.current = Math.max(0, window.scrollY);
+    lastScrollYRef.current = getScrollPosition();
 
     function onScroll() {
       if (tickingRef.current) return;
       tickingRef.current = true;
 
       window.requestAnimationFrame(() => {
-        const rawScrollY = window.scrollY;
-        const maxScroll = Math.max(
-          0,
-          document.documentElement.scrollHeight - window.innerHeight
+        const rawScrollY = getScrollPosition();
+        const docHeight = Math.max(
+          document.documentElement?.scrollHeight || 0,
+          document.body?.scrollHeight || 0
         );
+        const maxScroll = Math.max(0, docHeight - window.innerHeight);
+
         // Clamp to prevent rubber-banding/negative bounce
-        const currentScrollY = Math.min(Math.max(0, rawScrollY), maxScroll);
+        const currentScrollY = maxScroll > 0 ? Math.min(rawScrollY, maxScroll) : rawScrollY;
         const prevScrollY = lastScrollYRef.current;
         const diff = currentScrollY - prevScrollY;
 
         setIsScrolled(currentScrollY > 16);
 
-        // Always show near the very top of the page
-        if (currentScrollY <= 48) {
+        // If an anchor jump or route transition just occurred, keep visible and sync position
+        if (Date.now() < suppressScrollUntilRef.current) {
           setIsVisible(true);
           accumulatedDeltaRef.current = 0;
           lastScrollYRef.current = currentScrollY;
@@ -101,8 +130,8 @@ export function SiteHeader() {
           return;
         }
 
-        // Guard against instant anchor jumps or page layout shifts (>180px in a single frame)
-        if (Math.abs(diff) > 180) {
+        // Always show near the very top of the page
+        if (currentScrollY <= 48) {
           setIsVisible(true);
           accumulatedDeltaRef.current = 0;
           lastScrollYRef.current = currentScrollY;
@@ -116,12 +145,12 @@ export function SiteHeader() {
             accumulatedDeltaRef.current = 0;
           }
           accumulatedDeltaRef.current = Math.min(
-            50,
+            60,
             accumulatedDeltaRef.current + diff
           );
 
-          // Hide once past header height (76px) and past small threshold (10px)
-          if (currentScrollY > 76 && accumulatedDeltaRef.current >= 10) {
+          // Hide once past 60px and accumulated at least 8px down, or on a single swipe of >= 12px
+          if (currentScrollY > 60 && (accumulatedDeltaRef.current >= 8 || diff >= 12)) {
             setIsVisible(false);
           }
         } else if (diff < 0) {
@@ -130,12 +159,12 @@ export function SiteHeader() {
             accumulatedDeltaRef.current = 0;
           }
           accumulatedDeltaRef.current = Math.max(
-            -50,
+            -60,
             accumulatedDeltaRef.current + diff
           );
 
-          // Promptly show on small upward scroll (8px)
-          if (accumulatedDeltaRef.current <= -8) {
+          // Promptly show on small upward scroll (6px) or swipe of <= -10px
+          if (accumulatedDeltaRef.current <= -6 || diff <= -10) {
             setIsVisible(true);
           }
         }
@@ -146,8 +175,11 @@ export function SiteHeader() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true });
+
     return () => {
       window.removeEventListener('scroll', onScroll);
+      document.removeEventListener('scroll', onScroll);
     };
   }, []);
 

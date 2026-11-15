@@ -50,7 +50,6 @@
     min-height: 100dvh;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    overflow-x: clip;
   }
 
   h1,
