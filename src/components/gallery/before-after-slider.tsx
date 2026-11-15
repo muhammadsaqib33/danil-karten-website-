@@ -135,10 +135,10 @@ export function BeforeAfterSlider({
         </div>
 
         {/* Before / After Corner Labels */}
-        <span className="pointer-events-none absolute left-3 top-3 rounded bg-emerald-deep/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-ivory backdrop-blur-xs">
+        <span className="pointer-events-none absolute left-3 top-3 rounded bg-[#1b191f]/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-xs">
           Before
         </span>
-        <span className="pointer-events-none absolute right-3 top-3 rounded bg-emerald-deep/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-ivory backdrop-blur-xs">
+        <span className="pointer-events-none absolute right-3 top-3 rounded bg-[#1b191f]/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-xs">
           After
         </span>
 
@@ -159,7 +159,7 @@ export function BeforeAfterSlider({
           aria-valuetext={`${Math.round(position)}% Before panel visible`}
           onKeyDown={handleKeyDown}
           style={{ left: `${position}%` }}
-          className="absolute top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 touch-none items-center justify-center rounded-full border-2 border-white bg-emerald-deep text-ivory shadow-lg transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne-light"
+          className="absolute top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 touch-none items-center justify-center rounded-full border-2 border-white bg-[#1b191f] text-white shadow-lg transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a]"
         >
           <MoveHorizontal className="h-5 w-5" aria-hidden="true" />
         </button>

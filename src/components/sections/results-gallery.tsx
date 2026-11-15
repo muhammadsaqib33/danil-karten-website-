@@ -56,8 +56,8 @@ export function ResultsGallery({
         <div className="flex flex-col justify-between gap-4 border-b border-border pb-6 sm:flex-row sm:items-end">
           <div className="space-y-2.5">
             <div className="inline-flex items-center gap-3">
-              <span aria-hidden="true" className="h-px w-7 bg-champagne" />
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">
+              <span aria-hidden="true" className="h-px w-7 bg-[#c9a15a]" />
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#d4788f]">
                 Before &amp; After
               </p>
             </div>
@@ -76,7 +76,7 @@ export function ResultsGallery({
           {mode === 'preview-section' ? (
             <Link
               href="/gallery"
-              className="inline-flex min-h-[44px] shrink-0 items-center gap-2 text-sm font-medium text-brand underline decoration-brand/40 underline-offset-4 transition-colors hover:text-brand-hover hover:decoration-brand"
+              className="inline-flex min-h-[44px] shrink-0 items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#966d24] underline decoration-[#966d24]/40 underline-offset-4 transition-colors hover:text-[#785416] hover:decoration-[#785416]"
             >
               <span>View Gallery</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -89,7 +89,7 @@ export function ResultsGallery({
           <div
             role="group"
             aria-label="Filter comparisons by treatment category"
-            className="mt-6 flex flex-wrap gap-2"
+            className="mt-6 flex flex-wrap gap-2.5"
           >
             {categories.map((cat) => {
               const isActive = activeCategory === cat;
@@ -99,10 +99,10 @@ export function ResultsGallery({
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveCategory(cat)}
-                  className={`inline-flex min-h-[40px] items-center rounded-full border px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
+                  className={`inline-flex min-h-[40px] items-center rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a] ${
                     isActive
-                      ? 'border-brand bg-brand text-white'
-                      : 'border-border bg-surface-card text-ink hover:border-brand/50 hover:bg-surface'
+                      ? 'border-[#1b191f] bg-[#1b191f] text-white shadow-sm ring-1 ring-[#1b191f]'
+                      : 'border-[#eadfd8] bg-white text-[#2e2c31] hover:border-[#c9a15a] hover:bg-[#faf4ee]'
                   }`}
                 >
                   {cat}
@@ -144,7 +144,7 @@ export function ResultsGallery({
 
             <div className="space-y-4 lg:col-span-5">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#d4788f]">
                   Featured · {featured.treatmentLabel}
                 </span>
               </div>
@@ -163,13 +163,13 @@ export function ResultsGallery({
                   onClick={() =>
                     setLightboxTarget({ kind: 'comparison', item: featured })
                   }
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-brand bg-brand px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-md"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gradient-to-r from-[#c9a15a] to-[#dcb877] border border-[#c9a15a] px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#1b191f] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(201,161,90,0.35)] hover:-translate-y-0.5 cursor-pointer"
                 >
                   Open full-screen view
                 </button>
                 <Link
                   href={`/treatments/${featured.treatmentSlug}`}
-                  className="inline-flex min-h-[44px] items-center text-sm font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:text-brand-hover"
+                  className="inline-flex min-h-[44px] items-center text-xs font-bold uppercase tracking-[0.18em] text-[#966d24] underline decoration-[#966d24]/40 underline-offset-4 transition-colors hover:text-[#785416] hover:decoration-[#785416]"
                 >
                   View Treatment
                 </Link>

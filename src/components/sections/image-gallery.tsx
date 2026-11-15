@@ -84,10 +84,10 @@ export function ImageGallery({
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => setActiveCategory(cat)}
-                className={`inline-flex min-h-[40px] items-center rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-[0.16em] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a] ${
+                className={`inline-flex min-h-[40px] items-center rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a] ${
                   isActive
-                    ? 'border-[#c9a15a] bg-gradient-to-r from-[#c9a15a] to-[#dcb877] text-[#1b191f] font-semibold shadow-xs'
-                    : 'border-[#eadfd8] bg-white text-[#2e2c31] hover:border-[#c9a15a]'
+                    ? 'border-[#1b191f] bg-[#1b191f] text-white shadow-sm ring-1 ring-[#1b191f]'
+                    : 'border-[#eadfd8] bg-white text-[#2e2c31] hover:border-[#c9a15a] hover:bg-[#faf4ee]'
                 }`}
               >
                 {cat}

@@ -56,7 +56,7 @@ export function BeforeAfterCard({
 
         <div className="space-y-2 p-5">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#d4788f]">
               {comparison.treatmentLabel}
             </span>
           </div>
@@ -69,11 +69,11 @@ export function BeforeAfterCard({
         </div>
       </div>
 
-      <div className="border-t border-border/80 px-5 py-3.5">
+      <div className="border-t border-[#eadfd8]/80 px-5 py-3.5">
         <button
           type="button"
           onClick={() => onInspect(comparison)}
-          className="inline-flex min-h-[40px] items-center gap-2 text-sm font-medium text-brand transition-colors hover:text-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          className="inline-flex min-h-[40px] items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#966d24] transition-colors hover:text-[#785416] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a] cursor-pointer"
         >
           <Expand className="h-4 w-4" aria-hidden="true" />
           <span>Inspect comparison</span>

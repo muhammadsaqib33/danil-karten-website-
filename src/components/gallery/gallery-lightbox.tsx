@@ -97,7 +97,7 @@ export function GalleryLightbox({ target, onClose }: GalleryLightboxProps) {
       >
         <div className="flex items-start justify-between gap-4 border-b border-border pb-4">
           <div className="space-y-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#d4788f]">
               {target.kind === 'comparison'
                 ? target.item.treatmentLabel
                 : target.item.category}
@@ -115,7 +115,7 @@ export function GalleryLightbox({ target, onClose }: GalleryLightboxProps) {
             type="button"
             onClick={onClose}
             aria-label="Close gallery preview"
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-border bg-surface-card text-ink transition-colors hover:border-brand hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#eadfd8] bg-white text-[#1b191f] transition-all hover:border-[#1b191f] hover:bg-[#1b191f] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a15a] cursor-pointer"
           >
             <X className="h-5 w-5" aria-hidden="true" />
           </button>

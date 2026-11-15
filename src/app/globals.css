@@ -18,6 +18,17 @@
   --color-border: #eadfd8;
   --color-border-dark: rgba(201, 161, 90, 0.25);
 
+  /* Semantic Theme Tokens */
+  --color-brand: #1b191f;
+  --color-brand-hover: #c9a15a;
+  --color-canvas: #faf4ee;
+  --color-surface: #f3e9e2;
+  --color-surface-card: #ffffff;
+  --color-champagne: #c9a15a;
+  --color-champagne-light: #e3c894;
+  --color-emerald-deep: #1b191f;
+  --color-ivory: #faf4ee;
+
   /* Typography */
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
@@ -37,6 +48,14 @@
   --ink: #2e2c31;
   --muted: #6a6266;
   --border: #eadfd8;
+  --brand: #1b191f;
+  --brand-hover: #c9a15a;
+  --canvas: #faf4ee;
+  --surface: #f3e9e2;
+  --surface-card: #ffffff;
+  --champagne: #c9a15a;
+  --emerald-deep: #1b191f;
+  --ivory: #faf4ee;
 }
 
 @layer base {
@@ -357,6 +376,28 @@ h3 em {
   background: #faf4ee;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(201, 161, 90, 0.2);
+}
+
+/* Global Active / Selected Button & Filter Tab System */
+button[aria-pressed="true"],
+a[aria-pressed="true"],
+button[aria-selected="true"],
+a[aria-selected="true"],
+.tab-selected,
+.btn-selected {
+  background-color: var(--char-deep) !important;
+  color: #ffffff !important;
+  border-color: var(--char-deep) !important;
+  box-shadow: 0 2px 8px rgba(27, 25, 31, 0.25) !important;
+}
+
+button[aria-pressed="true"]:hover,
+a[aria-pressed="true"]:hover,
+button[aria-selected="true"]:hover,
+a[aria-selected="true"]:hover {
+  background-color: #121114 !important;
+  color: #ffffff !important;
+  border-color: #121114 !important;
 }
 
 /* Nav Link Underline */

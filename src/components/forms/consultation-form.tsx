@@ -163,7 +163,7 @@ export function ConsultationForm({
         <div className="mt-6">
           <a
             href={siteConfig.phoneHref}
-            className="inline-flex min-h-[48px] items-center gap-2 rounded-md bg-brand px-6 py-3 text-base font-medium text-canvas transition-colors hover:bg-brand-hover"
+            className="inline-flex min-h-[48px] items-center gap-2 rounded-full border border-[#c9a15a] bg-gradient-to-r from-[#c9a15a] to-[#dcb877] px-7 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#1b191f] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(201,161,90,0.35)] hover:-translate-y-0.5"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             <span>Call {siteConfig.phoneDisplay}</span>
@@ -182,10 +182,10 @@ export function ConsultationForm({
         className={`rounded-lg border p-6 sm:p-8 ${
           isDemo
             ? 'border-warning-border bg-warning-bg'
-            : 'border-brand/30 bg-surface'
+            : 'border-[#c9a15a]/30 bg-white'
         }`}
       >
-        <p className="text-xs font-medium uppercase tracking-[0.14em] text-brand">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#d4788f]">
           {isDemo ? 'Development / Demo Mode' : 'Request Received'}
         </p>
         <h2 className="mt-2 font-serif text-2xl font-medium text-ink sm:text-3xl">
@@ -203,7 +203,7 @@ export function ConsultationForm({
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
             href={successResult.fallbackPhone.href}
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-medium text-canvas transition-colors hover:bg-brand-hover"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#c9a15a] bg-gradient-to-r from-[#c9a15a] to-[#dcb877] px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#1b191f] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(201,161,90,0.35)] hover:-translate-y-0.5"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             <span>Call {successResult.fallbackPhone.display}</span>
