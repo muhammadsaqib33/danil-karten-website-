@@ -59,8 +59,8 @@ describe('content publication boundaries', () => {
   });
 
   it('publishes authentic clinician portrait, patient comparisons, and clinical gallery items in production mode', () => {
-    expect(getComparisonsForView(false)).toHaveLength(5);
-    expect(getComparisonsForView(true)).toHaveLength(5);
+    expect(getComparisonsForView(false)).toHaveLength(6);
+    expect(getComparisonsForView(true)).toHaveLength(6);
 
     expect(getGalleryItemsForView(false)).toHaveLength(6);
     expect(getGalleryItemsForView(true)).toHaveLength(6);
