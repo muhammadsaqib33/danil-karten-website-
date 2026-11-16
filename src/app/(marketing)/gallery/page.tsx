@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, ArrowDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import {
   getComparisonsForView,
   getGalleryItemsForView,
@@ -58,25 +58,12 @@ export default function GalleryPage() {
                 </span>
               </h1>
 
-              <p className="mt-2 mb-4 max-w-xl text-[clamp(0.9rem,1.15vw,1rem)] font-light leading-relaxed text-[#dfdad5]">
+              <p className="mt-2 mb-6 max-w-xl text-[clamp(0.9rem,1.15vw,1rem)] font-light leading-relaxed text-[#dfdad5]">
                 Explore representative aesthetic treatment comparisons and the calm,
                 private appointment atmosphere of {siteConfig.displayName} in New York.
                 Carefully planned interventions designed to soften expression lines,
                 balance facial contour, and respect natural anatomy.
               </p>
-
-              {/* Category Navigation Pills */}
-              <div className="mb-5 flex flex-wrap gap-2 text-[11.5px]">
-                <span className="rounded-full border border-[#c9a15a]/45 bg-[#c9a15a]/10 px-2.5 py-0.5 font-medium text-[#f0ebe6]">
-                  Injectables &amp; Neuromodulators
-                </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
-                  Skin &amp; Regenerative
-                </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
-                  Scalp &amp; Hair
-                </span>
-              </div>
 
               <div className="phero-ctas">
                 <a
@@ -97,27 +84,26 @@ export default function GalleryPage() {
             {/* Right Column: Visual Results & Atmosphere Showcase Card */}
             <div className="lg:col-span-5 xl:col-span-5">
               <div className="phero-gallery-card">
-                {/* Header kicker */}
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                  <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#e0a9b6]">
-                    Documented Care
+                  <span className="font-serif text-sm italic tracking-wide text-[#e3c894]">
+                    Visual Documentation
                   </span>
-                  <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[9.5px] tracking-widest text-white/90 uppercase backdrop-blur-md">
+                  <span className="text-[10px] tracking-widest uppercase text-white/60">
                     New York, NY
                   </span>
                 </div>
 
-                <div className="mt-3 mb-3">
-                  <div className="font-serif text-[17px] font-medium tracking-wide text-white">
-                    Standardized Documentation
+                <div className="mt-3.5 mb-3">
+                  <div className="font-serif text-[18px] font-medium tracking-wide text-white">
+                    Clinical Standards &amp; Atmosphere
                   </div>
-                  <div className="text-[11px] font-medium tracking-wider text-[#c9a15a] uppercase">
-                    Calibrated Lighting · Unfiltered Anatomy
-                  </div>
+                  <p className="mt-1 text-xs font-light text-[#dfdad5] leading-relaxed">
+                    Standardized clinical photography, calibrated lighting, and a calm private suite environment.
+                  </p>
                 </div>
 
                 {/* Dual Visual Showcase Tiles */}
-                <div className="grid grid-cols-2 gap-2.5 my-3">
+                <div className="grid grid-cols-2 gap-3 my-3.5">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/15 shadow-inner">
                     <Image
                       src="/images/comparisons/comparison-ref-portrait-1.jpg"
@@ -127,7 +113,7 @@ export default function GalleryPage() {
                       className="object-cover object-[50%_25%]"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-2 text-[9px] font-medium tracking-wider text-white uppercase bg-black/50 backdrop-blur-sm px-1.5 py-0.5 rounded border border-white/10">
+                    <span className="absolute bottom-2 left-2 text-[10px] font-medium tracking-wider text-white uppercase bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
                       Results Preview
                     </span>
                   </div>
@@ -141,35 +127,18 @@ export default function GalleryPage() {
                       className="object-cover object-center"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-2 text-[9px] font-medium tracking-wider text-white uppercase bg-black/50 backdrop-blur-sm px-1.5 py-0.5 rounded border border-white/10">
+                    <span className="absolute bottom-2 left-2 text-[10px] font-medium tracking-wider text-white uppercase bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
                       Suite Atmosphere
                     </span>
                   </div>
                 </div>
 
-                {/* 3 Documentation Commitments */}
-                <ul className="space-y-2 text-[12.5px] text-[#dfdad5] pt-1">
-                  <li className="flex items-center gap-2">
-                    <Check className="h-3.5 w-3.5 text-[#c9a15a] shrink-0" />
-                    <span><strong className="text-white font-medium">Standardized Lighting:</strong> Consistent clinical conditions</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-3.5 w-3.5 text-[#c9a15a] shrink-0" />
-                    <span><strong className="text-white font-medium">Conservative Dosing:</strong> Expressive natural movement</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-3.5 w-3.5 text-[#c9a15a] shrink-0" />
-                    <span><strong className="text-white font-medium">Longitudinal Care:</strong> Attentive follow-up reviews</span>
-                  </li>
-                </ul>
-
                 {/* Bottom Anchor Link */}
-                <div className="mt-3.5 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11.5px] text-[#c9a15a] font-medium">
+                <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs text-[#c9a15a] font-medium">
                   <a href="#results" className="hover:text-white transition-colors flex items-center gap-1.5">
-                    <span>Explore Interactive Comparisons</span>
+                    <span>Explore Interactive Comparisons Below</span>
                     <ArrowDown className="h-3 w-3" />
                   </a>
-                  <span className="text-[10px] text-white/50 tracking-wider">6 PROFILES</span>
                 </div>
               </div>
             </div>

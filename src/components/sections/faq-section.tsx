@@ -11,9 +11,6 @@ export function FaqSection() {
     >
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="space-y-4 lg:col-span-4">
-          <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
-            Questions, Answered
-          </span>
           <h2
             id="faq-heading"
             className="font-serif text-[clamp(2.1rem,3.8vw,3.2rem)] font-light leading-tight text-[#1b191f]"

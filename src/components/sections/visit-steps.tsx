@@ -7,9 +7,6 @@ export function VisitSteps() {
       className="site-container py-14 sm:py-18 lg:py-20"
     >
       <div className="max-w-2xl space-y-3">
-        <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
-          {homeContent.visitSteps.eyebrow}
-        </span>
         <h2
           id="visit-steps-heading"
           className="font-serif text-[clamp(2.1rem,4vw,3.2rem)] font-light leading-tight text-[#2e2c31]"

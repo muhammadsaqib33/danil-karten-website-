@@ -16,9 +16,6 @@ export function TestimonialsSection() {
     >
       <div className="site-container">
         <div className="max-w-2xl space-y-3">
-          <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
-            Client Perspectives
-          </p>
           <h2
             id="testimonials-heading"
             className="font-serif text-[clamp(1.85rem,2.8vw+0.85rem,2.65rem)] font-medium leading-tight text-ink"

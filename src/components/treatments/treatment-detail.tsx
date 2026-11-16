@@ -68,10 +68,6 @@ export function TreatmentDetail({
       <section className="site-container py-14 sm:py-18 lg:py-20">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="space-y-6 lg:col-span-7">
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
-              Clinical Overview
-            </span>
-
             <h2 className="font-serif text-[clamp(2.1rem,4vw,3.2rem)] font-light leading-[1.1] text-[#2e2c31]">
               Tailored precisely to <em>your anatomy.</em>
             </h2>
@@ -115,9 +111,6 @@ export function TreatmentDetail({
       <section className="border-y border-[#eadfd8] bg-[#f3e9e2]/45 py-14 sm:py-18 lg:py-20">
         <div className="site-container grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-[#eadfd8] bg-white p-7 sm:p-9 shadow-xs">
-            <span className="block text-[10.5px] font-semibold uppercase tracking-[0.2em] text-[#d4788f] mb-2">
-              Consultation Focus
-            </span>
             <h3 className="font-serif text-2xl font-medium text-[#2e2c31] mb-5">
               Goals discussed together
             </h3>
@@ -129,9 +122,6 @@ export function TreatmentDetail({
           </div>
 
           <div className="rounded-xl border border-[#eadfd8] bg-white p-7 sm:p-9 shadow-xs">
-            <span className="block text-[10.5px] font-semibold uppercase tracking-[0.2em] text-[#d4788f] mb-2">
-              Clinical Assessment
-            </span>
             <h3 className="font-serif text-2xl font-medium text-[#2e2c31] mb-5">
               Suitability &amp; safety evaluation
             </h3>
@@ -151,9 +141,6 @@ export function TreatmentDetail({
       <section className="site-container py-14 sm:py-18 lg:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:gap-16">
           <div>
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-2">
-              Step by Step
-            </span>
             <h2 className="font-serif text-3xl font-light text-[#2e2c31] mb-6">
               What to expect during your visit
             </h2>
@@ -165,9 +152,6 @@ export function TreatmentDetail({
           </div>
 
           <div>
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-2">
-              Aftercare &amp; Longevity
-            </span>
             <h2 className="font-serif text-3xl font-light text-[#2e2c31] mb-6">
               Recovery and aftercare guidance
             </h2>
@@ -184,9 +168,6 @@ export function TreatmentDetail({
       {treatment.faqs.length > 0 ? (
         <section className="border-t border-[#eadfd8] py-14 sm:py-18 max-w-[860px] mx-auto px-5 sm:px-8">
           <div className="text-center mb-10">
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-2">
-              Questions &amp; Answers
-            </span>
             <h2 className="font-serif text-3xl font-light text-[#2e2c31]">
               Frequently asked questions
             </h2>

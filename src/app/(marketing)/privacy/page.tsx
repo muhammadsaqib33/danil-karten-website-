@@ -14,9 +14,6 @@ export default function PrivacyPage() {
     <>
       <div className="bg-[#1b191f] pt-28 pb-12 text-white">
         <div className="site-container">
-          <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-3">
-            Legal &amp; Transparency
-          </span>
           <h1 className="font-serif text-[clamp(2.1rem,3.6vw+0.85rem,3rem)] font-light leading-[1.15] text-white">
             Privacy Policy
           </h1>

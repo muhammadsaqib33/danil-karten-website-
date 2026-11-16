@@ -19,10 +19,6 @@ export function ProviderIntro({ isPreviewMode }: ProviderIntroProps) {
       <div className="site-container">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="space-y-6 lg:col-span-7">
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
-              Clinical Leadership · New York
-            </span>
-
             <h2
               id="provider-intro-heading"
               className="font-serif text-[clamp(2.2rem,4vw,3.4rem)] font-light leading-[1.08] text-[#2e2c31]"
@@ -30,33 +26,14 @@ export function ProviderIntro({ isPreviewMode }: ProviderIntroProps) {
               Danielle Karten. <em>NP, AGPCNP-BC.</em>
             </h2>
 
-            <p className="lead max-w-2xl text-[16.5px]">
-              {providerProfile.shortIntro}
-            </p>
-
-            <ul className="gold-dash-list mt-6 max-w-xl">
-              <li>
-                <strong className="font-medium text-[#2e2c31]">
-                  Individualized Facial Harmony:
-                </strong>{' '}
-                Treatments are tailored around your dynamic facial movement,
-                muscle strength, and bone structure rather than standard dosages.
-              </li>
-              <li>
-                <strong className="font-medium text-[#2e2c31]">
-                  Unhurried Consultations:
-                </strong>{' '}
-                Every recommendation is shaped through dedicated conversation,
-                transparent discussion of expectations, and careful aftercare.
-              </li>
-              <li>
-                <strong className="font-medium text-[#2e2c31]">
-                  Board-Certified Safety:
-                </strong>{' '}
-                Advanced practice nursing background providing safe, measured, and
-                evidence-based clinical care.
-              </li>
-            </ul>
+            <div className="space-y-4 max-w-2xl text-[16px] font-light leading-relaxed text-[#544c50]">
+              <p className="lead text-[16.5px]">
+                {providerProfile.shortIntro}
+              </p>
+              <p>
+                Aesthetic medicine is most impactful when it remains quiet and undetectable. Danielle works with dynamic facial movement, anatomical proportion, and conservative dosing &mdash; ensuring your expressions remain entirely your own.
+              </p>
+            </div>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link href="/about" className="cta-solid">

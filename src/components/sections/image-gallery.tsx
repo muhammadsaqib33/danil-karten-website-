@@ -45,9 +45,6 @@ export function ImageGallery({
       <div className="site-container">
         <div className="flex flex-col justify-between gap-6 border-b border-[#eadfd8] pb-8 sm:flex-row sm:items-end">
         <div className="space-y-3">
-          <span className="kicker-pink">
-            Practice &amp; Atmosphere
-          </span>
           <h2
             id="practice-gallery-heading"
             className="font-serif text-[clamp(2.1rem,4vw,3.2rem)] font-light leading-[1.1] text-[#2e2c31]"

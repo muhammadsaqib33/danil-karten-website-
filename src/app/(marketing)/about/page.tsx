@@ -55,42 +55,13 @@ export default function AboutPage() {
                 </span>
               </h1>
 
-              <p className="mt-2 mb-5 max-w-xl text-[clamp(0.92rem,1.15vw,1.02rem)] font-light leading-relaxed text-[#dfdad5]">
+              <p className="mt-2 mb-4 max-w-xl text-[clamp(0.92rem,1.15vw,1.02rem)] font-light leading-relaxed text-[#dfdad5]">
                 {providerProfile.shortIntro}
               </p>
 
-              <ul className="mb-6 max-w-xl space-y-2.5 text-[13.5px] text-[#dfdad5]">
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a15a]" />
-                  <div>
-                    <strong className="font-medium text-white">
-                      Board Certification:
-                    </strong>{' '}
-                    Board-certified Nurse Practitioner (AGPCNP-BC) holding extensive
-                    clinical training and patient-centered assessment expertise.
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a15a]" />
-                  <div>
-                    <strong className="font-medium text-white">
-                      Anatomical Respect:
-                    </strong>{' '}
-                    Prioritizing natural facial movement, structural proportion,
-                    and subtle enhancement rather than overt transformation.
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a15a]" />
-                  <div>
-                    <strong className="font-medium text-white">
-                      Patient Advocacy:
-                    </strong>{' '}
-                    Transparent discussion of indications, contraindications, and
-                    realistic timelines before any procedure is scheduled.
-                  </div>
-                </li>
-              </ul>
+              <p className="mb-6 max-w-xl text-[clamp(0.92rem,1.15vw,1.02rem)] font-light leading-relaxed text-[#dfdad5]">
+                With specialized training in adult-gerontology primary care and a dedicated focus on facial anatomy, Danielle combines clinical rigor with an artist&apos;s appreciation for subtle balance. Every recommendation is shaped through an unhurried consultation, transparent conversation, and a commitment to preserving your natural facial expression.
+              </p>
 
               <div className="phero-ctas mt-2">
                 <Link
@@ -150,9 +121,6 @@ export default function AboutPage() {
         <div className="site-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="space-y-4 lg:col-span-5">
-              <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f]">
-                Care Principles
-              </span>
               <h2 className="font-serif text-[clamp(2rem,3.6vw,3rem)] font-light leading-tight text-[#2e2c31]">
                 {providerProfile.carePhilosophy.heading}
               </h2>

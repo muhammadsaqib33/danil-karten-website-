@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { MapPin, Phone, Check, ArrowDown } from 'lucide-react';
+import { MapPin, Phone, ArrowDown } from 'lucide-react';
 import { siteConfig } from '@/content/site';
 import { providerProfile } from '@/content/provider';
 import { getTreatmentsForView } from '@/content/treatments';
@@ -64,24 +64,11 @@ export default function ContactPage() {
                 </span>
               </h1>
 
-              <p className="mt-2 mb-4 max-w-xl text-[clamp(0.9rem,1.15vw,1rem)] font-light leading-relaxed text-[#dfdad5]">
+              <p className="mt-2 mb-6 max-w-xl text-[clamp(0.9rem,1.15vw,1rem)] font-light leading-relaxed text-[#dfdad5]">
                 Share your preferred contact details below to request a private
                 consultation with Danielle Karten, NP, AGPCNP-BC. Every inquiry is reviewed
                 personally to coordinate unhurried, individualized care.
               </p>
-
-              {/* Consultation Navigation Pills */}
-              <div className="mb-5 flex flex-wrap gap-2 text-[11.5px]">
-                <span className="rounded-full border border-[#c9a15a]/45 bg-[#c9a15a]/10 px-2.5 py-0.5 font-medium text-[#f0ebe6]">
-                  In-Person Assessments
-                </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
-                  Private Suite Care
-                </span>
-                <span className="rounded-full border border-white/20 bg-white/5 px-2.5 py-0.5 font-medium text-[#dfdad5]">
-                  Direct NP Follow-Up
-                </span>
-              </div>
 
               <div className="phero-ctas">
                 <a
@@ -102,59 +89,48 @@ export default function ContactPage() {
             {/* Right Column: Appointment Suite & Scheduling Card */}
             <div className="lg:col-span-5 xl:col-span-5">
               <div className="phero-contact-card">
-                {/* Header kicker */}
-                <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
-                  <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#e0a9b6]">
-                    Private Clinical Practice
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                  <span className="font-serif text-sm italic tracking-wide text-[#e3c894]">
+                    Practice Suite
                   </span>
-                  <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-0.5 text-[9.5px] tracking-widest text-white/90 uppercase backdrop-blur-md">
+                  <span className="text-[10px] tracking-widest uppercase text-white/60">
                     New York, NY
                   </span>
                 </div>
 
-                <div className="mt-2.5 mb-2.5">
-                  <div className="font-serif text-[16.5px] font-medium tracking-wide text-white">
-                    Danielle Karten, NP, AGPCNP-BC
+                <div className="mt-3.5 mb-3">
+                  <div className="font-serif text-[18px] font-medium tracking-wide text-white">
+                    Danielle Karten, NP
                   </div>
-                  <div className="text-[10.5px] font-medium tracking-wider text-[#c9a15a] uppercase">
-                    Board-Certified Nurse Practitioner · Suite Consultations
+                  <div className="text-xs font-light text-[#dfdad5]">
+                    Adult-Gerontology Primary Care Nurse Practitioner (AGPCNP-BC)
                   </div>
                 </div>
 
-                {/* 3 Core Consultation Principles */}
-                <ul className="my-2.5 space-y-2 text-[12px] text-[#dfdad5]">
-                  <li className="flex items-start gap-2 rounded-md bg-white/[0.03] p-2 border border-white/10">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#c9a15a]" />
-                    <div>
-                      <strong className="text-white font-medium">Direct Clinician Evaluation:</strong>{' '}
-                      All consultations are conducted directly by Danielle Karten, NP.
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-2 rounded-md bg-white/[0.03] p-2 border border-white/10">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#c9a15a]" />
-                    <div>
-                      <strong className="text-white font-medium">Unhurried Assessment:</strong>{' '}
-                      Dedicated time for facial analysis, questions, and treatment planning.
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-2 rounded-md bg-white/[0.03] p-2 border border-white/10">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#c9a15a]" />
-                    <div>
-                      <strong className="text-white font-medium">Confidential Coordination:</strong>{' '}
-                      Private appointment scheduling coordinated around your calendar.
-                    </div>
-                  </li>
-                </ul>
+                {/* Practical Details */}
+                <div className="my-3 divide-y divide-white/10 border-y border-white/10 text-[13px] text-white/90">
+                  <div className="py-2.5 flex items-center justify-between">
+                    <span className="text-[#dfdad5]">Location</span>
+                    <span className="font-medium text-white">Manhattan, New York</span>
+                  </div>
+                  <div className="py-2.5 flex items-center justify-between">
+                    <span className="text-[#dfdad5]">Appointments</span>
+                    <span className="font-medium text-white">Private suite reservation</span>
+                  </div>
+                  <div className="py-2.5 flex items-center justify-between">
+                    <span className="text-[#dfdad5]">Direct Telephone</span>
+                    <a href={siteConfig.phoneHref} className="font-medium text-[#c9a15a] hover:text-white transition-colors">
+                      {siteConfig.phoneDisplay}
+                    </a>
+                  </div>
+                </div>
 
                 {/* Bottom Anchor Link */}
-                <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[11.5px] text-[#c9a15a] font-medium">
+                <div className="mt-3 pt-2 flex items-center justify-between text-xs text-[#c9a15a] font-medium">
                   <a href="#consultation-form" className="hover:text-white transition-colors flex items-center gap-1.5">
                     <span>Fill Consultation Request Form Below</span>
                     <ArrowDown className="h-3 w-3" />
                   </a>
-                  <span className="text-[10px] text-white/50 tracking-wider">BY APPOINTMENT</span>
                 </div>
               </div>
             </div>
@@ -180,9 +156,6 @@ export default function ContactPage() {
             className="space-y-6 lg:col-span-5"
           >
             <div className="rounded-xl border border-[#eadfd8] bg-white p-7 sm:p-9 shadow-xs">
-              <span className="block text-[11px] font-semibold uppercase tracking-[0.4em] text-[#d4788f] mb-2">
-                Practice Information
-              </span>
               <h2 className="font-serif text-2xl font-medium text-[#2e2c31]">
                 {siteConfig.displayName}
               </h2>

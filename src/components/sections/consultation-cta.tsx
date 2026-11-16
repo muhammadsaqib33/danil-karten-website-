@@ -19,10 +19,6 @@ export function ConsultationCta({
       <div className="orb" aria-hidden="true" />
 
       <div className="site-container relative z-10">
-        <span className="block text-[11px] font-semibold uppercase tracking-[0.45em] text-[#e3c894] mb-4">
-          Personalized Aesthetic Consultations
-        </span>
-
         <h2
           id="consultation-cta-heading"
           className="font-serif text-[clamp(2.2rem,4.4vw,3.6rem)] font-light leading-[1.1] text-white max-w-3xl mx-auto"
