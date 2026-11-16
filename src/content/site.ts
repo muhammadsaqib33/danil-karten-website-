@@ -29,9 +29,9 @@ export interface VisitStep {
 }
 
 export const siteConfig = {
-  /** Provisional public display name — update once confirmed by the owner. */
-  displayName: 'Dani E Esthetics',
-  isProvisionalBrandName: true,
+  /** Confirmed client practice brand name from daniskinlab.siterubix.com and verified Instagram. */
+  displayName: 'Dani Skin Lab',
+  isProvisionalBrandName: false,
   legalBusinessName: 'Dani E Esthetics LLC',
   /** Approved public location until full street address publication is authorized. */
   publicLocation: 'New York, NY',
@@ -43,15 +43,41 @@ export const siteConfig = {
   /** Business hours not yet supplied; keep undefined until owner confirms. */
   businessHours: undefined as string | undefined,
   /**
-   * Verified public social links only.
-   * Note: Instagram display name "Dani Skin Lab" was noted in client materials,
-   * but no verified handle/URL has been supplied yet.
+   * Verified public social links from client materials & daniskinlab.siterubix.com.
    */
-  socialLinks: [] as SocialLink[],
+  socialLinks: [
+    {
+      platform: 'Instagram',
+      label: '@dani.skinlab_injector',
+      href: 'https://www.instagram.com/dani.skinlab_injector/',
+    },
+  ] as SocialLink[],
   /**
-   * Approved testimonials only. Omit the testimonials section while empty.
+   * Authentic approved patient testimonials from daniskinlab.siterubix.com.
    */
-  testimonials: [] as TestimonialItem[],
+  testimonials: [
+    {
+      id: 'testimonial-1',
+      quote:
+        'Dani is incredible! She has such a gentle touch and truly listens to what you want. My results look so natural and refreshed.',
+      attribution: 'Jessica R. · New York, NY',
+      approvedForPublicDisplay: true,
+    },
+    {
+      id: 'testimonial-2',
+      quote:
+        'I wouldn’t trust anyone else with my face! Dani’s knowledge and eye for balance are unmatched. She’s the best in NYC.',
+      attribution: 'Michelle T. · New York, NY',
+      approvedForPublicDisplay: true,
+    },
+    {
+      id: 'testimonial-3',
+      quote:
+        'Professional, caring and extremely talented. Dani made me feel so comfortable and confident in my skin again.',
+      attribution: 'Lauren M. · New York, NY',
+      approvedForPublicDisplay: true,
+    },
+  ] as TestimonialItem[],
   /** Optional logo image; omitted cleanly until final brand mark is supplied. */
   logo: undefined as
     | { src: string; alt: string; width: number; height: number }
@@ -75,49 +101,55 @@ export const siteConfig = {
     href: '/treatments',
   },
   metadata: {
-    defaultTitle: 'Dani E Esthetics | Aesthetic Care in New York, NY',
-    titleTemplate: '%s | Dani E Esthetics',
+    defaultTitle: 'Dani Skin Lab | Aesthetic Medicine in New York, NY',
+    titleTemplate: '%s | Dani Skin Lab',
     description:
-      'Personalized aesthetic consultations with Danielle Karten, NP, AGPCNP-BC, in New York, NY.',
+      'Personalized aesthetic care and consultations with Danielle Karten, NP, AGPCNP-BC in New York, NY. Botox, Revanesse dermal fillers, PDRN, and advanced skin revitalization.',
   },
 } as const;
 
 export const homeContent = {
   hero: {
     eyebrow: 'Nurse Practitioner–Led Care · New York',
-    heading: 'Thoughtful care. A more confident you.',
+    heading: 'Natural. Refined. Confident.',
     supportingCopy:
-      'Explore personalized aesthetic care with Danielle Karten, NP, AGPCNP-BC, in New York.',
+      'Personalized aesthetic treatments designed for subtle, natural-looking results that help you look refreshed, never overdone.',
   },
   introStrip: {
     providerName: 'Danielle Karten',
     credentials: 'NP, AGPCNP-BC',
     location: 'New York, NY',
-    settingLabel: 'Private Appointment Practice',
+    settingLabel: 'Private Clinical Suite',
   },
   careApproach: {
-    eyebrow: 'Care Approach',
-    heading: 'Three principles guiding every visit',
+    eyebrow: 'Our Core Pillars',
+    heading: 'Four principles guiding every treatment',
     intro:
-      'Aesthetic medicine works best when clinical decisions feel measured, collaborative, and transparent.',
+      'Providing natural, refined aesthetic treatments in a comfortable, discreet, and professional environment.',
     pillars: [
       {
         number: '01',
-        title: 'Listening and understanding',
+        title: 'Safe & Medical Environment',
         description:
-          'Every visit starts with an unhurried conversation about your goals, questions, and relevant health considerations before any option is recommended.',
+          'Every procedure is performed under strict medical safety standards by a board-certified Nurse Practitioner in a private, pristine clinical suite.',
       },
       {
         number: '02',
-        title: 'Individualized planning',
+        title: 'High Quality Products',
         description:
-          'Recommendations are shaped around your facial anatomy, skin profile, and pace rather than a standardized checklist.',
+          'We exclusively utilize premier FDA-approved injectables, Revanesse® dermal fillers, and scientifically verified cellular regenerative therapies.',
       },
       {
         number: '03',
-        title: 'Clear communication and follow-up',
+        title: 'Personalized Care',
         description:
-          'Expect candid discussion of realistic outcomes, straightforward aftercare guidance, and appropriate clinical follow-up.',
+          'Dani never rushes appointments. Every visit is an unhurried, one-on-one collaboration to tailor treatments to your facial anatomy and lifestyle.',
+      },
+      {
+        number: '04',
+        title: 'Natural Beautiful Results',
+        description:
+          'Subtle enhancements designed to harmonize with your features so you leave looking refreshed, radiant, and confident—never overdone.',
       },
     ] satisfies CareApproachPillar[],
   },

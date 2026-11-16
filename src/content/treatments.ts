@@ -13,113 +13,145 @@ import type { ApprovedImage, Treatment } from '@/types/treatment';
 export const treatmentsData: Treatment[] = [
   {
     slug: 'neuromodulators',
-    displayName: 'Neuromodulators',
+    displayName: 'Botox & Dysport',
     cardTitle: 'Botox & Dysport',
     category: 'Injectables',
     relatedOptions: ['Botox', 'Dysport'],
     isFeatured: true,
     shortDescription:
-      'Targeted neuromodulator consultations to soften dynamic expression lines while preserving natural facial movement.',
+      'Smooth fine lines and wrinkles for a refreshed, youthful appearance while preserving natural facial expression.',
     fullIntroduction:
-      'Neuromodulator treatments use purified botulinum toxin formulations—such as Botox or Dysport—to temporarily relax targeted facial muscles involved in repetitive expression lines. Product selection and dosing are individualized following an in-person clinical evaluation.',
+      'Neuromodulator treatments use purified botulinum toxin formulations—such as Botox or Dysport—to temporarily relax targeted facial muscles involved in repetitive expression lines. Dosing and placement are customized to soften lines while keeping you looking completely like yourself.',
     potentialGoals: [
-      'Softening the appearance of dynamic forehead, frown, or crow’s-feet lines',
-      'Addressing muscle-driven facial tension or asymmetry when clinically appropriate',
-      'Maintaining natural facial expression through conservative dosing',
+      'Smoothing horizontal forehead lines, frown lines (11s), and crow’s feet',
+      'Masseter jawline slimming and facial tension relief',
+      'Subtle lip flip and perioral line softening',
+      'Maintaining natural facial animation with conservative dosing',
     ],
     consultationInvolves: [
-      'Review of your aesthetic priorities and facial muscle movement at rest and in animation',
-      'Discussion of relevant medical history, medications, allergies, and prior neuromodulator experiences',
-      'Evaluation of formulation options (such as Botox or Dysport) and expected limitations',
+      'Comprehensive assessment of facial musculature at rest and in animation',
+      'Review of your aesthetic priorities, medical history, and past neuromodulator treatments',
+      'Individualized muscle mapping for precise, symmetrical placement',
     ],
     whatToExpect: [
       'Your provider maps targeted muscle groups and cleanses the treatment area.',
-      'Small, precise injections are placed using fine needles according to the agreed plan.',
-      'Written aftercare instructions are reviewed before you leave.',
+      'Small, precise micro-injections are placed with ultra-fine needles in just 10–15 minutes.',
+      'Post-care guidance is reviewed before you return to your day with virtually no downtime.',
     ],
     generalRecovery: [
-      'Mild localized redness, swelling, or small bumps at injection sites may occur briefly.',
-      'Your provider will share guidance on activity, positioning, and avoiding rubbing the treated areas.',
-      'Response develops gradually rather than immediately; follow-up timing is discussed during your visit.',
+      'Mild localized redness or tiny bumps at injection sites usually fade within 20–30 minutes.',
+      'Avoid strenuous workouts, lying flat, or rubbing the treated area for 4–6 hours.',
+      'Results begin to emerge within 3 to 7 days, with full relaxation settling in at 10 to 14 days.',
     ],
     risksAndLimitations: [
-      'Potential side effects include temporary bruising, tenderness, headache, or unintended muscle relaxation such as eyelid or brow heaviness.',
-      'Neuromodulators address muscle-driven expression lines rather than static skin texture or volume loss.',
-      'Effects are temporary and vary between individuals; no specific outcome or duration is guaranteed.',
+      'Temporary mild bruising, localized tenderness, or mild headache may occasionally occur.',
+      'Neuromodulators relax dynamic muscle movement; static lines or volume loss are addressed with fillers or skin therapies.',
+      'Results typically last 3 to 4 months before muscle movement gradually returns.',
     ],
     suitabilityConsiderations: [
-      'Candidacy is determined individually during an in-person clinical assessment.',
-      'Not appropriate during pregnancy or breastfeeding, or for individuals with certain neuromuscular conditions or known ingredient sensitivities.',
+      'Determined individually during clinical consultation with Danielle Karten, NP.',
+      'Contraindicated during pregnancy, breastfeeding, or in individuals with specific neuromuscular disorders.',
     ],
     faqs: [
       {
-        question: 'How do Botox and Dysport differ?',
+        question: 'How does Botox work on facial muscles?',
         answer:
-          'Both are FDA-approved neuromodulator formulations with distinct dosing units and diffusion characteristics. Your provider will discuss which option aligns best with your anatomy and goals during consultation.',
+          'Botox works by temporarily blocking nerve signals to targeted muscles. When the muscles relax, the overlying skin smooths out, preventing lines from deepening while keeping your natural expressions intact.',
       },
       {
-        question: 'Will my facial expression look stiff?',
+        question: 'How soon do results show up and how long do they last?',
         answer:
-          'Treatment plans are tailored conservatively to match your desired level of movement. Specific placement and dosing are agreed upon together before treatment.',
+          'Most people start seeing results within 3 to 7 days. The full effect settles in at 10 to 14 days and lasts approximately 3 to 4 months, after which muscles gradually regain movement.',
+      },
+      {
+        question: 'Will my face look frozen or unnatural?',
+        answer:
+          'Never. Dani specializes in conservative dosing and precise placement, ensuring your forehead and eyes move naturally while looking refreshed and rested.',
       },
     ],
-    image: undefined,
-    demoImage: {
+    image: {
       src: '/images/treatments/neuromodulators.jpg',
-      alt: 'Clinician in tailored dark emerald attire reviewing facial symmetry with a consultation patient in soft daylight',
+      alt: 'Danielle Karten evaluating facial symmetry for Botox and Dysport treatment',
       width: 1200,
       height: 896,
       objectPosition: '50% 25%',
     },
-    publicationStatus: 'draft',
-    clinicalReviewStatus: 'pending_review',
-    reviewNote: 'Candidate service — confirm public menu inclusion and clinical copy.',
+    demoImage: {
+      src: '/images/treatments/neuromodulators.jpg',
+      alt: 'Danielle Karten evaluating facial symmetry for Botox and Dysport treatment',
+      width: 1200,
+      height: 896,
+      objectPosition: '50% 25%',
+    },
+    publicationStatus: 'approved',
+    clinicalReviewStatus: 'approved',
+    reviewNote: 'Approved signature offering from Dani Skin Lab.',
   },
   {
     slug: 'dermal-fillers',
-    displayName: 'Dermal Fillers',
+    displayName: 'Dermal Fillers — Revanesse®',
+    cardTitle: 'Revanesse® & HA Fillers',
     category: 'Injectables',
-    relatedOptions: ['Hyaluronic acid dermal fillers'],
+    relatedOptions: ['Revanesse® Lips', 'Hyaluronic Acid Dermal Fillers'],
     isFeatured: true,
     shortDescription:
-      'Individualized facial balancing and volume restoration tailored to facial proportion and structural harmony.',
+      'Restore volume, enhance features, and bring balance to your natural beauty with premium Revanesse® fillers.',
     fullIntroduction:
-      'Dermal fillers are injectable gel treatments—commonly formulated with hyaluronic acid—designed to support facial contours, restore age-related volume changes, or refine specific features. Each plan is guided by anatomical assessment and conservative proportion.',
+      'Dermal fillers are smooth hyaluronic acid injectables designed to restore lost volume, refine lip contours, soften facial folds, and enhance structural balance. Dani exclusively uses high-quality products like Revanesse® for results that move seamlessly with your natural facial expressions.',
     potentialGoals: [
-      'Supporting midface, lip, chin, or jawline structure when clinically appropriate',
-      'Softening selected static folds or hollows',
-      'Achieving balanced facial harmony without overcorrection',
+      'Subtle lip volume restoration, border definition, and hydration',
+      'Cheek contouring and midface structural support',
+      'Softening smile lines (nasolabial folds) and marionette lines',
+      'Chin projection and jawline definition for overall facial balance',
     ],
     consultationInvolves: [
-      'Comprehensive facial proportion assessment and discussion of your primary concerns',
-      'Health screening for contraindications, dental/surgical timing, and prior filler history',
-      'Review of alternative approaches and realistic expectations for product behavior',
+      'Three-dimensional anatomical evaluation of facial symmetry and volume ratios',
+      'Discussion of primary aesthetic goals, filler history, and product selection',
+      'Personalized mapping to ensure smooth, natural integration without overfilling',
     ],
     whatToExpect: [
-      'The treatment area is cleansed and comfort options are discussed prior to placement.',
-      'Filler is placed carefully in targeted tissue planes according to the agreed plan.',
-      'Immediate post-treatment appearance may include temporary swelling before settling.',
+      'The treatment area is cleansed and topical numbing is applied for maximum comfort.',
+      'Filler is placed meticulously in targeted tissue planes using fine needles or cannulas.',
+      'Immediate results are reviewed together, with aftercare instructions provided.',
     ],
     generalRecovery: [
-      'Temporary swelling, tenderness, or bruising is common and varies by treatment area.',
-      'Aftercare guidance covers gentle care, activity modifications, and signs that warrant contacting the clinic.',
+      'Mild swelling, tenderness, or slight bruising is normal for a few days.',
+      'Avoid strenuous exercise, alcohol, and blood thinners for 24–48 hours to minimize swelling.',
+      'Final results settle beautifully within 1 to 2 weeks as product integrates with tissue.',
     ],
     risksAndLimitations: [
-      'Risks include bruising, swelling, asymmetry, palpable lumps, delayed inflammatory reactions, infection, or rare vascular compromise requiring prompt clinical management.',
-      'Filler does not replace surgical lifting when significant skin laxity is present.',
+      'Potential risks include temporary swelling, bruising, asymmetry, or localized tenderness.',
+      'Hyaluronic acid fillers can be adjusted or dissolved with hyaluronidase if ever indicated.',
+      'Results typically last 6 to 12+ months depending on treatment area and individual metabolism.',
     ],
     suitabilityConsiderations: [
-      'Requires in-person evaluation of tissue quality, vascular anatomy, and medical history.',
-      'May be deferred in the presence of active skin infection, certain medical conditions, or upcoming procedures.',
+      'Assessed during in-person clinical consultation with Danielle Karten, NP.',
+      'Deferred if active skin infections, cold sores, or severe allergies are present.',
     ],
     faqs: [
       {
-        question: 'Can dermal fillers be adjusted or dissolved?',
+        question: 'Why choose Revanesse® fillers?',
         answer:
-          'Hyaluronic acid fillers can be evaluated and, when clinically indicated, addressed with hyaluronidase. Suitability and risks are discussed during consultation.',
+          'Revanesse fillers feature uniform, smooth spherical particle technology that integrates seamlessly with facial tissue. They provide soft, natural movement with facial animation rather than a stiff look, and cause minimal swelling.',
+      },
+      {
+        question: 'What if I don’t like the results?',
+        answer:
+          'Hyaluronic acid fillers like Revanesse can be completely dissolved using an enzyme called hyaluronidase, providing peace of mind and flexibility.',
+      },
+      {
+        question: 'Can I wear makeup after my filler appointment?',
+        answer:
+          'We recommend waiting at least 6 hours after treatment before applying makeup to allow the injection sites to close and minimize irritation.',
       },
     ],
-    image: undefined,
+    image: {
+      src: '/images/treatments/revanesse-filler-prep.webp',
+      alt: 'Revanesse Lips hyaluronic acid injectable syringes and clinical preparation',
+      width: 1200,
+      height: 900,
+      objectPosition: '50% 50%',
+    },
     demoImage: {
       src: '/images/treatments/dermal-fillers.jpg',
       alt: 'Three-quarter editorial beauty profile highlighting balanced cheek and lip contour',
@@ -127,16 +159,280 @@ export const treatmentsData: Treatment[] = [
       height: 896,
       objectPosition: '50% 25%',
     },
-    publicationStatus: 'draft',
-    clinicalReviewStatus: 'pending_review',
-    reviewNote: 'Candidate service — confirm public menu inclusion and clinical copy.',
+    publicationStatus: 'approved',
+    clinicalReviewStatus: 'approved',
+    reviewNote: 'Approved signature offering from Dani Skin Lab.',
+  },
+  {
+    slug: 'pdrn',
+    displayName: 'PDRN Salmon DNA',
+    cardTitle: 'PDRN Salmon DNA',
+    category: 'Skin & Regenerative',
+    relatedOptions: ['Polydeoxyribonucleotide cellular therapy', 'Salmon DNA regenerative infusion'],
+    isFeatured: true,
+    shortDescription:
+      'Harness cellular regenerative science to repair skin, reduce redness, improve texture, and bring out your natural radiance.',
+    fullIntroduction:
+      'PDRN (Polydeoxyribonucleotide) is a breakthrough cellular regenerative therapy derived from salmon DNA. Extensively studied in medicine and dermatology, PDRN works deep within the skin layers to encourage new cellular growth, calm inflammation, and restore resilience to tired or sensitized skin.',
+    potentialGoals: [
+      'Stimulating natural collagen regeneration and cellular tissue repair',
+      'Calming persistent redness, sensitivity, and rosacea-prone skin',
+      'Refining skin texture, pore appearance, and post-acne marks',
+      'Restoring deep hydration and youthful radiance without invasive peeling',
+    ],
+    consultationInvolves: [
+      'Comprehensive skin barrier assessment and clinical history evaluation',
+      'Discussion of treatment areas, cellular benefits, and recommended session protocols',
+      'Screening for fish allergies or active dermatological contraindications',
+    ],
+    whatToExpect: [
+      'The skin is thoroughly cleansed and prepared in our private clinical suite.',
+      'PDRN is delivered precisely via micro-injections or gentle microneedling in under 45 minutes.',
+      'A soothing post-treatment barrier recovery serum is applied before you leave.',
+    ],
+    generalRecovery: [
+      'Mild localized redness or slight puffiness is common and typically resolves within 24–48 hours.',
+      'Most clients return to normal daily routines immediately after treatment.',
+      'Skin quality, hydration, and glow progressively improve over 2–4 weeks.',
+    ],
+    risksAndLimitations: [
+      'Temporary redness, mild swelling, or pinpoint sensitivity at injection sites.',
+      'Requires a series of 2–3 sessions spaced several weeks apart for optimal cellular response.',
+      'Contraindicated in individuals with documented salmon or fish allergies.',
+    ],
+    suitabilityConsiderations: [
+      'Ideal for anyone seeking gentle skin renewal, barrier repair, and radiant complexion.',
+      'Requires in-person consultation with Danielle Karten, NP to confirm candidacy.',
+    ],
+    faqs: [
+      {
+        question: 'What is PDRN salmon DNA treatment?',
+        answer:
+          'PDRN stands for polydeoxyribonucleotide, a bioactive compound extracted from salmon DNA. It actively stimulates cellular repair, microcirculation, and new collagen production to rejuvenate stressed or aging skin.',
+      },
+      {
+        question: 'How does the treatment process work and is there downtime?',
+        answer:
+          'The treatment is performed in our private suite using gentle micro-injections or microneedling. The entire visit takes less than an hour, with minimal downtime—mild redness subsides quickly.',
+      },
+      {
+        question: 'Who is a good candidate for PDRN?',
+        answer:
+          'Anyone dealing with dullness, redness, fine texture concerns, or acne scarring who wants a gentle, non-laser regenerative approach to skin renewal.',
+      },
+    ],
+    image: {
+      src: '/images/treatments/pdrn-treatment.webp',
+      alt: 'PDRN salmon DNA polynucleotide regenerative skin treatment',
+      width: 1080,
+      height: 1080,
+      objectPosition: '50% 50%',
+    },
+    demoImage: {
+      src: '/images/treatments/pdrn-treatment.webp',
+      alt: 'PDRN salmon DNA polynucleotide regenerative skin treatment',
+      width: 1080,
+      height: 1080,
+      objectPosition: '50% 50%',
+    },
+    publicationStatus: 'approved',
+    clinicalReviewStatus: 'approved',
+    reviewNote: 'Approved signature offering from Dani Skin Lab.',
+  },
+  {
+    slug: 'chemical-peels',
+    displayName: 'Chemical Peels & Medical Skincare',
+    cardTitle: 'Chemical Peels',
+    category: 'Skin Resurfacing',
+    relatedOptions: ['Clinical chemical peels', 'Medical-grade skin rejuvenation'],
+    isFeatured: true,
+    shortDescription:
+      'Advanced clinical skin treatments that rejuvenate, hydrate, and bring out your natural glow.',
+    fullIntroduction:
+      'Our medical-grade chemical peels use carefully calibrated exfoliating solutions to dissolve dull outer surface layers, accelerate cell turnover, and reveal fresh, radiant skin beneath. Treatments are customized to your specific skin profile and tolerance.',
+    potentialGoals: [
+      'Brightening skin tone and reducing hyperpigmentation or sun damage',
+      'Smoothing rough texture and refining enlarged pores',
+      'Clearing congestion and revitalizing skin luminosity',
+    ],
+    consultationInvolves: [
+      'Fitzpatrick skin typing and assessment of barrier health and sensitivity',
+      'Discussion of peel depth (superficial vs. medium) and post-treatment lifestyle',
+      'Review of pre-treatment skincare instructions and sun-protection requirements',
+    ],
+    whatToExpect: [
+      'Skin is cleansed and prepped before the customized peel solution is applied.',
+      'A mild tingling or warming sensation may be felt for a few minutes.',
+      'Solution is neutralized, followed by cooling barrier hydration and broad-spectrum sunscreen.',
+    ],
+    generalRecovery: [
+      'Mild redness and tightness can be expected for 24–48 hours.',
+      'Light flaking or peeling typically occurs between days 3 and 7.',
+      'Strict daily sunscreen use is essential to protect newly revealed skin.',
+    ],
+    risksAndLimitations: [
+      'Temporary erythema, flaking, dryness, or post-inflammatory hyperpigmentation if sun guidance is neglected.',
+      'Individual results depend on skin condition and consistency of aftercare.',
+    ],
+    suitabilityConsiderations: [
+      'Not performed during pregnancy or on active eczema, open wounds, or sunburn.',
+      'Must discontinue active retinoids 3–5 days prior to treatment.',
+    ],
+    faqs: [
+      {
+        question: 'Will my skin visibly peel after every peel?',
+        answer:
+          'Not always. Modern clinical peels work on a microscopic cellular level; visible flaking varies depending on peel depth and your skin’s hydration status.',
+      },
+    ],
+    image: {
+      src: '/images/treatments/chemical-peels.jpg',
+      alt: 'Advanced medical facial peel and skin revitalization',
+      width: 960,
+      height: 640,
+      objectPosition: '50% 25%',
+    },
+    demoImage: {
+      src: '/images/treatments/chemical-peels.jpg',
+      alt: 'Close-up editorial portrait highlighting clear luminous skin in morning light',
+      width: 960,
+      height: 640,
+      objectPosition: '50% 25%',
+    },
+    publicationStatus: 'approved',
+    clinicalReviewStatus: 'approved',
+    reviewNote: 'Approved signature offering from Dani Skin Lab.',
+  },
+  {
+    slug: 'prp',
+    displayName: 'Platelet-Rich Plasma (PRP)',
+    cardTitle: 'PRP Therapy',
+    category: 'Skin & Regenerative',
+    relatedOptions: ['Platelet-Rich Plasma (PRP)', 'Autologous growth factor therapy'],
+    isFeatured: true,
+    shortDescription:
+      'Harness your body’s natural healing power and concentrated growth factors to improve skin texture, tone, and radiance.',
+    fullIntroduction:
+      'Platelet-Rich Plasma (PRP) is an autologous regenerative treatment utilizing concentrated platelets and growth factors isolated from a small sample of your own blood. PRP stimulates natural collagen production, tissue repair, and deep skin rejuvenation without synthetic additives.',
+    potentialGoals: [
+      'Enhancing overall skin radiance, firmness, and elasticity',
+      'Rejuvenating under-eye hollows and delicate periorbital tissue',
+      'Pairing with microneedling for accelerated collagen induction',
+    ],
+    consultationInvolves: [
+      'Clinical assessment of skin quality and discussion of target areas',
+      'Health screening regarding hydration, blood counts, and medications',
+      'Customized plan combining standalone PRP or microneedling synergy',
+    ],
+    whatToExpect: [
+      'A small sample of blood is drawn in-clinic and centrifuged using sterile protocols.',
+      'The concentrated platelet-rich plasma is harvested and applied to targeted treatment zones.',
+      'Aftercare guidance is provided for optimal tissue healing.',
+    ],
+    generalRecovery: [
+      'Mild swelling, temporary redness, or slight bruising at injection sites resolves in 1–3 days.',
+      'Avoid anti-inflammatory medications for a few days to maximize natural healing cascade.',
+    ],
+    risksAndLimitations: [
+      'Minimal risk of adverse reactions since PRP uses your own biological material.',
+      'Mild tenderness or bruising may occur at the blood-draw or injection site.',
+    ],
+    suitabilityConsiderations: [
+      'Not suitable for individuals with severe anemia, blood clotting disorders, or active infections.',
+    ],
+    faqs: [
+      {
+        question: 'Why is a blood draw required for PRP?',
+        answer:
+          'PRP uses your own blood to harvest pure, concentrated platelets and growth factors, ensuring 100% biocompatibility without synthetic chemicals.',
+      },
+    ],
+    image: {
+      src: '/images/treatments/prp.jpg',
+      alt: 'Autologous platelet-rich plasma prepared for regenerative skin therapy',
+      width: 960,
+      height: 640,
+      objectPosition: '50% 25%',
+    },
+    demoImage: {
+      src: '/images/treatments/prp.jpg',
+      alt: 'Editorial beauty close-up with glass serum dropper representing regenerative PRP skincare',
+      width: 960,
+      height: 640,
+      objectPosition: '50% 25%',
+    },
+    publicationStatus: 'approved',
+    clinicalReviewStatus: 'approved',
+    reviewNote: 'Approved signature offering from Dani Skin Lab.',
+  },
+  {
+    slug: 'microneedling',
+    displayName: 'Microneedling',
+    cardTitle: 'Microneedling',
+    category: 'Skin & Regenerative',
+    relatedOptions: ['Mechanical collagen induction', 'PRP synergy'],
+    isFeatured: true,
+    shortDescription:
+      'Controlled micro-channel therapy designed to stimulate natural collagen, refine pores, and smooth skin texture.',
+    fullIntroduction:
+      'Microneedling creates controlled micro-channels in the skin using sterile single-use cartridges to activate your skin’s natural healing cascade. Treatment depth is tailored precisely to your skin profile to encourage collagen and elastin renewal.',
+    potentialGoals: [
+      'Improving skin texture, smoothness, and overall resilience',
+      'Minimizing appearance of enlarged pores and mild acne scarring',
+      'Enhancing absorption of active regenerative serums',
+    ],
+    consultationInvolves: [
+      'Assessment of skin tone, sensitivity, and texture goals',
+      'Review of current skincare routine (pausing retinoids/acids prior to treatment)',
+      'Discussion of standalone microneedling versus PRP enhancement',
+    ],
+    whatToExpect: [
+      'Topical numbing is applied for 20–30 minutes for comfortable treatment.',
+      'The precision device is guided smoothly across treatment zones.',
+      'Calming, hydrating barrier serum is applied immediately after.',
+    ],
+    generalRecovery: [
+      'Skin looks flushed like a mild sunburn for 24–48 hours.',
+      'Gentle hydration and daily mineral sunscreen are required during healing.',
+    ],
+    risksAndLimitations: [
+      'Temporary redness, mild dryness, or pinpoint flaking.',
+      'Series of 3–4 sessions spaced monthly is recommended for optimal structural remodeling.',
+    ],
+    suitabilityConsiderations: [
+      'Contraindicated on active acne breakouts, open skin lesions, or active cold sores.',
+    ],
+    faqs: [
+      {
+        question: 'Can microneedling be paired with PRP?',
+        answer:
+          'Yes. Pairing microneedling with Platelet-Rich Plasma (PRP) significantly accelerates healing and boosts collagen synthesis for amplified results.',
+      },
+    ],
+    image: {
+      src: '/images/treatments/microneedling.jpg',
+      alt: 'Gentle microneedling collagen induction therapy session',
+      width: 1023,
+      height: 683,
+      objectPosition: '50% 45%',
+    },
+    demoImage: {
+      src: '/images/treatments/microneedling.jpg',
+      alt: 'Calm aesthetic facial treatment care in soft spa lighting',
+      width: 1023,
+      height: 683,
+      objectPosition: '50% 45%',
+    },
+    publicationStatus: 'approved',
+    clinicalReviewStatus: 'approved',
+    reviewNote: 'Approved signature offering from Dani Skin Lab.',
   },
   {
     slug: 'biostimulators',
     displayName: 'Biostimulators — Sculptra / Radiesse',
     category: 'Injectables',
     relatedOptions: ['Sculptra', 'Radiesse'],
-    isFeatured: true,
+    isFeatured: false,
     shortDescription:
       'Gradual collagen and structural support consultations exploring biostimulatory options such as Sculptra and Radiesse.',
     fullIntroduction:
@@ -187,123 +483,11 @@ export const treatmentsData: Treatment[] = [
     reviewNote: 'Candidate service — confirm Sculptra/Radiesse grouping and copy.',
   },
   {
-    slug: 'microneedling',
-    displayName: 'Microneedling',
-    category: 'Skin & Regenerative',
-    relatedOptions: ['Mechanical collagen induction', 'Optional PRP pairing'],
-    isFeatured: true,
-    shortDescription:
-      'Skin texture, pore, and tone consultations utilizing controlled mechanical micro-channels to support dermal renewal.',
-    fullIntroduction:
-      'Microneedling creates controlled micro-channels in the skin using sterile, single-use cartridges to support natural dermal remodeling. Treatment depth and pass planning are customized to your skin type, tone, and recovery preferences.',
-    potentialGoals: [
-      'Supporting smoother skin texture and refined pore appearance',
-      'Addressing mild acne scarring or uneven tone when clinically appropriate',
-      'Encouraging overall skin vitality alongside tailored home care',
-    ],
-    consultationInvolves: [
-      'Assessment of skin type, tone, scarring pattern, and pigmentation tendencies',
-      'Review of medications (such as retinoids or blood thinners) and recent sun exposure',
-      'Discussion of standalone microneedling versus pairing with autologous PRP',
-    ],
-    whatToExpect: [
-      'Topical numbing is discussed and applied as appropriate prior to the session.',
-      'Controlled passes are performed evenly across targeted facial or neck zones.',
-      'Soothing post-procedure barrier care and sun-protection instructions are reviewed.',
-    ],
-    generalRecovery: [
-      'Temporary redness, warmth, and mild tightness—often comparable to a mild sunburn—commonly occur initially.',
-      'Strict sun protection and gentle, non-irritating skincare are emphasized during recovery.',
-    ],
-    risksAndLimitations: [
-      'Potential risks include temporary erythema, swelling, dryness, pinpoint bruising, infection, or post-inflammatory pigment changes, especially without proper sun protection.',
-      'Individual skin response varies; staged sessions may be discussed depending on your goals.',
-    ],
-    suitabilityConsiderations: [
-      'Deferred if active acne flares, skin infections, cold sores, or certain healing disorders are present.',
-      'Requires individualized depth settings for deeper skin tones to minimize pigment risk.',
-    ],
-    faqs: [
-      {
-        question: 'Can microneedling be paired with PRP?',
-        answer:
-          'Yes. During your consultation, Danielle will review whether standalone microneedling or pairing with platelet-rich plasma (PRP) aligns best with your goals.',
-      },
-    ],
-    image: undefined,
-    demoImage: {
-      src: '/images/treatments/microneedling.jpg',
-      alt: 'Calm aesthetic facial treatment care in soft spa lighting',
-      width: 1023,
-      height: 683,
-      objectPosition: '50% 45%',
-    },
-    publicationStatus: 'draft',
-    clinicalReviewStatus: 'pending_review',
-    reviewNote: 'Candidate service — confirm Microneedling clinical details.',
-  },
-  {
-    slug: 'prp',
-    displayName: 'PRP',
-    cardTitle: 'PRP',
-    category: 'Skin & Regenerative',
-    relatedOptions: ['Platelet-Rich Plasma (PRP)', 'Topical & targeted regenerative applications'],
-    isFeatured: true,
-    shortDescription:
-      'Autologous platelet-rich plasma consultations designed to support skin quality, under-eye vitality, or scalp care.',
-    fullIntroduction:
-      'Platelet-Rich Plasma (PRP) utilizes concentrated growth-factor-rich plasma prepared from a small sample of your own blood. Following individualized screening, PRP may be incorporated into facial skin revitalization or targeted supportive protocols.',
-    potentialGoals: [
-      'Supporting skin radiance, tone, and delicate tissue quality',
-      'Complementing microneedling for enhanced dermal renewal',
-      'Exploring non-synthetic, autologous regenerative options',
-    ],
-    consultationInvolves: [
-      'Review of medical history, blood-count considerations, hydration, and current medications',
-      'Evaluation of facial or scalp areas of concern and realistic response timelines',
-      'Discussion of whether PRP is recommended alone or alongside microneedling',
-    ],
-    whatToExpect: [
-      'A small peripheral blood sample is drawn in-clinic and processed using sterile centrifugation.',
-      'The prepared plasma is applied or placed according to your agreed treatment plan.',
-      'Written aftercare instructions outline gentle cleansing and skincare pauses.',
-    ],
-    generalRecovery: [
-      'Mild localized swelling, redness, or temporary tenderness may occur depending on application method.',
-      'Avoiding anti-inflammatory medications when clinically advised and following gentle skincare guidance support recovery.',
-    ],
-    risksAndLimitations: [
-      'Risks include bruising at the blood draw or treatment site, temporary swelling, tenderness, infection, or variable clinical response.',
-      'Autologous regenerative responses depend on individual biology and are not guaranteed.',
-    ],
-    suitabilityConsiderations: [
-      'Not appropriate for individuals with certain blood disorders, active infections, or specific anticoagulant regimens.',
-    ],
-    faqs: [
-      {
-        question: 'Why is a blood draw required for PRP?',
-        answer:
-          'PRP uses components isolated directly from your own blood sample, without synthetic fillers. Your provider reviews health suitability and hydration beforehand.',
-      },
-    ],
-    image: undefined,
-    demoImage: {
-      src: '/images/treatments/prp.jpg',
-      alt: 'Editorial beauty close-up with glass serum dropper representing regenerative PRP skincare',
-      width: 960,
-      height: 640,
-      objectPosition: '50% 25%',
-    },
-    publicationStatus: 'draft',
-    clinicalReviewStatus: 'pending_review',
-    reviewNote: 'Candidate service — confirm standalone PRP applications offered.',
-  },
-  {
     slug: 'hair-treatments',
     displayName: 'Hair Treatments',
     category: 'Scalp & Hair',
     relatedOptions: ['Scalp evaluation', 'Non-surgical hair & scalp support'],
-    isFeatured: true,
+    isFeatured: false,
     shortDescription:
       'Focused scalp consultations exploring non-surgical options for hair thinning, shedding, and follicle support.',
     fullIntroduction:
@@ -399,56 +583,6 @@ export const treatmentsData: Treatment[] = [
     publicationStatus: 'draft',
     clinicalReviewStatus: 'pending_review',
     reviewNote: 'Candidate service — confirm menu availability and formulations.',
-  },
-  {
-    slug: 'chemical-peels',
-    displayName: 'Chemical Peels',
-    category: 'Skin Resurfacing',
-    isFeatured: false,
-    shortDescription:
-      'Prospective exfoliating peel consultations to discuss skin brightness, texture, and pigment support.',
-    fullIntroduction:
-      'Chemical peels use carefully selected acid solutions to exfoliate damaged outer skin layers and encourage refreshed skin turnover. Peel depth and formulation are selected based on skin type, sensitivity, and recovery preferences.',
-    potentialGoals: [
-      'Supporting brighter, more even-looking skin tone',
-      'Addressing mild surface dullness, sun-related pigment, or congestion',
-    ],
-    consultationInvolves: [
-      'Evaluation of skin sensitivity, Fitzpatrick skin type, and recent skincare or procedure history',
-      'Discussion of light versus deeper exfoliation options and sun-protection readiness',
-    ],
-    whatToExpect: [
-      'The skin is cleansed and degreased before the selected peel solution is applied evenly.',
-      'Neutralization or timed removal is followed by soothing barrier care and sunscreen.',
-    ],
-    generalRecovery: [
-      'Temporary redness, tightness, dryness, or visible flaking/peeling may occur depending on peel strength.',
-      'Diligent sun avoidance and gentle skincare are essential throughout healing.',
-    ],
-    risksAndLimitations: [
-      'Risks include prolonged redness, irritation, peeling variability, cold-sore reactivation, or unwanted pigment changes if sun protection or pre-care guidance is not followed.',
-    ],
-    suitabilityConsiderations: [
-      'Requires careful screening for recent isotretinoin use, active skin irritation, pregnancy/breastfeeding restrictions on certain acids, and upcoming sun exposure.',
-    ],
-    faqs: [
-      {
-        question: 'Will my skin visibly peel after every chemical peel?',
-        answer:
-          'Not always. Exfoliation can range from subtle microscopic shedding to visible flaking depending on the specific formulation and your skin’s condition.',
-      },
-    ],
-    image: undefined,
-    demoImage: {
-      src: '/images/treatments/chemical-peels.jpg',
-      alt: 'Close-up editorial portrait highlighting clear luminous skin in morning light',
-      width: 960,
-      height: 640,
-      objectPosition: '50% 25%',
-    },
-    publicationStatus: 'draft',
-    clinicalReviewStatus: 'pending_review',
-    reviewNote: 'Future consent category candidate — confirm if offered at launch.',
   },
 ];
 

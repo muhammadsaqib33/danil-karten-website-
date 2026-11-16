@@ -19,28 +19,38 @@ import { resolveContentMode } from '@/lib/content-mode';
 import sitemap from '@/app/sitemap';
 
 describe('content publication boundaries', () => {
-  it('keeps all unconfirmed candidate treatments in draft status by default', () => {
-    expect(treatmentsData.length).toBeGreaterThan(0);
-    for (const item of treatmentsData) {
-      expect(item.publicationStatus).toBe('draft');
+  it('publishes confirmed signature treatments while keeping candidate services in draft status', () => {
+    expect(treatmentsData.length).toBeGreaterThanOrEqual(6);
+    const approved = getApprovedTreatments();
+    expect(approved).toHaveLength(6);
+    expect(getTreatmentsForView(false)).toHaveLength(6);
+    expect(getTreatmentsForView(true)).toHaveLength(treatmentsData.length);
+
+    // Verify candidate services remain pending review
+    const drafts = treatmentsData.filter((item) => item.publicationStatus === 'draft');
+    expect(drafts.length).toBeGreaterThan(0);
+    for (const item of drafts) {
       expect(item.clinicalReviewStatus).toBe('pending_review');
     }
-    expect(getApprovedTreatments()).toHaveLength(0);
-    expect(getTreatmentsForView(false)).toHaveLength(0);
-    expect(getTreatmentsForView(true)).toHaveLength(treatmentsData.length);
   });
 
-  it('hides draft treatments from getTreatmentBySlug unless draft preview is enabled', () => {
-    expect(getTreatmentBySlug('neuromodulators', false)).toBeUndefined();
-    expect(getTreatmentBySlug('neuromodulators', true)?.displayName).toBe(
-      'Neuromodulators',
+  it('hides unapproved candidate treatments from getTreatmentBySlug unless draft preview is enabled', () => {
+    expect(getTreatmentBySlug('biostimulators', false)).toBeUndefined();
+    expect(getTreatmentBySlug('biostimulators', true)?.displayName).toBe(
+      'Biostimulators — Sculptra / Radiesse',
+    );
+    expect(getTreatmentBySlug('neuromodulators', false)?.displayName).toBe(
+      'Botox & Dysport',
     );
   });
 
-  it('excludes draft treatments from production sitemap', () => {
+  it('includes approved treatments and excludes draft treatments from production sitemap', () => {
     const entries = sitemap();
     const urls = entries.map((entry) => entry.url);
     expect(urls.some((url) => url.includes('/treatments/neuromodulators'))).toBe(
+      true,
+    );
+    expect(urls.some((url) => url.includes('/treatments/biostimulators'))).toBe(
       false,
     );
     expect(urls.some((url) => url.endsWith('/treatments'))).toBe(true);
@@ -48,17 +58,29 @@ describe('content publication boundaries', () => {
     expect(urls.some((url) => url.endsWith('/contact'))).toBe(true);
   });
 
-  it('excludes all demo gallery, comparison, and placeholder portrait assets in production mode', () => {
-    expect(getComparisonsForView(false)).toHaveLength(0);
-    expect(getComparisonsForView(true).length).toBeGreaterThanOrEqual(6);
+  it('publishes authentic clinician portrait, patient comparisons, and clinical gallery items in production mode', () => {
+    expect(getComparisonsForView(false)).toHaveLength(5);
+    expect(getComparisonsForView(true)).toHaveLength(5);
 
-    expect(getGalleryItemsForView(false)).toHaveLength(0);
-    expect(getGalleryItemsForView(true).length).toBeGreaterThanOrEqual(6);
+    expect(getGalleryItemsForView(false)).toHaveLength(6);
+    expect(getGalleryItemsForView(true)).toHaveLength(6);
 
-    expect(getProviderDisplayPortrait(false)).toBeNull();
-    expect(getProviderDisplayPortrait(true)?.isPlaceholder).toBe(true);
+    const providerPortrait = getProviderDisplayPortrait(false);
+    expect(providerPortrait).not.toBeNull();
+    expect(providerPortrait?.isPlaceholder).toBe(false);
+    expect(providerPortrait?.image.src).toBe(
+      '/images/provider/danielle-karten.jpg',
+    );
 
-    for (const treatment of treatmentsData) {
+    const approvedTreatments = getApprovedTreatments();
+    for (const treatment of approvedTreatments) {
+      expect(getTreatmentDisplayImage(treatment, false)).not.toBeNull();
+    }
+
+    const draftTreatments = treatmentsData.filter(
+      (t) => t.publicationStatus === 'draft',
+    );
+    for (const treatment of draftTreatments) {
       expect(getTreatmentDisplayImage(treatment, false)).toBeNull();
     }
   });
